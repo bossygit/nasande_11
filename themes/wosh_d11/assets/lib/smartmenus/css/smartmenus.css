@@ -1,0 +1,361 @@
+/* Mobile first layout SmartMenus Core CSS (it's not recommended editing these rules)
+   You need this once per page no matter how many menu trees or different themes you use.
+-------------------------------------------------------------------------------------------*/
+
+.sm{box-sizing:border-box;position:relative;z-index:99;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.sm,.sm ul,.sm li{display:block;list-style:none;margin:0;padding:0;line-height:normal;direction:ltr;text-align:left;}
+.sm-rtl,.sm-rtl ul,.sm-rtl li{direction:rtl;text-align:right;}
+.sm>li>h1,.sm>li>h2,.sm>li>h3,.sm>li>h4,.sm>li>h5,.sm>li>h6{margin:0;padding:0;}
+.sm ul{display:none;}
+.sm li,.sm a{position:relative;}
+.sm a{display:block;}
+.sm a.disabled{cursor:default;}
+.sm::after{content:"";display:block;height:0;font:0px/0 serif;clear:both;overflow:hidden;}
+.sm *,.sm *::before,.sm *::after{box-sizing:inherit;}
+.sm a, .sm a:hover, .sm a:focus, .sm a:active {text-decoration: none;}
+.sm a {
+  line-height: 13px;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 0 20px;
+  padding-right: 58px;  
+}
+
+.navbar {padding: 0;}
+.navbar-toggler.nav-button {
+	margin-right: 0;
+	margin: 0;
+	top: 25px;
+	right: 0;
+	border-radius: 50%;
+	z-index: 99;
+	height: 43px;
+	width: 43px;
+	font-size: 20px;
+	line-height: 1;
+    padding: 0;
+	background-color: #e42555;
+	display: none;
+}
+.navbar-toggler.nav-button:hover {
+	background-color: #2a2a2a;
+}
+
+@media (max-width: 767.99px) {
+	.nav.sm>li>a {
+	  line-height: 13px;
+	  padding: 13px 20px;
+	  padding-right: 58px;  
+	}
+	.sm a {
+		padding: 13px 20px;
+	}
+	#main-menu {
+		z-index: 99;
+		background-color: #ffffff;
+	}
+	.navbar-toggler.nav-button {
+		display: block;
+	}
+	.navbar {
+		padding: 0 15px;
+	}
+	.navbar .container {
+		position: relative;
+	}
+}
+
+.sm-menu a.disabled {
+  color: #bbbbbb;
+}
+.sm-menu a .sub-arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: auto;
+  right: 4px;
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+  font: bold 16px/34px monospace !important;
+  text-align: center;
+  text-shadow: none;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+.sm-menu a .sub-arrow:before {
+  content: '+';
+}
+.sm-menu a.highlighted .sub-arrow:before {
+  content: '-';
+}
+.sm-menu > li:first-child > a, .sm-menu > li:first-child > :not(ul) a {
+  border-radius: 5px 5px 0 0;
+}
+.sm-menu > li:last-child > a, .sm-menu > li:last-child > *:not(ul) a, .sm-menu > li:last-child > ul, .sm-menu > li:last-child > ul > li:last-child > a, .sm-menu > li:last-child > ul > li:last-child > *:not(ul) a, .sm-menu > li:last-child > ul > li:last-child > ul, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > a, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > *:not(ul) a, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > *:not(ul) a, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > *:not(ul) a, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul {
+  border-radius: 0 0 5px 5px;
+}
+.sm-menu > li:last-child > a.highlighted, .sm-menu > li:last-child > *:not(ul) a.highlighted, .sm-menu > li:last-child > ul > li:last-child > a.highlighted, .sm-menu > li:last-child > ul > li:last-child > *:not(ul) a.highlighted, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > *:not(ul) a.highlighted, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > *:not(ul) a.highlighted, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted, .sm-menu > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > *:not(ul) a.highlighted {
+  border-radius: 0;
+}
+.sm-menu li {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.sm-menu > li:first-child {
+  border-top: 0;
+}
+.sm-menu ul {
+  background: rgba(162, 162, 162, 0.1);
+}
+.sm-menu ul a, .sm-menu ul a:hover, .sm-menu ul a:focus, .sm-menu ul a:active {
+  border-left: 8px solid transparent;
+}
+.sm-menu ul ul a,
+.sm-menu ul ul a:hover,
+.sm-menu ul ul a:focus,
+.sm-menu ul ul a:active {
+  border-left: 16px solid transparent;
+}
+.sm-menu ul ul ul a,
+.sm-menu ul ul ul a:hover,
+.sm-menu ul ul ul a:focus,
+.sm-menu ul ul ul a:active {
+  border-left: 24px solid transparent;
+}
+.sm-menu ul ul ul ul a,
+.sm-menu ul ul ul ul a:hover,
+.sm-menu ul ul ul ul a:focus,
+.sm-menu ul ul ul ul a:active {
+  border-left: 32px solid transparent;
+}
+.sm-menu ul ul ul ul ul a,
+.sm-menu ul ul ul ul ul a:hover,
+.sm-menu ul ul ul ul ul a:focus,
+.sm-menu ul ul ul ul ul a:active {
+  border-left: 40px solid transparent;
+}
+
+@media (min-width: 768px) {
+  .main-menu {
+	display: block;
+  }
+  .sm-menu {
+	display: inline-block;
+  }
+  .sm-menu>li>a {
+	line-height: 96px;
+	margin-right: 30px;
+  }
+  .sm-menu > li:last-child > a {
+	margin-right: 0;
+  }
+  .sm-menu>li>a .sub-arrow {
+	display: none;
+  }
+	
+  .sm-menu ul {
+    position: absolute;
+    width: 12em;
+  }
+  .sm-menu li {
+    float: left;
+  }
+  .sm-menu.sm-rtl li {
+    float: right;
+  }
+  .sm-menu ul li, .sm-menu.sm-rtl ul li, .sm-menu.sm-vertical li {
+    float: none;
+  }
+  .sm-menu a {
+    white-space: nowrap;
+  }
+  .sm-menu ul a, .sm-menu.sm-vertical a {
+    white-space: normal;
+  }
+  .sm-menu .sm-nowrap > li > a, .sm-menu .sm-nowrap > li > :not(ul) a {
+    white-space: nowrap;
+  }
+  .sm-menu>li>a, .sm-menu a, .sm-menu a:hover, .sm-menu a:focus, .sm-menu a:active, .sm-menu a.highlighted {
+    border-radius: 0 !important;
+  }
+  .sm-menu a:hover, .sm-menu a:focus, .sm-menu a:active, .sm-menu a.highlighted {
+    color: #e42555;
+  }
+  .sm-menu a.current, .sm-menu a.is-active {
+    color: #e42555;
+  }
+  .sm-menu a.disabled {
+    color: #bbbbbb;
+  }
+  .sm-menu a .sub-arrow {
+    top: 50%;
+    margin-top: -2px;
+    right: 12px;
+    width: 0;
+    height: 0;
+    border-width: 4px;
+    border-style: solid dashed dashed dashed;
+    border-color: #555555 transparent transparent transparent;
+    background: transparent;
+    border-radius: 0;
+  }
+  .sm-menu a .sub-arrow::before {
+    display: none;
+  }
+  .sm-menu li {
+    border-top: 0;
+  }
+  .sm-menu > li > ul::before,
+  .sm-menu > li > ul::after {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-width: 9px;
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent #eaeaea transparent;
+  }
+  .sm-menu > li > ul::after {
+    top: -16px;
+    left: 11px;
+    border-width: 8px;
+    border-color: transparent transparent #ffffff transparent;
+  }
+  .sm-menu ul {
+    border: 1px solid #eaeaea;
+    padding: 0;
+    background: #ffffff;
+    border-radius: 2px !important;
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.1);
+  }
+  .sm-menu ul a, .sm-menu ul a:hover, .sm-menu ul a:focus, .sm-menu ul a:active, .sm-menu ul a.highlighted {
+    border: 0 !important;
+    padding: 13px 20px;
+  }
+  .sm-menu ul a:hover, .sm-menu ul a:focus, .sm-menu ul a:active, .sm-menu ul a.highlighted {
+    background: #f5f5f5;
+  }
+  .sm-menu ul a.disabled {
+    background: #fff;
+    color: #cccccc;
+  }
+  .sm-menu ul a.has-submenu {
+    padding-right: 20px;
+  }
+  .sm-menu ul a .sub-arrow {
+    right: 8px;
+    top: 50%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: dashed dashed dashed solid;
+    border-color: transparent transparent transparent #555555;
+  }
+  .sm-menu .scroll-up,
+  .sm-menu .scroll-down {
+    position: absolute;
+    display: none;
+    visibility: hidden;
+    overflow: hidden;
+    background: #fff;
+    height: 20px;
+  }
+  .sm-menu .scroll-up:hover,
+  .sm-menu .scroll-down:hover {
+    background: #eeeeee;
+  }
+  .sm-menu .scroll-up:hover .scroll-up-arrow {
+    border-color: transparent transparent #333333 transparent;
+  }
+  .sm-menu .scroll-down:hover .scroll-down-arrow {
+    border-color: #333333 transparent transparent transparent;
+  }
+  .sm-menu .scroll-up-arrow,
+  .sm-menu .scroll-down-arrow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -6px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-width: 6px;
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent #555555 transparent;
+  }
+  .sm-menu .scroll-down-arrow {
+    top: 8px;
+    border-style: solid dashed dashed dashed;
+    border-color: #555555 transparent transparent transparent;
+  }
+  .sm-menu.sm-rtl a.has-submenu {
+    padding-right: 12px;
+    padding-left: 24px;
+  }
+  .sm-menu.sm-rtl a .sub-arrow {
+    right: auto;
+    left: 12px;
+  }
+  .sm-menu.sm-rtl.sm-vertical a.has-submenu {
+    padding: 10px 20px;
+  }
+  .sm-menu.sm-rtl.sm-vertical a .sub-arrow {
+    right: auto;
+    left: 8px;
+    border-style: dashed solid dashed dashed;
+    border-color: transparent #555555 transparent transparent;
+  }
+  .sm-menu.sm-rtl > li > ul::before {
+    left: auto;
+    right: 30px;
+  }
+  .sm-menu.sm-rtl > li > ul::after {
+    left: auto;
+    right: 31px;
+  }
+  .sm-menu.sm-rtl ul a.has-submenu {
+    padding: 10px 20px !important;
+  }
+  .sm-menu.sm-rtl ul a .sub-arrow {
+    right: auto;
+    left: 8px;
+    border-style: dashed solid dashed dashed;
+    border-color: transparent #555555 transparent transparent;
+  }
+  .sm-menu.sm-vertical {
+    padding: 10px 0;
+    border-radius: 5px;
+  }
+  .sm-menu.sm-vertical a {
+    padding: 10px 20px;
+  }
+  .sm-menu.sm-vertical a:hover, .sm-menu.sm-vertical a:focus, .sm-menu.sm-vertical a:active, .sm-menu.sm-vertical a.highlighted {
+    background: #ffffff;
+  }
+  .sm-menu.sm-vertical a.disabled {
+    background: #eeeeee;
+  }
+  .sm-menu.sm-vertical a .sub-arrow {
+    right: 8px;
+    top: 50%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: dashed dashed dashed solid;
+    border-color: transparent transparent transparent #555555;
+  }
+  .sm-menu.sm-vertical > li > ul::before,
+  .sm-menu.sm-vertical > li > ul::after {
+    display: none;
+  }
+  .sm-menu.sm-vertical ul a {
+    padding: 10px 20px;
+  }
+  .sm-menu.sm-vertical ul a:hover, .sm-menu.sm-vertical ul a:focus, .sm-menu.sm-vertical ul a:active, .sm-menu.sm-vertical ul a.highlighted {
+    background: #f5f5f5;
+  }
+  .sm-menu.sm-vertical ul a.disabled {
+    background: #ffffff;
+  }
+}

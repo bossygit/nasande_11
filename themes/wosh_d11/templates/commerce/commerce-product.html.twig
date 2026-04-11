@@ -1,0 +1,80 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+	'product-post',
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+
+	<div class="row">
+		<div class="col-md-6">	
+			<div class="post-image">		
+			{% if product.field_image|render %}
+			<div class="product-image image-carousel">{{ product.field_image }}</div>
+			{% elseif product.variation_field_image|render %}
+			<div class="product-image image-carousel">{{ product.variation_field_image }}</div>
+			{% endif %}
+			</div>
+		</div>
+		<div class="col-md-6 product-teaser-wrap">			
+			<div class="product-price-wrap">
+				<div class="product-price">{{ product.variation_price }}</div> {% if product.variation_list_price|render|striptags|trim %}<del class="product-old-price">{{ product.variation_list_price }}</del>{% endif %} {% if product.field_old_price %}<del class="product-old-price">{{ product.field_old_price }}</del>{% endif %}
+			</div>
+			<div class="product-brand">{{ product.field_product_brand }}</div>
+			<div class="product-title">{{ product.variation_title }}</div>
+			<div class="product-short-description">{{ product.field_short_description }}</div>
+			
+			<div class="product-variation-wrap clearfix">
+				<div class="product-add-cart">{{ product.variations }}</div>
+				<div class="product-flag-icon-wrap text-bottom">
+				<div class="product-flag-icon product-add-wishlist">{{ product.flag_wishlist }}</div>
+				<div class="product-flag-icon product-add-compare">{{ product.flag_compare }}</div>
+				</div>
+			</div>
+			
+			{{- product|without('variation_attributes','variation_price','variation_list_price','variation_field_image','variation_title','variations','field_short_description','field_old_price','field_image','field_product_review','body','field_product_brand','flag_wishlist','flag_compare','variation_sku') -}}
+	
+		</div>
+	</div>
+	
+	<div class="margin-top-50 product-info clearfix">
+		<ul class="nav nav-tabs text-center">
+		  <li class="active"><a data-toggle="tab" href="#product-detail">{{ 'Description' | t }}</a></li>
+		  <li><a data-toggle="tab" href="#product-review">{{ 'Reviews' | t }}</a></li>
+		</ul>
+
+		<div class="tab-content">
+		  <div id="product-detail" class="tab-pane active">
+			<div class="product-meta-item">
+			<h2 class="margin-bottom-20">{{ 'Product Description' | t }}</h2>
+			<div>{{ product.body }}</div>
+			</div>
+		  </div>
+		  <div id="product-review" class="tab-pane fade">
+			{{ product.field_product_review }}
+		  </div>
+		</div>
+	</div>
+
+</div>

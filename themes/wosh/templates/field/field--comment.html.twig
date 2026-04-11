@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Theme override for comment fields.
+ */
+#}
+<section{{ attributes }}>
+  {{ comments }}
+
+  {% if comment_form %}
+    <h2 class="post-stats" {{ content_attributes }}>{{ 'Leave a comment'|t }}</h2>
+    {{ comment_form }}
+  {% endif %}
+
+</section>

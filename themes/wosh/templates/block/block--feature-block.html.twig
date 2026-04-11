@@ -1,0 +1,230 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ */
+#}
+{%
+  set classes = [
+    'block',
+	'feature-block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+{% if content.field_media_format['#items'].getValue()|first.value == "video-popup" %}
+  {{ attach_library('wosh/colorbox') }}
+{% endif %}
+<div{{ attributes.addClass(classes) }} {% if block_style %}style="{{ block_style }}"{% endif %}>
+<div class="container-wrap feature-block-{{ content.field_feature_layout['#items'].value }} clearfix">
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {% block content %}
+  
+ <div class="row-wrap block-content">
+{% if content.field_feature_layout['#items'].getValue()|first.value == "layout1" %}
+	<div class="row feature-block-wrap feature-block-image-left">
+	<div class="col-12 col-md-6 feat-block-image-wrap {{ content.field_media_format['#items'].value }}">
+	{% if content.field_media_format['#items'].getValue()|first.value == "static-image" %}
+	<div class="feat-block-image">{{ content.field_image }}</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "background-image" %}
+	<div class="feat-block-image" style="background-image: url({{ file_url(content.field_image.0['#item'].entity.uri.value) }});">
+		<div class="feat-block-image-bg">{{ content.field_image }}</div>
+	</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "slider-image" %}
+	<div class="feat-block-image feat-block-slide">
+		<div class="slide-carousel owl-carousel" data-nav="false" data-items="1" data-dots="true" data-autoplay="true" data-loop="true">
+		{{ content.field_image }}
+		</div>
+	</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "video-popup" %}
+	<div class="feat-block-image feat-block-video" style="background-image: url({{ file_url(content.field_image.0['#item'].entity.uri.value) }});">
+		<div class="feat-block-image-bg">{{ content.field_image }}</div>
+		<a class="colorbox video-colorbox" href="{{ content.field_video.0['#url'] }}"><span class="video-link ti-control-play"></span></a>
+	</div>
+	{% endif %}
+	</div>
+	<div class="col-12 col-md-6 feat-block-content">
+	<div class="feat-content-wrap">
+	{% if label %}
+	<div class="block-title-wrap">
+	<div class="block-title-content">
+	{% if block_title_style == 'block-title-2' %}
+	{% if block_subtitle %}<h5 class="block-subtitle">{{ block_subtitle }}</h5>{% endif %}
+	<h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+	{% else %}
+	<h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+	{% if block_subtitle %}<h5 class="block-subtitle">{{ block_subtitle }}</h5>{% endif %}
+	{% endif %}
+	</div>
+	</div>
+	{% endif %}
+	{% if content.body | render %}<div class="feat-block-text">{{ content.body }}</div>{% endif %}
+	{% if content.field_block | render %}
+	<div class="text-left block-right">
+	{{ content.field_block }}
+	</div>
+	{% endif %}
+	{% if content.field_link | render %}
+	<a class="button button-default" href="{{ content.field_link.0['#url'] }}">{{ content.field_link.0['#title'] }}</a>
+	{% endif %}
+	</div>
+	</div>
+	</div>
+
+{% elseif content.field_feature_layout['#items'].getValue()|first.value == "layout2" %}
+	<div class="row feature-block-wrap feature-block-image-right">
+	<div class="col-12 col-md-6 feat-block-content">
+	<div class="feat-content-wrap">
+	{% if label %}
+	<div class="block-title-wrap">
+	<div class="block-title-content">
+	{% if block_title_style == 'block-title-2' %}
+	{% if block_subtitle %}<h5 class="block-subtitle">{{ block_subtitle }}</h5>{% endif %}
+	<h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+	{% else %}
+	<h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+	{% if block_subtitle %}<h5 class="block-subtitle">{{ block_subtitle }}</h5>{% endif %}
+	{% endif %}
+	</div>
+	</div>
+	{% endif %}
+	{% if content.body | render %}<div class="feat-block-text">{{ content.body }}</div>{% endif %}
+	{% if content.field_block | render %}
+	<div class="text-left block-right">
+	{{ content.field_block }}
+	</div>
+	{% endif %}
+	{% if content.field_link | render %}
+	<a class="button button-default" href="{{ content.field_link.0['#url'] }}">{{ content.field_link.0['#title'] }}</a>
+	{% endif %}
+	</div>
+	</div>
+	<div class="col-12 col-md-6 feat-block-image-wrap {{ content.field_media_format['#items'].value }}">
+	{% if content.field_media_format['#items'].getValue()|first.value == "static-image" %}
+	<div class="feat-block-image">{{ content.field_image }}</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "background-image" %}
+	<div class="feat-block-image" style="background-image: url({{ file_url(content.field_image.0['#item'].entity.uri.value) }});">
+		<div class="feat-block-image-bg">{{ content.field_image }}</div>
+	</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "slider-image" %}
+	<div class="feat-block-image feat-block-slide">
+		<div class="slide-carousel owl-carousel" data-nav="false" data-items="1" data-dots="true" data-autoplay="true" data-loop="true">
+		{{ content.field_image }}
+		</div>
+	</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "video-popup" %}
+	<div class="feat-block-image feat-block-video" style="background-image: url({{ file_url(content.field_image.0['#item'].entity.uri.value) }});">
+		<div class="feat-block-image-bg">{{ content.field_image }}</div>
+		<a class="colorbox video-colorbox" href="{{ content.field_video.0['#url'] }}"><span class="video-link ti-control-play"></span></a>
+	</div>
+	{% endif %}
+	</div>
+	</div>
+	
+{% elseif content.field_feature_layout['#items'].getValue()|first.value == "layout3" %}
+	<div class="row feature-block-wrap feature-block-image-left">
+	<div class="col-12 col-md-5 feat-block-image-wrap {{ content.field_media_format['#items'].value }}">
+	{% if content.field_media_format['#items'].getValue()|first.value == "static-image" %}
+	<div class="feat-block-image">{{ content.field_image }}</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "background-image" %}
+	<div class="feat-block-image" style="background-image: url({{ file_url(content.field_image.0['#item'].entity.uri.value) }});">
+		<div class="feat-block-image-bg">{{ content.field_image }}</div>
+	</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "slider-image" %}
+	<div class="feat-block-image feat-block-slide">
+		<div class="slide-carousel owl-carousel" data-nav="false" data-items="1" data-dots="true" data-autoplay="true" data-loop="true">
+		{{ content.field_image }}
+		</div>
+	</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "video-popup" %}
+	<div class="feat-block-image feat-block-video" style="background-image: url({{ file_url(content.field_image.0['#item'].entity.uri.value) }});">
+		<div class="feat-block-image-bg">{{ content.field_image }}</div>
+		<a class="colorbox video-colorbox" href="{{ content.field_video.0['#url'] }}"><span class="video-link ti-control-play"></span></a>
+	</div>
+	{% endif %}
+	</div>
+	<div class="col-12 col-md-7 feat-block-content">
+	<div class="feat-content-wrap">
+	{% if label %}
+	<div class="block-title-wrap">
+	<div class="block-title-content">
+	{% if block_title_style == 'block-title-2' %}
+	{% if block_subtitle %}<h5 class="block-subtitle">{{ block_subtitle }}</h5>{% endif %}
+	<h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+	{% else %}
+	<h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+	{% if block_subtitle %}<h5 class="block-subtitle">{{ block_subtitle }}</h5>{% endif %}
+	{% endif %}
+	</div>
+	</div>
+	{% endif %}
+	{% if content.body | render %}<div class="feat-block-text">{{ content.body }}</div>{% endif %}
+	{% if content.field_block | render %}
+	<div class="text-left block-right feat-block-content-alt">
+	{{ content.field_block }}
+	</div>
+	{% endif %}
+	{% if content.field_link | render %}
+	<a class="button button-default" href="{{ content.field_link.0['#url'] }}">{{ content.field_link.0['#title'] }}</a>
+	{% endif %}
+	</div>
+	</div>
+	</div>	
+	
+{% elseif content.field_feature_layout['#items'].getValue()|first.value == "layout4" %}
+	<div class="row feature-block-wrap feature-block-image-right">
+	<div class="col-12 col-md-7 feat-block-content">
+	<div class="feat-content-wrap">
+	{% if label %}
+	<div class="block-title-wrap">
+	<div class="block-title-content">
+	{% if block_title_style == 'block-title-2' %}
+	{% if block_subtitle %}<h5 class="block-subtitle">{{ block_subtitle }}</h5>{% endif %}
+	<h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+	{% else %}
+	<h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+	{% if block_subtitle %}<h5 class="block-subtitle">{{ block_subtitle }}</h5>{% endif %}
+	{% endif %}
+	</div>
+	</div>
+	{% endif %}
+	{% if content.body | render %}<div class="feat-block-text">{{ content.body }}</div>{% endif %}
+	{% if content.field_block | render %}
+	<div class="text-left block-right feat-block-content-alt">
+	{{ content.field_block }}
+	</div>
+	{% endif %}
+	{% if content.field_link | render %}
+	<a class="button button-default" href="{{ content.field_link.0['#url'] }}">{{ content.field_link.0['#title'] }}</a>
+	{% endif %}
+	</div>
+	</div>
+	<div class="col-12 col-md-5 feat-block-image-wrap {{ content.field_media_format['#items'].value }}">
+	{% if content.field_media_format['#items'].getValue()|first.value == "static-image" %}
+	<div class="feat-block-image">{{ content.field_image }}</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "background-image" %}
+	<div class="feat-block-image" style="background-image: url({{ file_url(content.field_image.0['#item'].entity.uri.value) }});">
+		<div class="feat-block-image-bg">{{ content.field_image }}</div>
+	</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "slider-image" %}
+	<div class="feat-block-image feat-block-slide">
+		<div class="slide-carousel owl-carousel" data-nav="false" data-items="1" data-dots="true" data-autoplay="true" data-loop="true">
+		{{ content.field_image }}
+		</div>
+	</div>
+	{% elseif content.field_media_format['#items'].getValue()|first.value == "video-popup" %}
+	<div class="feat-block-image feat-block-video" style="background-image: url({{ file_url(content.field_image.0['#item'].entity.uri.value) }});">
+		<div class="feat-block-image-bg">{{ content.field_image }}</div>
+		<a class="colorbox video-colorbox" href="{{ content.field_video.0['#url'] }}"><span class="video-link ti-control-play"></span></a>
+	</div>
+	{% endif %}
+	</div>
+	</div>	
+
+{% endif %}
+	
+</div>
+{% endblock %}
+</div>
+</div>

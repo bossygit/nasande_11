@@ -1,0 +1,16 @@
+/**
+ * @file
+ * preview.css
+ *
+ */
+
+h2,
+.preview,
+.color-preview-logo,
+.color-preview-site-name,
+.color-preview-main-menu,
+.color-preview-main,
+.color-preview-footer-wrapper,
+.vertical-tabs__menu-item-summary {
+	display: none;
+}

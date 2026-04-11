@@ -1,0 +1,92 @@
+/* ---------- Color Module Styles ----------- */
+a:hover,
+a:focus,
+.sm a:hover, .sm a:focus, .sm a:active, .sm a.highlighted, .sm a.current, .sm a.is-active,
+.footer-widget a:hover,
+.tag-cloud li .tag-name a:hover,
+.messages a,
+.single-page nav .nav.menu li.active a,
+.social-icon li a:hover,
+.social-media li a:hover,
+.maintenance-icon,
+.feat .feat-icon i,
+.blog-post .post-title a:hover,
+.post-meta .post-meta-item a:hover,
+.sidebar ul.menu li a.is-active,
+.sm-menu a.current,
+.shuffle-filters-item.active,
+.pricing-table .featured .pricing-name,
+.pricing-table .pricing-features .field-item:before,
+.product-price,
+.product-teaser .product-add-cart:hover,
+.product-teaser .product-add-cart input[type="submit"]:hover,
+.facet-list .is-active .js-facet-deactivate,
+.ui-widget-content a,
+.simplenews-subscriber-form .button:hover,
+.menu-tab-wrapper .nav-tabs > li.active > a,
+.text-colored,
+.text-colored * {
+    color: #e42555;
+}
+
+.navbar-toggler.nav-button,
+.tag-cloud li a:hover,
+.pager li.is-active a,
+.pager li.pager__item.is-active > a,
+.pager li > a:hover,
+#page-title.title-colored-bg,
+.panel-heading.colored .panel-title > a, 
+.panel-heading.colored .panel-title > a.collapsed:hover, 
+.panel-heading.colored .panel-title > a:hover, 
+.panel-heading.colored .panel-title > a.collapsed,
+.colored-bg,
+.btn-primary,
+input[type="submit"],
+.search-content input[type="submit"],
+.product-layout3 .product-teaser .product-add-cart input[type="submit"],
+.product-layout4 .product-teaser .product-add-cart:hover .cart-link-icon,
+.preloader-spinner,
+.colored-footer .footer-widget,
+.colored-footer .footer-bottom,
+.icon-effect-1 .icon-x:hover,
+.icon-effect-2 .icon-x:hover,
+.progress-bar-wrap,
+.sidenav.sidenav-colored,
+.button-cta,
+.cart-block-link a,
+.product-featured-text,
+.product-category-name:before,
+.product-category-name:after,
+.product-category:hover .product-category-name,
+.product-flag-icon .action-unflag i,
+.product-flag-icon i:hover,
+.grid-menu-item .menu-price-amount,
+.pricing-table .featured .button,
+.contact-social.social-media ul li a {
+    background-color: #e42555;
+}
+
+.tag-cloud li a:hover,
+.pager li.is-active a,
+.pager li.pager__item.is-active > a,
+.pager li > a:hover,
+.btn-primary,
+.search-block-form input[type="submit"],
+.search-form input[type="submit"],
+.pricing-table .featured .button,
+.social-icon li a:hover,
+blockquote {
+	border-color: #e42555;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+body {
+  color: #555555;
+}
+
+.wrapper .layout-wrap {
+	background-color: #ffffff;
+}

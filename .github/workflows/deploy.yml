@@ -1,0 +1,104 @@
+# ==============================================================================
+# GitHub Actions — Drupal CI/CD Pipeline for nasande.cg
+# ==============================================================================
+# Triggered on push to `main` branch.
+# Deploys via SSH to cPanel server.
+#
+# REQUIRED GITHUB SECRETS:
+#   SSH_HOST       — serveur cPanel (ex: nasande.cg)
+#   SSH_USER       — username SSH cPanel
+#   SSH_KEY        — clé privée SSH (ed25519 recommandé)
+#   SSH_PORT       — port SSH (défaut 22)
+#   DEPLOY_PATH    — chemin du projet sur le serveur (ex: /home/nasacdka/public_html)
+#   DRUPAL_DB_NAME — nom de la base de données
+#   DRUPAL_DB_USER — utilisateur de la base de données
+#   DRUPAL_DB_PASS — mot de passe de la base de données
+# ==============================================================================
+
+name: Deploy Drupal
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # permet le déploiement manuel
+
+env:
+  PHP_VERSION: "8.2"
+
+jobs:
+  deploy:
+    name: 🚀 Deploy to Production
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      # ─── Checkout ─────────────────────────────────────
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      # ─── Setup PHP ────────────────────────────────────
+      - name: 🐘 Setup PHP ${{ env.PHP_VERSION }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: mbstring, xml, gd, curl, zip, mysql
+          tools: composer:v2
+
+      # ─── Composer Validate ───────────────────────────
+      - name: ✅ Validate composer.json
+        run: composer validate --no-check-publish 2>/dev/null || true
+
+      # ─── Deploy via SSH ──────────────────────────────
+      - name: 🔑 Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p ${{ secrets.SSH_PORT || 22 }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: 🚀 Deploy to server
+        run: |
+          ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT || 22 }} \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'DEPLOY_SCRIPT'
+
+          set -e
+          cd ${{ secrets.DEPLOY_PATH }}
+
+          echo "📥 Pulling latest code..."
+          git pull origin main
+
+          echo "📦 Installing dependencies..."
+          php composer.phar install --no-dev --optimize-autoloader --no-interaction 2>/dev/null || \
+            composer install --no-dev --optimize-autoloader --no-interaction
+
+          echo "🔄 Running database updates..."
+          if command -v drush &> /dev/null; then
+            DRUSH_CMD="drush"
+          elif [ -f "vendor/bin/drush" ]; then
+            DRUSH_CMD="vendor/bin/drush"
+          else
+            DRUSH_CMD="./vendor/bin/drush"
+          fi
+
+          $DRUSH_CMD updatedb -y 2>/dev/null || echo "⚠️  updatedb skipped"
+          $DRUSH_CMD config:import -y 2>/dev/null || echo "⚠️  config:import skipped"
+          $DRUSH_CMD cache:rebuild 2>/dev/null || echo "⚠️  cache:rebuild skipped"
+
+          echo "✅ Deployment complete!"
+          DEPLOY_SCRIPT
+
+      # ─── Cleanup ─────────────────────────────────────
+      - name: 🧹 Cleanup SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
+
+      # ─── Notification ────────────────────────────────
+      - name: 📢 Deployment summary
+        if: success()
+        run: |
+          echo "### ✅ Deployment Successful!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **By:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Time:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY

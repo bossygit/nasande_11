@@ -1,0 +1,11 @@
+name: AI User Tracker
+type: module
+description: 'Capture les événements utilisateur (vue, clics, scroll, panier) et expose une API.'
+core_version_requirement: ^10 || ^11
+package: 'AI'
+dependencies:
+  - drupal:rest
+  - drupal:serialization
+  - drupal:user
+  - drupal:views
+

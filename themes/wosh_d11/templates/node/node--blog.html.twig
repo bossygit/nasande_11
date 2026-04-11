@@ -1,0 +1,108 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node-type-' ~ node.bundle|clean_class,
+	'node-content',
+	'post-wrapper',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+  ]
+%}
+
+{% if teaser %}
+<div{{ attributes.addClass('blog-post-teaser post-row') }} >
+  {{ title_prefix }}
+  {{ title_suffix }}
+<div class="post-thumb">
+	{% if content.field_blog_format['#items'].getValue()|first.value == "standard" %}
+		{% if content.field_image | render %}
+			<div class="post-image">{{ content.field_image.0 }}</div>
+		{% endif %}	
+	{% elseif content.field_blog_format['#items'].getValue()|first.value == "slider" %}
+		<div class="post-image">
+		<div class="image-carousel">
+		{{ content.field_image }}
+		</div>
+		</div>
+	{% elseif content.field_blog_format['#items'].getValue()|first.value == "video" %}
+		<div class="entry-video">{{ content.field_video }}</div>
+	{% endif %}
+</div>
+	<div class="post-content-wrap">
+	<div class="content-wrap">
+	{% if display_submitted %}
+	<div class="post-meta">
+	<div class="post-meta-item post-date"><i class="ion-ios-clock-outline"></i> {{ node.createdtime | date("j M Y") }}</div>
+	<div class="post-meta-item post-category"><i class="ion-ios-folder-outline"></i> {{ content.field_category }}</div>
+	<div class="post-meta-item post-comment"><i class="ion-ios-chatboxes-outline"></i> {{ node.comment.comment_count }} comments</div>
+	</div>
+	{% endif %}
+	<div class="post-content">
+	<div class="post-title-wrap"><h3 class="post-title"><a href="{{ url }}">{{ label }}</a></h3></div>
+	<div class="post-body">{{ content.body }}</div>
+	<div class="post-link"><a href="{{ url }}">Read More</a></div>
+	</div>
+	</div>
+	</div>
+</div>
+
+{% else %}
+
+<div{{ attributes.addClass(classes, 'blog-post-full') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+	<div class="post-media">
+	{% if content.field_blog_format['#items'].getValue()|first.value == "standard" %}
+		{% if content.field_image | render %}
+			<div class="post-image">{{ content.field_image.0 }}</div>
+		{% endif %}	
+	{% elseif content.field_blog_format['#items'].getValue()|first.value == "slider" %}
+		<div class="post-image">
+		<div class="image-carousel">
+		{{ content.field_image }}
+		</div>
+		</div>
+	{% elseif content.field_blog_format['#items'].getValue()|first.value == "video" %}
+		<div class="entry-video video">{{ content.field_video }}</div>
+	{% endif %}
+	</div>
+	<div class="post-content">
+			<h3 class="post-title">{{ label }}</h3>
+			{% if display_submitted %}
+			<div class="post-meta">
+				<div class="post-meta-item"><i class="ion-ios-clock-outline"></i> {{ node.createdtime | date("j M Y") }}</div>
+				{% if author_name %}
+				<div class="post-meta-item"><i class="ion-ios-person-outline"></i> by {{ author_name }}</div>
+				{% endif %}
+				{% if content.field_category %}
+				<div class="post-meta-item"><i class="ion-ios-folder-outline"></i> {{ content.field_category }}</div>
+				{% endif %}
+				{% if content.comment %}
+				<div class="post-meta-item"><i class="ion-ios-chatboxes-outline"></i> {{ node.comment.comment_count }} comments</div>
+				{% endif %}
+				
+			</div>
+			{% endif %}
+			<div class="post-body">{{ content.body }}</div>
+			{% if content.field_tags | render %}
+			<div class="post-tags clearfix"><i class="ion-ios-pricetags-outline"></i> <span>{{ 'Tags:' | t }} </span>{{ content.field_tags }}</div>
+			{% endif %}
+			
+			{% if content.comment %}
+				<div class="post-comment">
+				<div class="post-stats">
+				<span class="comment-label">{{ 'Comments' | t }}</span> <span class="comment-count">( {{ node.comment.comment_count }} )</span>
+				</div>
+				{{ content.comment }}
+				</div>
+			{% endif %}
+	</div>
+</div>
+{% endif %}

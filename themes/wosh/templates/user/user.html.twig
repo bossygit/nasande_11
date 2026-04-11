@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+<div{{ attributes.addClass('profile') }}>
+
+  {% if content and (view_mode == 'default' or view_mode == 'full') %}
+    <div class="user-header">
+      <div class="inner">
+        <div class="row">
+          <div class="col-md-4">
+              <div class="user-profile-picture">
+                {{ content.user_picture }}
+              </div>
+          </div>
+          <div class="col-md-8">
+		    <h2 class="user-name">{{ content.field_name }} @{{ name }}</h2>
+			<div class="user-content">
+            {{ content|without('user_picture', 'field_name', 'field_facebook', 'field_twitter', 'field_linkedin', 'field_youtube') }}
+			
+                {% if content.field_facebook or content.field_twitter or content.field_linkedin or content.field_youtube %}
+                  <div class="team-social user-social-links">
+                    <a href="{{ content.field_facebook.0['#url'] }}"><i class="fa fa-facebook"></i></a>
+					<a href="{{ content.field_twitter.0['#url'] }}"><i class="fa fa-twitter"></i></a>
+					<a href="{{ content.field_linkedin.0['#url'] }}"><i class="fa fa-linkedin"></i></a>
+					<a href="{{ content.field_youtube.0['#url'] }}"><i class="fa fa-youtube"></i></a>
+                  </div>
+                {% endif %}
+          </div>
+		  </div>
+        </div>
+      </div>
+
+    </div>
+
+  {% else %}
+    {{- content -}}
+  {% endif %}
+</div>

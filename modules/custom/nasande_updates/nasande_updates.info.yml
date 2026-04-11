@@ -1,0 +1,5 @@
+name: nasande_updates
+type: module
+description: 'Module utilitaire pour les update hooks (migrations de schéma DB) du projet Nasande.'
+core_version_requirement: ^10 || ^11
+package: Custom

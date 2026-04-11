@@ -1,0 +1,9 @@
+type: "standard"
+theme: "filled_blue"
+size: "large"
+text: "Sign in with Google"
+shape: "rectangular"
+logo_alignment: "left"
+width: "200"
+locale: ""
+show_on_login_form: 1

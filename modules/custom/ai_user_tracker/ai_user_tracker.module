@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * @file
+ * Hooks for AI User Tracker.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function ai_user_tracker_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'ai_user_tracker/tracker';
+
+  // Inject GA4 purchase payload on checkout complete page when possible.
+  try {
+    $route_name = \Drupal::routeMatch()->getRouteName();
+    if ($route_name === 'commerce_checkout.complete') {
+      $order = \Drupal::routeMatch()->getParameter('commerce_order');
+      if (is_numeric($order)) {
+        $order = \Drupal::entityTypeManager()->getStorage('commerce_order')->load((int) $order);
+      }
+      if ($order && method_exists($order, 'getTotalPrice')) {
+        $price = $order->getTotalPrice();
+        $value = method_exists($price, 'getNumber') ? $price->getNumber() : NULL;
+        $currency = method_exists($price, 'getCurrencyCode') ? $price->getCurrencyCode() : NULL;
+        $items = [];
+        if (method_exists($order, 'getItems')) {
+          foreach ($order->getItems() as $order_item) {
+            $quantity = method_exists($order_item, 'getQuantity') ? $order_item->getQuantity() : 1;
+            $title = method_exists($order_item, 'getTitle') ? $order_item->getTitle() : '';
+            $unit_price = method_exists($order_item, 'getUnitPrice') ? $order_item->getUnitPrice() : NULL;
+            $unit_number = $unit_price && method_exists($unit_price, 'getNumber') ? $unit_price->getNumber() : NULL;
+            $variation = method_exists($order_item, 'getPurchasedEntity') ? $order_item->getPurchasedEntity() : NULL;
+            $product_id = ($variation && method_exists($variation, 'getProductId')) ? $variation->getProductId() : NULL;
+            $items[] = [
+              'item_id' => $product_id,
+              'item_name' => $title,
+              'price' => $unit_number,
+              'quantity' => (int) $quantity,
+            ];
+          }
+        }
+        $attachments['#attached']['drupalSettings']['ai_user_tracker']['ga4Purchase'] = [
+          'transaction_id' => (string) $order->id(),
+          'value' => $value,
+          'currency' => $currency,
+          'items' => $items,
+        ];
+      }
+    }
+  }
+  catch (\Throwable $e) {
+    // Fail silently to avoid breaking the page.
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ * Add GA4 data attributes to add-to-cart forms.
+ */
+function ai_user_tracker_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  try {
+    // Detect add-to-cart forms by class or known fields.
+    $classes = isset($form['#attributes']['class']) ? $form['#attributes']['class'] : [];
+    $is_add_to_cart = in_array('commerce-order-add-to-cart-form', $classes, TRUE)
+      || isset($form['purchasable_entity_id']) || isset($form['product_id']);
+
+    if ($is_add_to_cart) {
+      $variation_id = NULL;
+      // Try to get variation id from form element default values.
+      if (isset($form['purchasable_entity_id']['#value'])) {
+        $variation_id = (int) $form['purchasable_entity_id']['#value'];
+      }
+      elseif (isset($form['purchasable_entity_id']['widget']['#default_value'])) {
+        $default = $form['purchasable_entity_id']['widget']['#default_value'];
+        if (is_object($default) && method_exists($default, 'id')) {
+          $variation_id = (int) $default->id();
+        }
+      }
+
+      if ($variation_id) {
+        $storage = \Drupal::entityTypeManager()->getStorage('commerce_product_variation');
+        /** @var \Drupal\commerce_product\Entity\ProductVariationInterface|null $variation */
+        $variation = $storage->load($variation_id);
+        if ($variation) {
+          $product_id = method_exists($variation, 'getProductId') ? $variation->getProductId() : NULL;
+          $title = method_exists($variation, 'label') ? $variation->label() : '';
+          $price = method_exists($variation, 'getPrice') ? $variation->getPrice() : NULL;
+          $number = ($price && method_exists($price, 'getNumber')) ? $price->getNumber() : NULL;
+          $currency = ($price && method_exists($price, 'getCurrencyCode')) ? $price->getCurrencyCode() : NULL;
+
+          $form['#attributes']['data-product-id'] = $product_id;
+          if ($number !== NULL) {
+            $form['#attributes']['data-price'] = $number;
+          }
+          if ($currency !== NULL) {
+            $form['#attributes']['data-currency'] = $currency;
+          }
+          if (!empty($title)) {
+            $form['#attributes']['data-title'] = $title;
+          }
+        }
+      }
+    }
+  }
+  catch (\Throwable $e) {
+    // Do not break forms.
+  }
+}
+
+/**
+ * Implements hook_cron().
+ * Purge events older than 180 days.
+ */
+function ai_user_tracker_cron() {
+  $threshold = REQUEST_TIME - (180 * 24 * 60 * 60);
+  try {
+    \Drupal::database()->delete('ai_user_behavior')
+      ->condition('created', $threshold, '<')
+      ->execute();
+  } catch (\Throwable $e) {
+    // Ignore errors to not break cron.
+  }
+}
+
+

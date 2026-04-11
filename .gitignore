@@ -1,0 +1,66 @@
+# ==============================================================================
+# Drupal .gitignore — nasande.cg
+# ==============================================================================
+
+# ---------- Drupal Core (managed by Composer) ----------
+/core/
+/vendor/
+/composer.phar
+/composer.lock
+
+# ---------- Contributed modules/themes (managed by Composer) ----------
+/modules/contrib/
+/themes/contrib/
+/profiles/contrib/
+/libraries/
+
+# ---------- Sensitive configuration ----------
+sites/*/settings.local.php
+sites/*/services*.yml
+.env
+.env.local
+.env.production
+
+# ---------- User-generated content ----------
+sites/*/files/
+sites/*/private/
+
+# ---------- SQL dumps ----------
+*.sql
+*.sql.gz
+
+# ---------- Config sync (tracked separately if needed) ----------
+# /config/sync/ — we DO track this
+
+# ---------- Logs ----------
+error_log
+*.log
+
+# ---------- Temp files ----------
+/tmp/
+
+# ---------- OS files ----------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ---------- IDE ----------
+.idea/
+.vscode/
+*.sublime-*
+
+# ---------- Backups ----------
+*.backup
+*.bak
+
+# ---------- MAMP ----------
+/cgi-bin/
+
+# ---------- Archives ----------
+*.zip
+*.tar.gz
+
+# ---------- Well-known ----------
+.well-known/

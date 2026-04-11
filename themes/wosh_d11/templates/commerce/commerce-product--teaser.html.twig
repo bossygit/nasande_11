@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+	'product-teaser',
+  ]
+%}
+
+<div class="{{ product_layout }}">
+<div{{ attributes.addClass(classes) }}>
+<div class="post-image product-image">
+{% if product.field_image|render %}
+	{{ product.field_image.0 }}
+	<div class="product-image-overlay">{{ product.field_image.1 }}</div>
+{% elseif product.variation_field_image|render %}	
+	{{ product.variation_field_image.0 }}
+	<div class="product-image-overlay">{{ product.variation_field_image.1 }}</div>
+{% endif %}
+<div class="product-flag-icon product-view"><a href="{{ product_url }}" class="flag-link use-ajax" data-dialog-options="{&quot;width&quot;:680}" data-dialog-type="modal"><span class="flag-title">{{ 'Quick View'|t }}</span> <i class="ion-ios-search-strong"></i></a></div>
+<div class="product-flag-icon product-add-wishlist">{{ product.flag_wishlist }}</div>
+<div class="product-flag-icon product-add-compare">{{ product.flag_compare }}</div>
+</div>
+
+<div class="product-meta-wrap">
+<div class="product-meta">
+<div class="product-title"><a href="{{ product_url }}">{{ product.title }}</a></div>
+<div class="product-price-wrap">
+	<div class="product-price">{{ product.variation_price }}</div>
+	{% if product.variation_list_price|render|striptags|trim %}<del class="product-old-price">{{ product.variation_list_price }}</del>{% endif %}
+	{% if product.field_old_price | render %}<div class="product-old-price"><del>{{ product.field_old_price }}</del></div>{% endif %}
+</div>
+</div>
+<div class="product-add-cart">{{ product.variations }}</div>
+</div>
+
+</div>
+</div>

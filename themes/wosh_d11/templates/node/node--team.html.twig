@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node-type-' ~ node.bundle|clean_class,
+	'node-content',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+  ]
+%}
+
+{% if teaser %}
+<div{{ attributes }}>
+	{{ title_prefix }}
+	{{ title_suffix }}
+	<div class="team-teaser">
+		<div class="team-thumb">
+		{{ content.field_image }}
+		</div>
+		<div class="team-meta">
+			<h4 class="team-name"><a href="{{ url }}">{{ label }}</a></h4>
+			<div class="team-position">{{ node.field_position.value }}</div>			
+		</div>
+	</div>
+</div>
+{% else %}
+<div{{ attributes.addClass(classes) }}>
+	{{ title_prefix }}
+	{{ title_suffix }}
+	  
+	<div class="team-content">
+		<div class="row">
+			<div class="col-sm-5 figure">
+				<div class="team-thumb">
+				{{ content.field_image }}
+				</div>
+			</div>
+
+		<div class="col-sm-7 team-detail">
+			<div class="team-meta">
+				<h2 class="team-name">{{ label }}</h2>
+				{% if content.field_position | render %}
+					<div class="team-position">{{ node.field_position.value }}</div>
+				{% endif %}		
+				<div class="team-social">
+					{% if content.field_facebook_link | render %}
+					<a target="_blank" href="{{ content.field_facebook_link.0['#url'] }}" class="fa fa-facebook"></a>
+					{% endif %}
+					{% if content.field_twitter_link | render %}
+					<a target="_blank" href="{{ content.field_twitter_link.0['#url'] }}" class="fa fa-twitter"></a>
+					{% endif %}
+					{% if content.field_linkedin_link | render %}
+					<a target="_blank" href="{{ content.field_linkedin_link.0['#url'] }}" class="fa fa-linkedin"></a>
+					{% endif %}
+				</div>
+			</div>
+			{% if content.body | render %}
+				<div class="team-body">{{ content.body }}</div>
+			{% endif %}
+		</div>
+		</div>
+	</div>
+</div>
+{% endif %}

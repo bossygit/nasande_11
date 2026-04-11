@@ -1,0 +1,36 @@
+wosh_d11.xs:
+  label: Extra Small
+  mediaQuery: 'all and (max-width: 575px)'
+  weight: 0
+  multipliers:
+    - 1x
+wosh_d11.sm:
+  label: Small
+  mediaQuery: 'all and (min-width: 576px) and (max-width: 767px)'
+  weight: 1
+  multipliers:
+    - 1x
+wosh_d11.md:
+  label: Medium
+  mediaQuery: 'all and (min-width: 768px) and (max-width: 991px)'
+  weight: 2
+  multipliers:
+    - 1x
+wosh_d11.lg:
+  label: Large
+  mediaQuery: 'all and (min-width: 992px) and (max-width: 1199px)'
+  weight: 3
+  multipliers:
+    - 1x
+wosh_d11.xl:
+  label: Extra Large
+  mediaQuery: 'all and (min-width: 1200px) and (max-width: 1399px)'
+  weight: 4
+  multipliers:
+    - 1x
+wosh_d11.xxl:
+  label: Extra Extra Large
+  mediaQuery: 'all and (min-width: 1400px)'
+  weight: 5
+  multipliers:
+    - 1x

@@ -1,0 +1,50 @@
+name: Wosh Theme
+type: theme
+base theme: false
+description: 'Wosh Drupal 10 Responsive Theme. Developed & Designed by <a href=http://www.hugestem.com>HugeStem</a>'
+package: core
+version: '2.0'
+core_version_requirement: ^9.4 || ^10 || ^11
+
+#Libraries
+libraries:
+  - wosh/bootstrap
+  - wosh/font-awesome
+  - wosh/ionicons
+  - wosh/owl-carousel
+  - wosh/shuffle
+  - wosh/animation
+  - wosh/slimscroll
+  - wosh/fonts
+  - wosh/smartmenus
+  - wosh/global-components
+stylesheets-remove:
+  - core/assets/vendor/normalize-css/normalize.css
+  - core/assets/vendor/jquery.ui/themes/base/button.css
+  - core/modules/system/css/system.module.css
+  - core/modules/system/css/system.theme.css
+  - core/modules/views/css/views.module.css
+
+#Regions
+regions:
+  branding: 'Branding'
+  primary_menu: 'Primary Menu'
+  user_account: 'User Account'
+  search: 'Search'
+  cart: 'Cart'
+  header: 'Header'
+  slider: 'Slider'
+  page_title: 'Page Title'
+  breadcrumb: 'Breadcrumb'
+  content_wide_top: 'Content Wide Top'
+  content: 'Content'
+  sidebar_first: 'Left Sidebar'
+  sidebar_second: 'Right Sidebar'
+  content_wide: 'Content Wide Bottom'
+  footer_first: 'Footer First Widget'
+  footer_second: 'Footer Second Widget'
+  footer_third: 'Footer Third Widget'
+  footer_forth: 'Footer Forth Widget'
+  footer_bottom_first: 'Footer Bottom First'
+  footer_bottom_second: 'Footer Bottom Second'
+  hidden_block: 'Hidden blocks'

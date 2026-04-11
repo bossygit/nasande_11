@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Theme override for main view template.
+ */
+#}
+
+<div class="tabs blog-tab">
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  <ul class="nav nav-tabs">
+	<li class="active"><a href="#popularposts" data-toggle="tab">{{ 'Popular' | t }}</a></li>
+	<li><a href="#recentposts" data-toggle="tab">{{ 'Recent' | t }}</a></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div id="popularposts" class="tab-pane active">
+      {{ header }}
+    </div>
+
+    <div id="recentposts" class="tab-pane">
+      {{ footer }}
+    </div>
+  </div>
+</div>

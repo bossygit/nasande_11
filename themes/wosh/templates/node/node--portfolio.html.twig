@@ -1,0 +1,73 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node-type-' ~ node.bundle|clean_class,
+	'node-content',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+  ]
+%}
+{% if teaser %}
+<div{{ attributes }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  
+<div class="portfolio">  
+	<div class="portfolio-item">
+		<div class="portfolio-img">
+		{{ content.field_image.0 }}
+		</div>
+		<div class="portfolio-overlay">
+			<div class="portfolio-label">
+			<h3 class="portfolio-title"><a href="{{ url }}">{{ label }}</a></h3>
+			<div class="portfolio-term">{{ content.field_project_category }}</div>
+			</div>
+		</div>
+	</div>
+</div>  
+  
+</div>
+
+{% else %}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+	<div class="row">
+		<div class="col-sm-7">
+		{% if content.field_image | render %}
+			{% if content.field_portfolio_format['#items'].getValue()|first.value == "1" %}
+				<div class="post-image"><div class="slide-carousel owl-carousel" data-nav="true" data-items="1" data-dots="true" data-autoplay="true" data-loop="true">{{ content.field_image }}</div></div>	
+			{% else %}
+				<div class="post-image">{{ content.field_image.0 }}</div>
+			{% endif %}	
+		{% endif %}
+		</div>
+		<div class="col-sm-5">
+			{% if content.body %}
+			<h3 class="portfolio-title-detail">{{ 'Description' | t }}</h3>
+			<div class="portfolio-body">{{ content.body }}</div>
+			{% endif %}
+			<div class="portfolio-meta">
+			<h3 class="portfolio-title-detail">{{ 'Details' | t }}</h3>
+			{% if content.field_client | render %}
+			<div class="portfolio-meta-item"><span class="portfolio-meta-item-title">{{ 'Client:' | t }}</span> {{ content.field_client }}</div>
+			{% endif %}
+			{% if content.field_project_category | render %}
+			<div class="portfolio-meta-item"><span class="portfolio-meta-item-title">{{ 'Category:' | t }}</span> {{ content.field_project_category }}</div>
+			{% endif %}
+			{% if content.field_link | render %}
+			<a target="_blank" href="{{ content.field_link }}" class="button">{{ 'View Project' | t }}</a>
+			{% endif %}
+			</div>
+		</div>
+	</div>
+	</div>
+{% endif %}

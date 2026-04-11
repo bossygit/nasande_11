@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Hooks for AI Knowledge Base.
+ */
+
+/**
+ * Implements hook_cron().
+ * Auto-export JSONL snapshot.
+ */
+function ai_knowledge_base_cron() {
+  try {
+    \Drupal::service('ai_knowledge_base.indexer')->exportJsonl('private://ai/knowledge_export.jsonl');
+  } catch (\Throwable $e) {
+    // Silent fail.
+  }
+}
+
+

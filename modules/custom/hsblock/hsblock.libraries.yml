@@ -1,0 +1,17 @@
+spectrum:
+  css:
+    component:
+      assets/css/spectrum.css: {}
+  js:
+    assets/js/spectrum.js: {}
+    assets/js/basic-color-palette.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+hsblock_style:
+  css:
+    theme:
+      assets/css/style.css: {}
+  dependencies:
+    - hsblock/spectrum

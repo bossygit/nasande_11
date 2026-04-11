@@ -1,0 +1,4 @@
+# Schema for the configuration files of the wosh_sub theme.
+wosh_sub.settings:
+  type: theme_settings
+  label: 'Wosh Sub Settings'

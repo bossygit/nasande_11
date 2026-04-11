@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node-type-' ~ node.bundle|clean_class,
+	'node-content',
+	'post-wrapper',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+  ]
+%}
+
+{% if teaser %}
+<div{{ attributes.addClass('list-menu-item') }}>
+	<div class="clearfix">
+	{% if content.field_image|render %}
+	<div class="menu-image">{{ content.field_image.0 }}</div>
+	{% endif %}
+	<h4 class="menu-title-wrap">
+        <span class="menu-title"><a href="{{ url }}">{{ label }}</a></span><span class="dotted-line"></span>
+        <span class="menu-price-amount"><span class="menu-price-currency">{{ node.field_pricing_currency.value }}</span>{{ node.field_pricing_price.value }}</span>
+	</h4>
+	<div class="menu-des">{{ content.body }}</div>
+	</div>
+</div>
+
+{% else %}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  
+<div class="grid-menu-item">
+	<div class="col-sm-6">
+	<div class="menu-image">
+	<span class="menu-price-amount"><span class="menu-price-currency">{{ node.field_pricing_currency.value }}</span>{{ node.field_pricing_price.value }}</span>
+	{{ content.field_image }}
+	</div>
+	</div>
+	
+	<div class="col-sm-6">
+	<h2 class="menu-title-wrap"><span class="menu-title">{{ label }}</span></h2>
+	
+	{% if content.field_menu_category | render %}
+	<div class="margin-bottom-30 menu-item-meta">
+	<label class="menu-category-label">{{ 'Category'|t }}:</label> <div class="menu-category">{{ content.field_menu_category }}</div>
+	</div>
+	{% endif %}
+	
+	<div class="menu-body">{{ content.body }}</div>
+	</div>
+	
+	
+</div>
+
+</div>
+
+{% endif %}

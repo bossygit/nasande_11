@@ -1,0 +1,81 @@
+{# @wosh theme header #}
+
+{% if page.search %}
+<!-- Modal Search -->
+<div id="search-modal" class="modal-wrapper modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+	     <div class="modal-content-wrap">
+			<div class="modal-content-holder">{{ page.search }}</div>
+		</div>
+
+    </div>
+  </div>
+</div>
+{% endif %}
+	
+<!-- Header Start -->
+<header class="header">
+	<div class="header-content">
+	<div class="navbar navbar-expand-md navbar-dark">
+		<div class="container">
+		
+			{% if page.branding %}
+			<div class="navbar-brand header-brand">
+				{{ page.branding }}
+			</div>
+			{% endif %}
+
+			{% if page.primary_menu %}
+			<div id="main-menu" class="primary-navbar collapse navbar-collapse {{ nav_align }}">
+				{{ page.primary_menu }}
+			</div>
+			{% endif %}
+					
+			{% if page.user_account or page.search or page.cart %}
+			<div class="header-element icon-element">
+				<div class="header-element-icon">
+				{% if page.user_account %}
+					<div class="header-element-item header-element-account">
+					<button type="button" class="dropdown-toggle header-icon account-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="ion-ios-gear-outline"></span>
+					</button>
+					<div id="user-account-block-wrap" class="dropdown-menu user-account-block-wrap">
+					{{ page.user_account }}
+					</div>
+					</div>				
+				{% endif %}
+				
+				{% if page.cart %}
+					<div class="header-element-item header-element-cart">
+						<div class="header-icon text-xs-left header-cart">{{ page.cart }}</div>
+					</div>
+				{% endif %}
+				
+				{% if page.search %}
+					<div class="header-element-item header-element-search">
+					<button type="button" class="header-icon search-icon" data-toggle="modal" data-target="#search-modal"><span class="ion-ios-search-strong"></span></button>
+					</div>
+				{% endif %}
+				</div>
+			</div>
+			{% endif %}
+
+			{% if page.header %}
+			<div class="header-section">
+			{{ page.header }}
+			</div>
+			{% endif %}
+				
+			<button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		
+		</div>
+	</div>
+	</div>
+</header>
+<!-- Header End -->

@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node-type-' ~ node.bundle|clean_class,
+	'node-content',
+	'feat-node-content',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+  ]
+%}
+
+{% if teaser %}
+<div{{ attributes.addClass('feat-container') }}>
+	{{ title_prefix }}
+	{{ title_suffix }}	
+	<div class="feat-image">
+	<div class="feat-item">
+	{% if content.field_image | render %}
+	<div class="feat-img">{{ content.field_image }}</div>
+	{% endif %}
+	<div class="post-content">
+	<h4 class="margin-bottom-20"><a href="{{ url }}">{{ label }}</a></h4>
+	<div>{{ content.body }}</div>
+	<div class="post-link"><a href="{{ url }}" class="margin-top-20">More Details <i class="fa fa-angle-double-right"></i></a></div>
+	</div>
+	</div>
+	</div>
+</div>
+{% else %}
+<div{{ attributes.addClass(classes) }}>
+	{{ title_prefix }}
+	{{ title_suffix }}
+		{% if content.field_image | render %}
+		<div class="node-feat-image">{{ content.field_image }}</div>
+		{% endif %}
+		<div class="post-content">
+		{{ content.body }}
+		</div>
+</div>
+{% endif %}

@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+
+<div{{ attributes.addClass('pricing-table') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+<div class="pricing {{ node.field_pricing_table_type.value }}">
+<div class="pricing-wrap">
+	<div class="pricing-header">
+	<h4 class="pricing-name">{{ label }}</h4>
+	<div class="pricing-amount">
+	<div class="number pricing-currency">{{ node.field_pricing_currency.value }}</div>
+	<div class="number pricing-price">{{ node.field_pricing_price.value }}</div>
+	{% if content.field_pricing_duration | render %}
+	<div class="pricing-duration">{{ node.field_pricing_duration.value }}</div>
+	{% endif %}
+	</div>
+	</div>
+
+	<div class="pricing-content">
+	{% if content.body | render %}
+	<div class="text-sm pricing-body">{{ content.body }}</div>
+	{% endif %}
+	{% if content.field_pricing_feature | render %}
+	<div class="pricing-features">
+	{{ content.field_pricing_feature }}
+	</div>
+	{% endif %}
+	<div class="pricing-btn">
+	<a href="{{ content.field_link.0['#url'] }}" class="button">{{ content.field_link.0['#title'] }}</a>
+	</div>
+	</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 1200x500
+label: 1200x500
+effects:
+  50df27cf-367d-45e7-8c74-91545fd389dc:
+    uuid: 50df27cf-367d-45e7-8c74-91545fd389dc
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 500

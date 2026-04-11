@@ -1,0 +1,17 @@
+# @Wosh Theme Default features.
+features:
+   comment_user_picture: true
+   comment_user_verification: true
+   favicon: true
+   logo: true
+   name: false
+   node_user_picture: true
+   slogan: false
+preloader: '1'
+scrolltop: '1'
+site_layout: 'wide-layout'
+nav_align: 'text-md-center'
+sticky_header: 'non-sticky-header'
+footer_responsive: '0'
+footer_theme: 'light-footer'
+product_layout: 'product-layout1'

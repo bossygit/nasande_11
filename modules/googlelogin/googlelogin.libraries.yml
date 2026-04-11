@@ -1,0 +1,11 @@
+googlelogin:
+  version: 1.x
+  js:
+    https://accounts.google.com/gsi/client: { type: external, attributes: {defer: true, async: true }}
+googlelogin_javascript:
+  version: 1.x
+  js:
+    js/googlelogin_api.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

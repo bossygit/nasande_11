@@ -1,0 +1,21 @@
+googlelogin.callback:
+  path: '/googlelogin/callback'
+  defaults:
+    _controller: '\Drupal\googlelogin\Controller\GoogleLoginController::callback'
+  methods:  [GET, POST]
+  requirements:
+    _access: 'TRUE'
+googlelogin.admin_config:
+  path: '/admin/config/googlelogin'
+  defaults:
+    _title: 'Google Login'
+    _form: 'Drupal\googlelogin\Form\GoogleOAuthCredentialsForm'
+  requirements:
+    _permission: 'administer site configuration'
+googlelogin.icon_view:
+  path: '/admin/config/googlelogin/view'
+  defaults:
+    _title: 'Google Icon Settings'
+    _form: 'Drupal\googlelogin\Form\GoogleIconSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

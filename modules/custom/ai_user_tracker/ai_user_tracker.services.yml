@@ -1,0 +1,11 @@
+services:
+  ai_user_tracker.commerce_subscriber:
+    class: Drupal\ai_user_tracker\EventSubscriber\CommerceEventSubscriber
+    arguments: ['@current_route_match', '@request_stack', '@logger.channel.ai_user_tracker']
+    tags:
+      - { name: event_subscriber }
+
+  logger.channel.ai_user_tracker:
+    parent: logger.channel_base
+    arguments: ['ai_user_tracker']
+

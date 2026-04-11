@@ -1,0 +1,56 @@
+
+#edit-third-party-settings-hsblock {
+    display: block;
+    padding: 15px 20px 0 20px;
+    border-color: #eee;
+	border-bottom: none;
+    border-radius: 0;
+    margin-top: 30px;
+	margin-bottom: 0;
+}
+#edit-third-party-settings-hsblock .form-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+#edit-third-party-settings-hsblock .form-wrapper .form-item:last-child {
+	border-bottom: none;
+    margin-bottom: 0;
+}
+#edit-third-party-settings-hsblock-block-theme.form-wrapper .form-item:last-child {
+	border-bottom: 1px solid #eee;
+}
+#edit-third-party-settings-hsblock .form-wrapper {
+	border-color: #eee;
+}
+#edit-third-party-settings-hsblock label {
+    margin-bottom: 7px;
+}
+#edit-third-party-settings-hsblock select {
+    padding: 7px 30px 7px 20px;
+    width: 180px;
+}
+#edit-third-party-settings-hsblock .form-text, 
+#edit-third-party-settings-hsblock .form-textarea {
+    padding: 8px 15px 8px 10px;
+}
+#edit-third-party-settings-hsblock input.form-file {
+    padding: 8px 30px 8px 8px;
+}
+#edit-third-party-settings-hsblock fieldset:not(.fieldgroup) > legend {
+	top: 0;
+    position: relative;
+}
+#edit-third-party-settings-hsblock-block-theme {
+	margin-bottom: 0 !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+.form-item-files-block-bg-image {
+    margin-bottom: 40px !important;
+    background-color: #fcfcfa;
+    padding: 20px 20px 30px 20px;
+    margin-top: -2px !important;
+    border: 1px solid #eee;
+    border-top: none;
+}

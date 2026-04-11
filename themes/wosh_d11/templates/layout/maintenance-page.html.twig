@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Theme override to display a single Drupal page while offline.
+ *
+ * All available variables are mirrored in page.html.twig.
+ * Some may be blank but they are provided for consistency.
+ *
+ * @see template_preprocess_maintenance_page()
+ */
+#}
+<div class="layout-container">
+
+  <main role="main" class="maintenance-msg">
+
+	<div class="maintenance-icon">
+	<i class="fa fa-exclamation-triangle fa-5x"></i>
+	</div>
+    <div class="clearfix">
+      {% if title %}
+        <h1>{{ title }}</h1>
+      {% endif %}
+    <div>
+    {{ page.highlighted }}
+
+    {{ page.content }}
+
+  </main>
+
+</div>{# /.layout-container #}

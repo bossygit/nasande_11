@@ -1,0 +1,11 @@
+name: AI Knowledge Base
+type: module
+description: 'Base de connaissances structurée avec API et export IA.'
+core_version_requirement: ^10 || ^11
+package: 'AI'
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:rest
+  - drupal:serialization
+

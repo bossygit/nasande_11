@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 100x100
+label: 100x100
+effects:
+  a14a2999-3717-4953-a859-a1b137f8457a:
+    uuid: a14a2999-3717-4953-a859-a1b137f8457a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 100

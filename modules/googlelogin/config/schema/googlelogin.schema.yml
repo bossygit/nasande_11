@@ -1,0 +1,41 @@
+googlelogin.settings:
+  type: config_object
+  label: 'Google OAuth Login settings'
+  mapping:
+    client_id:
+      type: text
+      label: 'Google Api Client ID'
+    api_type:
+      type: string
+      label: 'Api Type'
+googlelogin.icon.settings:
+  type: config_object
+  label: 'Google Login Icon settings'
+  mapping:
+    type:
+      type: string
+      label: 'Type of button'
+    theme:
+      type: string
+      label: 'Theme of the sign in button'
+    size:
+      type: string
+      label: 'Size of the sign in button'
+    text:
+      type: string
+      label: 'Text of the sign in button'
+    shape:
+      type: string
+      label: 'Shape of the sign in button'
+    logo_alignment:
+      type: string
+      label: 'Logo Alignment of the sign in button'
+    locale:
+      type: string
+      label: 'Localization of the sign in button'
+    show_on_login_form:
+      type: boolean
+      label: 'Show sign-in button on Login Form'
+    width:
+      type: string
+      label: 'Width of the button/icon'

@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ */
+#}
+
+{%
+  set classes = [
+    'block',
+	'action-block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div class="cta-{{ content.field_cta_format['#items'].value }}">
+<div{{ attributes.addClass(classes) }} {% if block_style %}style="{{ block_style }}"{% endif %}>
+<div class="container-wrap clearfix">
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {% block content %}
+
+ {% if content.field_cta_format['#items'].getValue()|first.value == "style1" %} 
+	<div class="cta-wrap action-block-1 text-center">
+	  {% if label %}
+		<div class="block-title-wrap clearfix">
+		<div class="block-title-content">
+		{% if block_title_style == 'block-title-2' %}
+		{% if block_subtitle %}<h5 class="block-subtitle">{{ block_subtitle }}</h5>{% endif %}
+		<h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+		{% else %}
+		<h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+		{% if block_subtitle %}<h5 class="block-subtitle">{{ block_subtitle }}</h5>{% endif %}
+		{% endif %}
+		</div>
+		</div>
+	  {% endif %}
+		<div class="cta-text margin-bottom-20">{{ content.body }}</div>
+		{% if content.field_link|render %}
+		<div class="nav menu cta-link"><a href="{{ content.field_link.0['#url'] }}" class="button">{{ content.field_link.0['#title'] }}</a></div>
+		{% endif %}
+	</div>
+
+ {% else %} 
+	<div class="cta-wrap action-block-2 row">
+		<div class="col-sm-9 cta-text">{{ content.body }}</div>
+		{% if content.field_link|render %}
+		<div class="nav menu col-sm-3 text-middle cta-link"><a href="{{ content.field_link.0['#url'] }}" class="button">{{ content.field_link.0['#title'] }}</a></div>
+		{% endif %}
+	</div>
+
+ {% endif %}
+
+  {% endblock %}
+</div>
+</div>
+</div>

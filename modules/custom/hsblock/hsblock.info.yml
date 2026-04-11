@@ -1,0 +1,9 @@
+name: 'HS Block Configuration'
+type: module
+description: 'Custom Configuration for blocks'
+package: Huge
+version: '2.0'
+core_version_requirement: ^10 || ^11
+project: 'hsblock'
+dependencies:
+  - block

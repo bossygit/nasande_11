@@ -1,0 +1,9 @@
+services:
+  ai_knowledge_base.indexer:
+    class: Drupal\ai_knowledge_base\Service\KnowledgeIndexer
+    arguments: ['@entity_type.manager', '@file_system', '@logger.channel.ai_knowledge_base']
+
+  logger.channel.ai_knowledge_base:
+    parent: logger.channel_base
+    arguments: ['ai_knowledge_base']
+

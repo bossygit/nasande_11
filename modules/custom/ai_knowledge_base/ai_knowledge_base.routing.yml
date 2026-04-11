@@ -1,0 +1,27 @@
+ai_knowledge_base.api_list:
+  path: '/api/knowledge'
+  defaults:
+    _controller: '\Drupal\ai_knowledge_base\Controller\KnowledgeController::list'
+    _format: 'json'
+  requirements:
+    _permission: 'access content'
+  methods: [GET]
+
+ai_knowledge_base.api_detail:
+  path: '/api/knowledge/{nid}'
+  defaults:
+    _controller: '\Drupal\ai_knowledge_base\Controller\KnowledgeController::detail'
+    _format: 'json'
+  requirements:
+    _permission: 'access content'
+    nid: '\d+'
+  methods: [GET]
+
+ai_knowledge_base.admin_dashboard:
+  path: '/admin/reports/knowledge'
+  defaults:
+    _controller: '\Drupal\ai_knowledge_base\Controller\KnowledgeController::admin'
+    _title: 'Knowledge Base Report'
+  requirements:
+    _permission: 'administer site configuration'
+

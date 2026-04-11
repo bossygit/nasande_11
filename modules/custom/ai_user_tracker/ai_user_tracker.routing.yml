@@ -1,0 +1,28 @@
+ai_user_tracker.behavior_get:
+  path: '/api/user/behavior'
+  defaults:
+    _controller: '\Drupal\ai_user_tracker\Controller\BehaviorController::list'
+    _format: 'json'
+  requirements:
+    _permission: 'access content'
+  methods: [GET]
+
+ai_user_tracker.behavior_post:
+  path: '/api/user/behavior/track'
+  defaults:
+    _controller: '\Drupal\ai_user_tracker\Controller\BehaviorController::track'
+    _format: 'json'
+  requirements:
+    _permission: 'access content'
+  methods: [POST]
+
+# Admin reporting page
+ai_user_tracker.admin_report:
+  path: '/admin/reports/ai-user-behavior'
+  defaults:
+    _controller: '\Drupal\ai_user_tracker\Controller\BehaviorController::admin'
+    _title: 'AI User Behavior'
+  requirements:
+    _permission: 'administer site configuration'
+
+

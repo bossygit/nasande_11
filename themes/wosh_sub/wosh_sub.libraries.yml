@@ -1,0 +1,14 @@
+global-styling:
+  Version: 8.x
+  css:
+    theme:
+      assets/css/colors.css: {}
+      assets/css/custom.css: {}
+
+color.preview:
+  version: VERSION
+  css:
+    theme:
+      color/preview.css: {}
+  dependencies:
+    - color/drupal.color

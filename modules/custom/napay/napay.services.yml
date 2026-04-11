@@ -1,0 +1,5 @@
+services:
+  napay.variation_availability_checker:
+    class: Drupal\napay\VariationAvailabilityChecker
+    tags:
+      - { name: commerce.availability_checker, priority: 100 }

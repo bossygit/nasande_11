@@ -1,0 +1,4 @@
+# Schema for the configuration files of the wosh theme.
+wosh.settings:
+  type: theme_settings
+  label: 'Wosh Settings'

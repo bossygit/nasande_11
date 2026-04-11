@@ -1,0 +1,13 @@
+shuffle:
+  css:
+    base:
+      css/shuffle.css: {}
+  js:
+    js/shuffle.js: {}
+  dependencies:
+    - wosh/shuffle
+    - core/jquery
+    - core/jquery.ui
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

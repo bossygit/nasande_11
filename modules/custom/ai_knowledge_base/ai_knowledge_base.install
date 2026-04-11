@@ -1,0 +1,103 @@
+<?php
+
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\node\Entity\NodeType;
+use Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * Implements hook_install().
+ */
+function ai_knowledge_base_install() {
+  // Create content type: knowledge_entry.
+  if (!NodeType::load('knowledge_entry')) {
+    $type = NodeType::create([
+      'type' => 'knowledge_entry',
+      'name' => 'Knowledge Entry',
+      'description' => 'Entrée de la base de connaissances AI',
+    ]);
+    $type->setNewRevision(TRUE);
+    $type->setPreviewMode(1);
+    $type->setDisplaySubmitted(FALSE);
+    $type->save();
+  }
+
+  // Create taxonomy vocabulary: ai_concepts.
+  if (!Vocabulary::load('ai_concepts')) {
+    Vocabulary::create([
+      'vid' => 'ai_concepts',
+      'name' => 'AI Concepts',
+      'description' => 'Concepts / thématiques AI',
+    ])->save();
+  }
+
+  // field_summary (text long)
+  if (!FieldStorageConfig::loadByName('node', 'field_summary')) {
+    FieldStorageConfig::create([
+      'field_name' => 'field_summary',
+      'entity_type' => 'node',
+      'type' => 'text_long',
+      'translatable' => TRUE,
+    ])->save();
+  }
+  if (!FieldConfig::loadByName('node', 'knowledge_entry', 'field_summary')) {
+    FieldConfig::create([
+      'field_name' => 'field_summary',
+      'entity_type' => 'node',
+      'bundle' => 'knowledge_entry',
+      'label' => 'Summary',
+      'required' => FALSE,
+    ])->save();
+  }
+
+  // field_content (text long)
+  if (!FieldStorageConfig::loadByName('node', 'field_content')) {
+    FieldStorageConfig::create([
+      'field_name' => 'field_content',
+      'entity_type' => 'node',
+      'type' => 'text_long',
+      'translatable' => TRUE,
+    ])->save();
+  }
+  if (!FieldConfig::loadByName('node', 'knowledge_entry', 'field_content')) {
+    FieldConfig::create([
+      'field_name' => 'field_content',
+      'entity_type' => 'node',
+      'bundle' => 'knowledge_entry',
+      'label' => 'Content',
+      'required' => TRUE,
+      'settings' => ['display_summary' => TRUE],
+    ])->save();
+  }
+
+  // field_ai_concepts (entity reference to ai_concepts)
+  if (!FieldStorageConfig::loadByName('node', 'field_ai_concepts')) {
+    FieldStorageConfig::create([
+      'field_name' => 'field_ai_concepts',
+      'entity_type' => 'node',
+      'type' => 'entity_reference',
+      'settings' => [
+        'target_type' => 'taxonomy_term',
+      ],
+      'cardinality' => -1,
+      'translatable' => TRUE,
+    ])->save();
+  }
+  if (!FieldConfig::loadByName('node', 'knowledge_entry', 'field_ai_concepts')) {
+    FieldConfig::create([
+      'field_name' => 'field_ai_concepts',
+      'entity_type' => 'node',
+      'bundle' => 'knowledge_entry',
+      'label' => 'AI Concepts',
+      'required' => FALSE,
+      'settings' => [
+        'handler' => 'default:taxonomy_term',
+        'handler_settings' => [
+          'target_bundles' => ['ai_concepts' => 'ai_concepts'],
+        ],
+      ],
+    ])->save();
+  }
+}
+
+

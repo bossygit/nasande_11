@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+<div {{ attributes }} >
+  {{ title_prefix }}
+  {{ title_suffix }}
+	<div class="slide-image"><img src="{{ file_url(content.field_image.0['#item'].entity.uri.value) }}" alt="{{ content.field_image.0['#item'].alt }}"/></div>
+	{% if content.field_heading_text or content.body or content.field_link  %}
+	<div class="slide-content-wrap">
+		<div class="container slide-wrap">
+		<div class="slide-content {{ node.field_text_color.value }}">
+		<div class="slide-content-main {{ node.field_content_placement.value }} {{ node.field_text_align.value }}">
+		{% if content.field_pre_heading_text | render %}
+		<div class="pre-heading-text" data-animation-in="bounceInDown" data-animation-out="animate-out slideOutUp">{{ content.field_pre_heading_text }}</div>
+		{% endif %}
+		{% if content.field_heading_text | render %}
+		<div class="heading-text">{{ content.field_heading_text }}</div>
+		{% endif %}
+		{% if content.body | render %}
+		<div class="slide-content-body" data-animation-in="slideInRight" data-animation-out="animate-out fadeOut">{{ content.body }}</div>
+		{% endif %}
+		{% if content.field_link | render %}
+		<div class="nav menu alt-button mt-4 slide-button" data-animation-in="bounceInUp" data-animation-out="animate-out slideOutDown">
+		<a class="slide-button-link" href="{{ content.field_link.0['#url'] }}">{{ content.field_link.0['#title'] }} <i class="fa fa-angle-double-right"></i></a>
+		</div>
+		{% endif %}
+		</div>
+		</div>
+		</div>
+	</div>
+	{% endif %}
+</div>

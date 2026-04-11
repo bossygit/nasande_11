@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node-type-' ~ node.bundle|clean_class,
+	'node-content',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+  ]
+%}
+
+{% if teaser %}
+<div{{ attributes.addClass('testimonial') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+<div class="testimonial-content">
+<div class="testimonial-body">{{ content.body }}</div>
+{% if content.field_image | render %}
+<div class="testimonial-image">{{ content.field_image }}</div>
+{% endif %}
+<h5 class="testimonial-title">{{ label }}</h5>
+{% if content.field_position | render %}
+<div class="testimonial-position">{{ node.field_position.value}}</div>
+{% endif %}
+</div>
+</div>
+
+{% else %}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+<div class="row">
+<div class="col-sm-4">
+{{ content.field_image }}
+</div>
+
+<div class="col-sm-8">
+<h3 class="node-name-title">{{ label }}</h3>
+{% if content.field_position | render %}
+<div class="testimonial-position">{{ node.field_position.value }}</div>
+{% endif %}
+<div class="testimonial-body">{{ content.body }}</div>
+</div>
+</div>
+</div>
+{% endif %}

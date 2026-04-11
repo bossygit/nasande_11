@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Contains views_bootstrap_grid.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function views_bootstrap_grid_theme() {
+  return [
+    'views_bootstrap_grid_views' => [
+      'variables' => [],
+    ],
+  ];
+}
+
+/**
+ * Variables for Views bootstrap grid templates.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: A View object.
+ */
+function template_preprocess_views_bootstrap_grid_views(&$variables) {
+  $handler = $variables['view']->style_plugin;
+  $options = $handler->options;
+  $variables['attributes']['class'][] = 'row';
+  $variables['attributes']['class'][] = 'grid-wrapper';
+  $variables['grid_classes'] = views_bootstrap_grid_build_classes($options);
+  $variables['grid_item'] = $options['grid_item'];
+  if ($options['grid_item']) {
+	 $variables['attributes']['class'][] = 'grid';
+  }
+  template_preprocess_views_view_unformatted($variables);
+}
+
+function views_bootstrap_grid_build_classes($options) {
+  $css = array();
+  $devices = array(
+    'sm',
+    'md',
+    'lg'
+  );
+
+  foreach ($devices as $device) {
+    if ($options['sm']) {
+      $css[] = 'col-' . $options['sm'];
+    }
+	
+	if ($options[$device]) {
+      $css[] = 'col-' . $device . '-' . $options[$device];
+    }
+  }
+  return $css;
+}

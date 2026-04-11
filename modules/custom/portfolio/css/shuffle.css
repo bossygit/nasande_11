@@ -1,0 +1,60 @@
+.field-shuffle-display {
+  float: none;
+  width: 100%;
+}
+.shuffle-container {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-wrapper .shuffle-container,
+.fullwidth .shuffle-container {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+.shuffle-item {
+  height: auto;
+  margin-bottom: 30px;
+}
+.no-gutter {
+	padding: 0 !important;
+	margin-bottom: 0;
+}
+.shuffle-inner {
+  display: block;
+  position: relative;
+}
+.field-shuffle-display .shuffle-inner img {
+  margin: 0;
+}
+.shuffle-inner .shuffle-caption {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  color: #bdbdbd;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.shuffle-inner .shuffle-caption p {
+  padding: 5px 10px;
+  margin: 0;
+}
+.shuffle-filters-container .filter-label {
+  margin: 1em;
+}
+.shuffle-filters,
+.shuffle-filters-container {
+  display: block;
+}
+.shuffle-filters-container {
+    margin-top: 0;
+}
+.shuffle-filters li {
+    padding: 8px 0;
+    position: relative;
+    margin: 0;
+    list-style-type: none;
+	display: block;
+}
+.shuffle-filters li:after {
+    content: "";
+    display: block;
+}

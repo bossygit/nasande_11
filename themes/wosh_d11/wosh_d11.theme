@@ -1,0 +1,435 @@
+<?php
+
+/**
+ * @file
+ * wosh_d11_theme
+ *
+ * Filename:     Wosh D11 Theme
+ * Website:      http://www.hugestem.com
+ * Description:  Drupal 11 Commerce Template
+ * Author:       HUGESTEM
+ * Version:      2.0 (Drupal 11 Compatible)
+ */
+
+use Drupal\Core\Template\RenderWrapper;
+use Drupal\Core\Template\Attribute;
+use Drupal\search\Form\SearchBlockForm;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\system\Form\ThemeSettingsForm;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Drupal\path_alias\AliasManagerInterface;
+use Drupal\path_alias\PathProcessor\AliasPathProcessor;
+use Drupal\taxonomy\Entity\Term;
+
+// Define theme path constant
+define('WOSH_D11_THEME_PATH', base_path() . \Drupal::service('extension.list.theme')->getPath('wosh_d11'));
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function wosh_d11_views_pre_render(\Drupal\views\ViewExecutable $view) {
+  if ($view->id() == "frontpage" && $view->current_display == 'page_1') {
+    // Use some or all of the following 3 lines to remove specific
+    // 'no results' behaviors
+    unset($view->empty['area_text_custom']);
+    unset($view->empty['node_listing_empty']);
+    unset($view->empty['title']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_page() for templates.
+ */
+function wosh_d11_preprocess_page(&$variables) {
+  // RESPONSIVE CLASS FOR FOOTER WIDGET
+  if (!empty($variables['page']['footer_first']) && !empty($variables['page']['footer_second']) && !empty($variables['page']['footer_third']) && !empty($variables['page']['footer_forth'])) {
+    $variables['footer_class'] = t('col-md-3');
+  }
+  else if ((!empty($variables['page']['footer_first']) && !empty($variables['page']['footer_second']) && !empty($variables['page']['footer_third'])) or (!empty($variables['page']['footer_first']) && !empty($variables['page']['footer_second']) && !empty($variables['page']['footer_forth'])) or (!empty($variables['page']['footer_second']) && !empty($variables['page']['footer_third']) && !empty($variables['page']['footer_forth']))) {
+    $variables['footer_class'] = 'col-md-4';
+  }
+  else if((!empty($variables['page']['footer_first']) && !empty($variables['page']['footer_second'])) or (!empty($variables['page']['footer_first']) && !empty($variables['page']['footer_third'])) or (!empty($variables['page']['footer_first']) && !empty($variables['page']['footer_forth'])) or (!empty($variables['page']['footer_second']) && !empty($variables['page']['footer_third'])) or (!empty($variables['page']['footer_second']) && !empty($variables['page']['footer_forth'])) or (!empty($variables['page']['footer_third']) && !empty($variables['page']['footer_forth']))) {
+    $variables['footer_class'] = 'col-md-6';
+  }
+  else {
+    $variables['footer_class'] = 'col-md-12';
+  }
+  
+  // DYNAMIC CLASS FOR THE NUMBER OF SIDEBARS
+  if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
+    
+	if ($variables['is_front']) {
+		$variables['contentlayout'] = 'col-md-4';
+		$variables['sidebarfirst'] = 'col-md-4';
+		$variables['sidebarsecond'] = 'col-md-4';
+	} else {
+		$variables['contentlayout'] = 'col-md-6';
+		$variables['sidebarfirst'] = 'col-md-3';
+		$variables['sidebarsecond'] = 'col-md-3';
+	}
+  }
+  elseif (!empty($variables['page']['sidebar_first'])) {
+    if ($variables['is_front']) {
+		$variables['contentlayout'] = 'col-md-8';
+		$variables['sidebarfirst'] = 'col-md-4';	
+	} else {
+		$variables['contentlayout'] = 'col-md-9';
+		$variables['sidebarfirst'] = 'col-md-3';
+	}
+  }
+  elseif (!empty($variables['page']['sidebar_second'])) {
+    if ($variables['is_front']) {
+		$variables['contentlayout'] = 'col-md-8';
+		$variables['sidebarsecond'] = 'col-md-4';
+	} else {
+		$variables['contentlayout'] = 'col-md-9';
+		$variables['sidebarsecond'] = 'col-md-3';
+	}
+  }
+  else {
+    $variables['contentlayout'] = 'col-md-12';
+  }
+  
+  // BASIC SETTINGS VARIABLE
+  $variables['preloader'] = theme_get_setting('preloader');
+  $variables['scrolltop'] = theme_get_setting('scrolltop'); 
+
+  // LAYOUT SETTINGS VARIABLE
+  $variables['site_layout'] = theme_get_setting('site_layout');
+ 
+  // HEADER SETTINGS VARIABLE
+  $variables['header_style'] = theme_get_setting('header_style');
+  $variables['nav_align'] = theme_get_setting('nav_align');
+  $variables['sticky_header'] = theme_get_setting('sticky_header');
+  
+  // FOOTER SETTINGS VARIABLE
+  $variables['footer_responsive'] = theme_get_setting('footer_responsive');
+  $variables['footer_first_size'] = theme_get_setting('footer_first_size');
+  $variables['footer_second_size'] = theme_get_setting('footer_second_size');
+  $variables['footer_third_size'] = theme_get_setting('footer_third_size');
+  $variables['footer_forth_size'] = theme_get_setting('footer_forth_size');
+  $variables['footer_theme'] = theme_get_setting('footer_theme');
+}
+
+/**
+ * Implements hook_preprocess_html() for html.html.twig
+ */
+function wosh_d11_preprocess_html(&$variables) {
+  $variables['custom_css'] = theme_get_setting('custom_css');
+  
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    $variables['attributes']['class'][] = 'page-node-' . $node->id();
+  }
+  $current_path = \Drupal::service('path.current')->getPath();
+  $variables['current_path'] = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+}
+
+/**
+ * Implements hook_preprocess_commerce_product() for commerce-product.html.twig
+ */
+function wosh_d11_preprocess_commerce_product(&$variables) {
+  $variables['product_layout'] = theme_get_setting('product_layout');
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter() for page 404.
+ */
+function wosh_d11_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  $path_args = explode('/', trim(\Drupal::service('path.current')->getPath(), '/'));
+  $suggestions = theme_get_suggestions($path_args, 'page');
+  $http_error_suggestions = [
+    'system.401' => 'page__401',
+    'system.403' => 'page__403',
+    'system.404' => 'page__404',
+  ];
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if (isset($http_error_suggestions[$route_name])) {
+    $suggestions[] = $http_error_suggestions[$route_name];
+  }
+  return $suggestions;
+}
+
+/**
+ * Implements hook_preprocess_breadcrumb().
+ */
+function wosh_d11_preprocess_breadcrumb(&$variables) {
+  if ($variables['breadcrumb']) {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    
+    if (!empty($page_title)) {
+      $variables['breadcrumb'][] = [
+        'text' => $page_title,
+        'attributes' => new Attribute(['class' => ['active']])
+      ];
+	  $variables['#cache']['contexts'][] = 'url';
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter() for block templates.
+ */
+function wosh_d11_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+/**
+ * Hide wysiwyg from comments.
+ */
+function wosh_d11_form_alter(&$form, &$form_state, $form_id) {
+	if ($form_id == 'comment_form') {
+		$form['comment_filter']['format'] = array();
+	}
+}
+
+/**
+ * Implements hook_preprocess_user().
+ */
+function wosh_d11_preprocess_user(&$variables) {
+  $view_mode = isset($variables['elements']['#view_mode']) ? $variables['elements']['#view_mode'] : 'default';
+  $variables['attributes']['class'][] = $view_mode;
+  $variables['view_mode'] = $view_mode;
+
+  $user = $variables['user'];
+  $variables['name'] = $user->label();
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function wosh_d11_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+	$form['#attached']['library'][] = 'wosh_d11/theme-setting';
+
+	$form['wosh_d11_settings'] = [
+		'#type' => 'vertical_tabs',
+		'#parents' => ['wosh_d11_settings'],
+	];
+	
+	// DEFAULT DRUPAL SETTINGS   
+	$form['drupal_default_settings'] = array(
+		'#type' => 'details',
+		'#title' => t('Drupal Core Settings'),
+		'#group' => 'wosh_d11_settings',
+		'#weight' => 0
+	);
+	
+	$form['theme_settings']['#group'] = 'drupal_default_settings';
+	$form['favicon']['#group'] = 'drupal_default_settings';
+	$form['logo']['#group'] = 'drupal_default_settings';
+
+	// BASIC SETTINGS
+	$form['basic_settings'] = array(
+		'#type' => 'details',
+		'#title' => t('General'),
+		'#group' => 'wosh_d11_settings',
+	);
+
+	// PRELOADER
+    $form['basic_settings']['preloader'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Show Preloader'),
+        '#description'   => t('Use the checkbox to enable or disable the preloader.'),
+        '#default_value' => theme_get_setting('preloader'),
+    );
+	// SCROLL TO TOP BUTTON
+    $form['basic_settings']['scrolltop'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Show scroll to top button'),
+        '#description'   => t('Use the checkbox to enable or disable scroll to top button.'),
+        '#default_value' => theme_get_setting('scrolltop'),
+    );
+
+	// LAYOUT
+	$form['layout'] = array(
+		'#type' => 'details',
+		'#title' => t('Layout'),
+		'#group' => 'wosh_d11_settings',
+	);
+	
+	$form['layout']['site_layout'] = array(
+        '#type' => 'select',
+        '#title' => t('Select Layout'),
+        '#default_value' => theme_get_setting('site_layout'),
+		'#options' => array(
+					'wide-layout' => t('Wide Layout'),
+					'framed-layout' => t('Framed Layout'),
+					'boxed-layout' => t('Boxed Layout'),
+			),
+    );
+
+  // HEADER SETTINGS
+	$form['header_settings'] = array(
+		'#type' => 'details',
+		'#title' => t('Header'),
+		'#group' => 'wosh_d11_settings',
+	);
+	// HEADER OPTIONS
+    $form['header_settings']['header_option'] = array(
+      '#type' => 'fieldset',
+	  '#title' => t('Header Settings'),
+    );
+	
+		// HEADER STYLE
+		$form['header_settings']['header_option']['header_style'] = array(
+			'#title' => t('Header Style'),
+			'#default_value' => theme_get_setting('header_style'),
+			'#type' => 'select',
+			'#options' => array(
+						'header-default' => t('Default Header'),
+						'header-transparent' => t('Transparent Header'),
+				),
+		);
+	
+		// NAV ALIGN
+		$form['header_settings']['header_option']['nav_align'] = array(
+			'#title' => t('Header Menu Position'),
+			'#default_value' => theme_get_setting('nav_align'),
+			'#type' => 'select',
+			'#options' => array(
+						'text-md-center' => t('Center (Default)'),
+						'text-md-left' => t('Left'),
+						'text-md-right' => t('Right')
+				),
+		);
+		
+		// STICKY HEADER
+		$form['header_settings']['header_option']['sticky_header'] = array(
+			'#title' => t('Sticky Header'),
+			'#default_value' => theme_get_setting('sticky_header'),
+			'#type' => 'select',
+			'#options' => array(
+						'sticky-header' => t('Enable'),
+						'non-sticky-header' => t('Disable'),
+				),
+		);
+
+	// FOOTER SETTINGS
+	$form['footer_settings'] = array(
+		'#type' => 'details',
+		'#title' => t('Footer'),
+		'#group' => 'wosh_d11_settings',
+	);
+
+	// FOOTER SIZE OPTIONS
+    $form['footer_settings']['footer_size'] = array(
+      '#type' => 'fieldset',
+	  '#title' => t('footer Size'),
+    );		
+	
+	$form['footer_settings']['footer_size']['footer_responsive'] = array(
+		'#type' => 'checkbox',
+		'#title' => t('Disable Automatic Responsive Footer Size'),
+		'#description'   => t('Use the checkbox to disable automatic responsive footer widget sizes and set the size manually.'),
+		'#default_value' => theme_get_setting('footer_responsive'),
+	);
+	
+    $form['footer_settings']['footer_size']['footer_size_option'] = array(
+      '#type' => 'fieldset',
+	  '#title' => t('Footer Size Option'),
+      '#states' => array (
+          'visible' => array(
+            ':input[name="footer_responsive"]' => array('checked' => TRUE),
+          )
+        )
+    );	
+	
+	// FOOTER SIZE OPTIONS
+    $footer_size_options = array(
+		'col-md-12' => t('col-md-12'),
+		'col-md-10' => t('col-md-10'),
+		'col-md-9' => t('col-md-9'),
+		'col-md-8' => t('col-md-8'),
+		'col-md-7' => t('col-md-7'),
+		'col-md-6' => t('col-md-6'),
+		'col-md-5' => t('col-md-5'),
+		'col-md-4' => t('col-md-4'),
+		'col-md-3' => t('col-md-3'),
+		'col-md-2' => t('col-md-2'),
+	);
+
+	// FOOTER SIZE FIELDS
+    $form['footer_settings']['footer_size']['footer_size_option']['footer_first_size'] = array(
+        '#title' => t('Footer First Size'),
+        '#default_value' => theme_get_setting('footer_first_size'),
+		'#type' => 'select',
+		'#options' => $footer_size_options,
+    );
+
+    $form['footer_settings']['footer_size']['footer_size_option']['footer_second_size'] = array(
+        '#title' => t('Footer Second Size'),
+        '#default_value' => theme_get_setting('footer_second_size'),
+		'#type' => 'select',
+		'#options' => $footer_size_options,
+    );
+
+    $form['footer_settings']['footer_size']['footer_size_option']['footer_third_size'] = array(
+        '#title' => t('Footer Third Size'),
+        '#default_value' => theme_get_setting('footer_third_size'),
+		'#type' => 'select',
+		'#options' => $footer_size_options,
+    );
+
+    $form['footer_settings']['footer_size']['footer_size_option']['footer_forth_size'] = array(
+        '#title' => t('Footer Forth Size'),
+        '#default_value' => theme_get_setting('footer_forth_size'),
+		'#type' => 'select',
+		'#options' => $footer_size_options,
+    );
+	
+	// FOOTER COLOR OPTIONS
+    $form['footer_settings']['footer_color'] = array(
+      '#type' => 'fieldset',
+	  '#title' => t('footer Color'),
+    );	
+	
+		$form['footer_settings']['footer_color']['footer_theme'] = array(
+			'#title' => t('Select footer Background Color'),
+			'#default_value' => theme_get_setting('footer_theme'),
+			'#type' => 'select',
+			'#options' => array(
+						'light-footer' => t('Light'),
+						'dark-footer text-light' => t('Dark'),
+						'colored-footer text-light' => t('Colored'),
+						'plain-footer' => t('Plain'),
+				),
+		);
+
+	// PRODUCT LAYOUT
+	$form['commerce'] = array(
+		'#type' => 'details',
+		'#title' => t('Commerce'),
+		'#group' => 'wosh_d11_settings',
+	);
+	
+    $form['commerce']['product_layout'] = array(
+        '#type' => 'select',
+        '#title' => t('Select Commerce Product Teaser Layout'),
+        '#default_value' => theme_get_setting('product_layout'),
+		'#options' => array(
+					'product-layout1' => t('Layout 1'),
+					'product-layout2' => t('Layout 2'),
+					'product-layout3' => t('Layout 3'),
+					'product-layout4' => t('Layout 4'),
+			),
+    );
+		
+	// STYLE SETTING
+	$form['style_settings'] = array(
+		'#type' => 'details',
+		'#title' => t('CSS'),
+		'#group' => 'wosh_d11_settings',
+	);
+	
+   // CUSTOM CSS
+	$form['style_settings']['custom_css'] = array(
+		'#type' => 'textarea',
+		'#title' => t('Add Custom CSS'),
+		'#description'   => t('<strong>EXAMPLE:</strong><br/>.menu a { color: #222; text-transform: uppercase; } '),
+		'#default_value' => theme_get_setting('custom_css'),
+	);
+}

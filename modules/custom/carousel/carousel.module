@@ -1,0 +1,171 @@
+<?php
+
+/**
+ * @file
+ * Contains carousel.module..
+ */
+use Drupal\Core\Field;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function carousel_theme() {
+  return [
+    'carousel' => [
+      'variables' => ['items' => NULL, 'settings' => NULL],
+    ],
+    'carousel_views' => [
+      'variables' => [],
+    ],
+  ];
+}
+
+/**
+ * Theme for carousel
+ */
+function template_preprocess_carousel(&$variables) {
+  $items = $variables['items'];
+  $settings = _carousel_format_settings($variables['settings']);
+  $variables['attributes']['class'][] = 'owl-slider-field';
+  $variables['attributes']['class'][] = 'owl-slider-wrapper';
+  $variables['attributes']['class'][] = 'owl-carousel';
+  $variables['attributes']['data-settings'] = json_encode($settings);
+
+  $html = '';
+  if (!empty($items)) {
+    $i = 0;
+    foreach ($items as $item) {
+      $html .= '<div class="owl-item-inner owl-item-inner-' . $i . '">' . \Drupal::service('renderer')->render($item) . '</div>';
+      $i++;
+    }
+  }
+  $ouput = array(
+    '#type' => 'markup',
+    '#markup' => $html,
+  );
+  $variables['output'] = $ouput;
+}
+
+/**
+ * Prepares variables for Views Carousel templates.
+ *
+ * Default template: carousel-views.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: A View object.
+ */
+function template_preprocess_carousel_views(&$variables) {
+  $handler = $variables['view']->style_plugin;
+  $settings = _carousel_format_settings($handler->options);
+  $variables['attributes']['data-settings'] = json_encode($settings);
+  $variables['attributes']['class'][] = 'owl-slider-wrapper';
+  $variables['attributes']['class'][] = 'owl-carousel';
+  
+  $variables['items'] = $settings['items'];
+  $items = $variables['items'];
+  if (!empty($items)) {
+    $itm = 1;
+	if ($items > $itm){
+	$variables['attributes']['class'][] = 'owl-responsive';
+	}
+  }
+
+  $variables['#attached']['library'][] = 'carousel/owl-carousel';
+  template_preprocess_views_view_unformatted($variables);
+}
+
+/**
+ * Default settings for carousel
+ */
+function _carousel_default_settings($key = NULL) {
+  $settings = array(
+    'image_style' => '',
+    'image_link' => '',
+    'items' => 1,
+    'margin' => 30,
+    'autoplay' => FALSE,
+	'autoplaySpeed' => 1000,
+    'autoplayHoverPause' => FALSE,
+	'autoplayTimeout' => 4000,
+    'nav' => TRUE,
+	'navSpeed' => 800,
+	'loop' => TRUE,
+	'navRewind' => FALSE,
+	'rewindSpeed' => 1000,
+    'dots' => FALSE,
+    'dotsSpeed' => 800,
+	'slideBy' => 1,
+    'mouseDrag' => TRUE,
+    'touchDrag' => TRUE,
+	'pullDrag' => FALSE,
+	'freeDrag' => FALSE,
+	'stagePadding' => '',
+	'merge' => FALSE,
+	'mergeFit' => FALSE,
+	'center' => FALSE,
+	'autoWidth' => FALSE,
+	'video' => FALSE,
+	'videoHeight' => '',
+	'videoWidth' => '',
+  );
+
+  return isset($settings[$key]) ? $settings[$key] : $settings;
+}
+
+/**
+ * return formatted js array of settings
+ */
+function _carousel_format_settings($settings) {
+  $settings['items'] = (int) $settings['items'];
+  $settings['margin'] = (int) $settings['margin'];
+  $settings['autoplay'] = (bool) $settings['autoplay'];
+  $settings['autoplaySpeed'] = (int) $settings['autoplaySpeed'];
+  $settings['autoplayHoverPause'] = (bool) $settings['autoplayHoverPause'];
+  $settings['autoplayTimeout'] = (int) $settings['autoplayTimeout'];
+  $settings['nav'] = (bool) $settings['nav'];
+  $settings['navSpeed'] = (int) $settings['navSpeed'];
+  $settings['loop'] = (bool) $settings['loop'];
+  $settings['navRewind'] = (bool) $settings['navRewind'];
+  $settings['rewindSpeed'] = (int) $settings['rewindSpeed'];
+  $settings['dots'] = (bool) $settings['dots'];
+  $settings['dotsSpeed'] = (int) $settings['dotsSpeed'];
+  $settings['slideBy'] = (int) $settings['slideBy'];
+  $settings['mouseDrag'] = (bool) $settings['mouseDrag'];
+  $settings['touchDrag'] = (bool) $settings['touchDrag'];
+  $settings['pullDrag'] = (bool) $settings['pullDrag'];
+  $settings['freeDrag'] = (bool) $settings['freeDrag'];
+  $settings['stagePadding'] = (int) $settings['stagePadding'];
+  $settings['merge'] = (bool) $settings['merge'];
+  $settings['mergeFit'] = (bool) $settings['mergeFit'];
+  $settings['center'] = (bool) $settings['center'];
+  $settings['autoWidth'] = (bool) $settings['autoWidth'];
+  $settings['video'] = (bool) $settings['video'];
+  $settings['videoHeight'] = (int) $settings['videoHeight'];
+  $settings['videoWidth'] = (int) $settings['videoWidth'];
+  
+  if (isset($settings['image_style'])) {
+    unset($settings['image_style']);
+  }
+  if (isset($settings['image_link'])) {
+    unset($settings['image_link']);
+  }
+
+  return $settings;
+}
+
+/**
+ * Convert a string of settings to array.
+ * @param $str
+ * @return string
+ */
+function _carousel_string_to_array($str) {
+  $str = trim($str);
+  $str = str_replace('[', '', $str);
+  $str = str_replace(']', '', $str);
+  $str = explode(',', $str);
+
+  return $str;
+
+}

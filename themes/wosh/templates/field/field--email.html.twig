@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme implementation for a field.
+ */
+#}
+
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes.addClass(field_name) }}>
+      {% for item in items %}
+       <div{{ item.attributes.addClass('field_value')  }}>{{ item.content }}</div>
+      {% endfor %}
+    </div>
+{% else %}
+{% for item in items %}{{ item.content }}{% endfor %}
+{% endif %}
+
+{% else %}
+  <div{{ attributes.addClass(field_name) }}>
+    <div{{ title_attributes.addClass('field_label') }}>{{ label }}</div>
+    {% if multiple %}
+      <div>
+    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes.addClass('field_value') }}>{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

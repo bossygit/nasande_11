@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 360x480
+label: 360x480
+effects:
+  14257000-98b0-451b-9382-98b04d26189e:
+    uuid: 14257000-98b0-451b-9382-98b04d26189e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 360
+      height: 480

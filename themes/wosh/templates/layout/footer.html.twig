@@ -1,0 +1,78 @@
+{# @file wosh footer #}
+<footer id="footer" class="footer {{ footer_theme }}">
+	<!-- start Footer -->
+	{% if page.footer_first or page.footer_second or page.footer_third or page.footer_forth %}
+	  <div class="footer-widget">
+		<div class="container">
+			<div class="row">
+			{% if page.footer_first %}
+			<!-- Start Footer First Region -->
+			{% if footer_responsive %}
+			<div class="{{ footer_first_size }} footer-widget-section">
+			{% else %}
+			<div class="{{ footer_class }} footer-widget-section">
+			{% endif %}
+				{{ page.footer_first }}
+			</div>
+			<!-- End Footer First Region -->
+			{% endif %}
+
+			{% if page.footer_second %}
+			<!-- Start Footer Second Region -->
+			{% if footer_responsive %}
+			<div class="{{ footer_second_size }} footer-widget-section">
+			{% else %}
+			<div class="{{ footer_class }} footer-widget-section">
+			{% endif %}
+				{{ page.footer_second }}
+			</div>
+			<!-- End Footer Second Region -->
+			{% endif %}
+
+			{% if page.footer_third %}
+			<!-- Start Footer Third Region -->
+			{% if footer_responsive %}
+			<div class="{{ footer_third_size }} footer-widget-section">
+			{% else %}
+			<div class="{{ footer_class }} footer-widget-section">
+			{% endif %}
+				{{ page.footer_third }}
+			</div>
+			<!-- End Footer Third Region -->
+			{% endif %}
+			
+			{% if page.footer_forth %}
+			<!-- Start Footer Forth Region -->
+			{% if footer_responsive %}
+			<div class="{{ footer_forth_size }} footer-widget-section">
+			{% else %}
+			<div class="{{ footer_class }} footer-widget-section">
+			{% endif %}
+				{{ page.footer_forth }}
+			</div>
+			<!-- End Footer Forth Region -->
+			{% endif %}
+			</div>
+		</div>
+	  </div>
+	{% endif %}
+	<!--End Footer -->
+
+{% if page.footer_bottom_first or page.footer_bottom_second %}
+	<div class="footer-bottom">
+	  <div class="container">
+		<div class="row">
+		  <div class="col-md-6">
+			{{ page.footer_bottom_first }}
+		  </div>
+		  <div class="col-md-6">
+			{{ page.footer_bottom_second }}
+		  </div>
+		</div>
+	  </div>
+	</div>
+{% endif %}
+</footer>
+{% if scrolltop %}
+	<div class="back-to-top"><span class="ion-ios-arrow-up"></span></div>
+{% endif %}

@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ */
+#}
+{%
+  set classes = [
+    'field',
+    'field-' ~ field_name|clean_class,
+    'field-label-' ~ label_display,
+  ]
+%}
+{%
+  set title_classes = [
+    'field-label',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+{% if label_hidden %}
+  {% if multiple %}
+      {% for item in items %}
+        <div{{ item.attributes.addClass(classes, 'field-item') }} data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">{{ item.content }}</div></div>
+      {% endfor %}
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes.addClass(classes, 'field-item') }} data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">{{ item.content }}</div></div>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{ attributes.addClass(classes) }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    {% if multiple %}
+      <div class="field-items">
+    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes.addClass('field-item') }} data-animation-in="slideInRight" data-animation-out="animate-out slideOutUp"><div class="heading-text-content">{{ item.content }}</div></div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ */
+#}
+
+{%
+  set classes = [
+    'block',
+	'slide-block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }} {% if block_style %}style="{{ block_style }}"{% endif %}>
+<div class="container-wrap clearfix">
+{{ title_prefix }}
+{{ title_suffix }}
+{% block content %}
+ {% if content.field_slide_type['#items'].getValue()|first.value == "slide" %} 
+	<div class="hero slide-carousel owl-carousel" data-nav="true" data-items="1" data-dots="false" data-autoplay="true" data-autoplayspeed="1500" data-autoplaytimeout="8000" data-loop="true">
+		{{ content.field_slider_block }}
+	</div>
+ {% elseif content.field_slide_type['#items'].getValue()|first.value == "image" %} 
+	<div class="slider-image">
+		{{ content.field_slider_block.0 }}
+	</div>
+ {% endif %}
+{% endblock %}
+</div>
+</div>

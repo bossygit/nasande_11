@@ -1,0 +1,9 @@
+tracker:
+  version: 1.x
+  js:
+    js/ai_user_tracker.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+

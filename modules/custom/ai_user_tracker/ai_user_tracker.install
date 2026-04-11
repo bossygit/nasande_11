@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for AI User Tracker.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function ai_user_tracker_schema() {
+  $schema['ai_user_behavior'] = [
+    'description' => 'User behavioral events for AI analytics.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'uid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'User ID or 0 for anonymous.',
+      ],
+      'session_id' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'description' => 'Anonymous/session identifier.',
+      ],
+      'page_path' => [
+        'type' => 'varchar',
+        'length' => 512,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'event_type' => [
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ],
+      'metadata' => [
+        'type' => 'blob',
+        'size' => 'big',
+        'not null' => FALSE,
+        'description' => 'JSON metadata for the event.',
+      ],
+      'created' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'product_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'description' => 'Commerce product id when relevant.',
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'uid_created' => ['uid', 'created'],
+      'event_type' => ['event_type'],
+      'product_id' => ['product_id'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Add product_id column to ai_user_behavior.
+ */
+function ai_user_tracker_update_8101() {
+  $spec = [
+    'type' => 'int',
+    'unsigned' => TRUE,
+    'not null' => FALSE,
+    'description' => 'Commerce product id when relevant.',
+  ];
+  $schema = \Drupal::database()->schema();
+  if (!$schema->fieldExists('ai_user_behavior', 'product_id')) {
+    $schema->addField('ai_user_behavior', 'product_id', $spec);
+    $schema->addIndex('ai_user_behavior', 'product_id', ['product_id'], [
+      'fields' => [
+        'product_id' => [],
+      ],
+    ]);
+  }
+}
+
+/**
+ * Install the default view "most_viewed_products" if missing.
+ */
+function ai_user_tracker_update_8102() {
+  $configName = 'views.view.most_viewed_products';
+  $config = \Drupal::config($configName);
+  if ($config->isNew()) {
+    /** @var \Drupal\Core\Config\ConfigInstallerInterface $installer */
+    $installer = \Drupal::service('config.installer');
+    $installer->installDefaultConfig('module', 'ai_user_tracker');
+  }
+}
+
+/**
+ * Fix numeric filter config shape for most_viewed_products view.
+ */
+function ai_user_tracker_update_8103() {
+  $editable = \Drupal::service('config.factory')->getEditable('views.view.most_viewed_products');
+  if ($editable->isNew()) {
+    return;
+  }
+  $data = $editable->getRawData();
+  if (isset($data['display']['default']['display_options']['filters']['product_id_not_zero'])) {
+    $f =& $data['display']['default']['display_options']['filters']['product_id_not_zero'];
+    // Use 'not empty' operator to avoid value shape issues.
+    $f['operator'] = 'not empty';
+    unset($f['value']);
+    $editable->setData($data)->save();
+  }
+}
+
+

@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node-type-' ~ node.bundle|clean_class,
+	'node-content',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+  ]
+%}
+
+{% if teaser %}
+<div{{ attributes.addClass('promotion-item') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+	<div class="promotion-container {{ node.field_text_color.value }}">
+		<div class="promotion-image">{{ content.field_image }}</div>
+		<div class="promotion-meta-wrap">
+		<div class="promotion-meta {{ node.field_content_placement.value }} {{ node.field_text_align.value }}">
+		<div class="promotion-content-meta">
+		{% if content.field_pre_heading_text | render %}
+			<div class="promotion-pre-heading-text">{{ content.field_pre_heading_text }}</div>
+		{% endif %}
+		<h3 class="promotion-title clearfix">{{ label }}</h3>
+		<div class="promotion-content">{{ content.body }}</div>	
+		{% if content.field_link | render %}
+			<div class="nav menu alt-button mt-2 promotion-button">
+			<a href="{{ content.field_link.0['#url'] }}" class="promotion-link">{{ content.field_link.0['#title'] }} <i class="fa fa-angle-double-right"></i></a>
+			</div>	
+		{% endif %}
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+{% else %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+	{% if content.field_image | render %}
+	<div class="node-feat-image">{{ content.field_image }}</div>
+	{% endif %}
+	<div class="post-content">
+	{{ content.body }}
+	</div>
+</div>
+{% endif %}

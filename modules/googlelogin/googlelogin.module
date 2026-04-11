@@ -1,0 +1,134 @@
+<?php
+/**
+ * @file
+ * Google OAuth Login.
+ */
+
+use Drupal\Core\Url;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_help().
+ */
+function googlelogin_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.googlelogin':
+      $path = $GLOBALS['base_url'] . '/' . \Drupal::service('extension.list.module')->getPath('module', 'googlelogin');
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t("This module allows admin to configure google login, so that user's can login using google.") . '</p>';
+      $output .= t('You can read more in <a href=\'@url\'>README.txt</a>', array('@url' => "$path/README.txt"));
+      return $output;
+  }
+}
+
+function googlelogin_user_exist($userInfo) {
+  $email    = $userInfo['email'];
+  $userData = user_load_by_mail($email);
+  if (empty($userData)) {
+    $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $user = User::create();
+
+    //Mandatory settings.
+    $user->setPassword(FALSE);
+    $user->enforceIsNew();
+    $user->setEmail($email);
+    $user->setUsername($email);
+
+    //Optional settings.
+    $user->set("init", 'email');
+    $user->set("langcode", $language);
+    $user->set("preferred_langcode", $language);
+    $user->set("preferred_admin_langcode", $language);
+    $user->activate();
+    //Save user.
+    $user->save();
+    user_login_finalize($user);
+  }
+  else {
+    user_login_finalize($userData);
+  }
+}
+
+function googlelogin_login_button_code(&$form, $client_id = NULL) {
+  $config = \Drupal::configFactory();
+  $tempstore = \Drupal::service('tempstore.private')->get('googlelogin');;
+  if ($client_id == NULL) {
+    $client_id = $config->get('googlelogin.settings')->get('client_id');
+  }
+  if (!$client_id) {
+    return '';
+  }
+
+  $icon_settings = $config->get('googlelogin.icon.settings');
+  $destination = \Drupal::request()->get('destination');
+  if (!$destination) {
+    $destination = \Drupal::request()->getRequestUri();
+  }
+  $tempstore->set('state_destination', $destination);
+  $hash = md5(rand());
+  $authUrl = Url::fromRoute('googlelogin.callback', [], ['absolute' => TRUE])->toString();
+
+  $form['#attached']['library'][] = 'googlelogin/googlelogin';
+  if ($config->get('googlelogin.settings')->get('api_type') == 'javascript') {
+    $form['#attached']['library'][] = 'googlelogin/googlelogin_javascript';
+    $output = '<div id="google-signin-container"></div>';
+    $settings = [
+      'googlelogin' => [
+        'login_uri' => $authUrl,
+        'client_id' => $client_id,
+        'nonce' => $hash,
+        'type' => $icon_settings->get("type"),
+        'shape' => $icon_settings->get("shape"),
+        'theme' => $icon_settings->get("theme"),
+        'text' => $icon_settings->get("text"),
+        'size' => $icon_settings->get("size"),
+        'logo_alignment' => $icon_settings->get("logo_alignment"),
+      ],
+    ];
+    $width = $icon_settings->get("width");
+    if ($width) {
+      $settings['googlelogin']['width'] = $width;
+    }
+    $form['#attached']['drupalSettings'] = $settings;
+  }
+  else {
+    $output = '<div id="google-signin-container"><div
+  id="g_id_onload"
+  data-auto_prompt="false"
+  data-client_id="' . $client_id . '"
+  data-context="signin"
+  data-login_uri="' . $authUrl . '"
+  data-ux_mode="redirect"
+  data-nonce="' . $hash . '"></div>
+  <div class="g_id_signin"
+     data-type="' . $icon_settings->get("type") . '"
+     data-shape="' . $icon_settings->get("shape") . '"
+     data-theme="' . $icon_settings->get("theme") . '"
+     data-text="' . $icon_settings->get("text") . '"
+     data-size="' . $icon_settings->get("size") . '"
+     data-locale="' . $icon_settings->get("locale") . '"
+     data-logo_alignment="' . $icon_settings->get("logo_alignment") . '"';
+    $width = $icon_settings->get("width");
+    if ($width) {
+      $output .= 'data-width="' . $width . '"';
+    }
+    $output .= '></div></div>';
+  }
+  $form['google_oauth_login'] = [
+    '#type' => 'markup',
+    '#markup' => \Drupal\Core\Render\Markup::create($output),
+    '#weight' => 1000,
+    '#cache' => [
+      'max-age' => 0,
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function googlelogin_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'user_login_form'  && \Drupal::config('googlelogin.icon.settings')->get('show_on_login_form')) {
+    googlelogin_login_button_code($form);
+  }
+}

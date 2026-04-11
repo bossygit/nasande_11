@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall hooks for the Nasande Updates module.
+ *
+ * Ce fichier contient les hooks de mise à jour (hook_update_N) pour versionner
+ * les changements de schéma de base de données. Chaque modification de la
+ * structure DB doit être ajoutée ici avec un numéro incrémental.
+ *
+ * Convention de numérotation :
+ *   - 10001, 10002, 10003... (préfixe 10 = Drupal 10.x)
+ *   - 11001, 11002, 11003... (préfixe 11 = Drupal 11.x)
+ *
+ * Workflow :
+ *   1. Ajouter un nouveau hook_update_N() ci-dessous
+ *   2. Commit dans Git
+ *   3. En production : drush updatedb -y
+ *
+ * @see https://www.drupal.org/docs/drupal-apis/update-api
+ */
+
+/**
+ * Implements hook_install().
+ */
+function nasande_updates_install() {
+  \Drupal::messenger()->addMessage(t('Nasande Updates module installed. Ready for DB migrations.'));
+}
+
+// ===========================================================================
+// UPDATE HOOKS — Ajouter les nouveaux hooks ci-dessous
+// ===========================================================================
+
+/**
+ * Example: Add a custom field to a table.
+ *
+ * Uncomment and modify this template for your first real migration.
+ */
+// function nasande_updates_update_10001(&$sandbox) {
+//   $spec = [
+//     'type' => 'varchar',
+//     'length' => 255,
+//     'not null' => FALSE,
+//     'default' => '',
+//     'description' => 'Exemple de nouveau champ',
+//   ];
+//   $schema = \Drupal::database()->schema();
+//   if (!$schema->fieldExists('your_table_name', 'your_new_field')) {
+//     $schema->addField('your_table_name', 'your_new_field', $spec);
+//   }
+//   return t('Added your_new_field to your_table_name.');
+// }
+
+/**
+ * Example: Run a data migration.
+ */
+// function nasande_updates_update_10002(&$sandbox) {
+//   $database = \Drupal::database();
+//   $database->update('your_table_name')
+//     ->fields(['status' => 1])
+//     ->condition('status', 0)
+//     ->execute();
+//   return t('Updated status field in your_table_name.');
+// }

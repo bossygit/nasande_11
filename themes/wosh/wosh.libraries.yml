@@ -1,0 +1,125 @@
+global-components:
+  version: VERSION
+  css:
+    theme:
+      assets/css/style.css: {}
+      assets/css/media.css: {}
+      assets/css/colors.css: {}
+  js:
+    assets/js/jquery.easing.min.js: { minified: true }
+    assets/js/jquery.appear.js: {}
+    assets/js/jquery.easypiechart.min.js: { minified: true }
+    assets/js/jquery.countTo.js: {}
+    assets/js/progress-bar.js: {}
+    assets/js/script.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
+
+bootstrap:
+  version: VERSION
+  css:
+    theme:
+      assets/lib/bootstrap/css/bootstrap.min.css: { minified: true }
+  js:
+    assets/lib/bootstrap/js/bootstrap.min.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/once
+
+smartmenus:
+  version: VERSION
+  css:
+    theme:
+      assets/lib/smartmenus/css/smartmenus.css: {}
+  js:
+    assets/lib/smartmenus/jquery.smartmenus.min.js: {}
+  dependencies:
+    - core/jquery
+
+font-awesome:
+  version: VERSION
+  css:
+    theme:
+      assets/lib/fontawesome/css/font-awesome.min.css: {}
+
+ionicons:
+  version: VERSION
+  css:
+    theme:
+      assets/lib/ionicons/css/ionicons.min.css: {}
+
+owl-carousel:
+  version: VERSION
+  css:
+    theme:    
+      assets/lib/owl-carousel/assets/owl.carousel.min.css: {}
+      assets/lib/owl-carousel/assets/owl.theme.default.min.css: {}
+  js:
+    assets/lib/owl-carousel/owl.carousel.min.js: {}
+  dependencies:
+    - core/jquery
+    
+shuffle:
+  version: VERSION
+  css:
+    theme:    
+      assets/lib/shuffle/css/shuffle.css: {}
+  js:
+    assets/lib/shuffle/js/shuffle.modernizr.min.js: {}
+    assets/lib/shuffle/js/shuffle.min.js: {}
+  dependencies:
+    - core/jquery
+
+animation:
+  version: VERSION
+  css:
+    theme:
+      assets/lib/animate.css/animate.min.css: {}
+
+slimscroll:
+  version: VERSION
+  js:
+    assets/lib/jQuery-slimScroll/jquery.slimscroll.min.js: {}
+  dependencies:
+    - core/jquery
+
+color.preview:
+  version: VERSION
+  css:
+    theme:
+      color/preview.css: {}
+  dependencies:
+    - color/drupal.color
+
+theme-setting:
+  version: VERSION
+  css:
+    theme:
+      assets/css/theme-settings.css: {}
+  js:
+    assets/js/theme-settings.js: {}
+  dependencies:
+    - wosh/font-awesome
+    - core/jquery
+
+colorbox:
+  version: VERSION
+  css:
+    theme:
+      assets/lib/colorbox/colorbox.css: {}
+  js:
+    assets/lib/colorbox/colorbox-init.js: {}
+  dependencies:
+    - colorbox/colorbox
+    - core/jquery
+
+fonts:
+  version: VERSION
+  css:
+    base:
+      'https://fonts.googleapis.com/css?family=Poppins:400,100,300,700,900&display=swap': 
+        type: external
+        minified: true
+        preprocess: false

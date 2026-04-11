@@ -1,0 +1,65 @@
+napay.process:
+  path: '/process'
+  defaults:
+    _controller: '\Drupal\napay\Controller\NotifyController::process'
+  requirements:
+    _permission: 'access content'      
+ 
+    
+napay.api:
+  path: '/momo'
+  defaults:
+    _controller: '\Drupal\napay\Controller\NotifyController::Callbackapi'
+  requirements:
+    _permission: 'access content'
+    
+napay.use:
+  path: '/use'
+  defaults:
+    _controller: '\Drupal\napay\Controller\NotifyController::getUser'
+  requirements:
+    _permission: 'access content'
+
+napay.key:
+  path: '/apikey'
+  defaults:
+    _controller: '\Drupal\napay\Controller\NotifyController::apiKey'
+  requirements:
+    _permission: 'access content'  
+    
+
+napay.token:
+  path: '/motoken'
+  defaults:
+    _controller: '\Drupal\napay\Controller\NotifyController::motoken'
+  requirements:
+    _permission: 'access content'   
+
+napay.pay:
+  path: '/pay'
+  defaults:
+    _controller: '\Drupal\napay\Controller\NotifyController::requestToPay'
+  requirements:
+    _permission: 'access content'     
+    
+
+napay.status:
+  path: '/status'
+  defaults:
+    _controller: '\Drupal\napay\Controller\NotifyController::requestToPayStatus'
+  requirements:
+    _permission: 'access content'         
+
+napay.balance:
+  path: '/balance'
+  defaults:
+    _controller: '\Drupal\napay\Controller\NotifyController::accountBalance'
+  requirements:
+    _permission: 'access content'      
+
+napay.active:
+  path: '/active'
+  defaults:
+    _controller: '\Drupal\napay\Controller\NotifyController::accountActive'
+  requirements:
+    _permission: 'access content'
