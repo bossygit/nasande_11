@@ -1,0 +1,9 @@
+uuid: 02b1f04b-d4c3-43de-b16a-26e549db3a7c
+langcode: fr
+status: true
+dependencies: {  }
+name: Âge
+vid: age
+description: null
+weight: 0
+new_revision: false

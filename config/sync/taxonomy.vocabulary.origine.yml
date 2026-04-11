@@ -1,0 +1,9 @@
+uuid: 1d991e3d-4813-42b8-aef7-441bf8cee2d2
+langcode: fr
+status: true
+dependencies: {  }
+name: Origine
+vid: origine
+description: null
+weight: 0
+new_revision: false

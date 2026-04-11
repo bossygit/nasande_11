@@ -1,0 +1,22 @@
+uuid: 0d907789-302d-4212-a613-e4b0cf73e118
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.portfolio
+id: node.portfolio.promote
+field_name: promote
+entity_type: node
+bundle: portfolio
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

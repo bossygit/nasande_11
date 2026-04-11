@@ -1,0 +1,33 @@
+uuid: 5e484b0e-f83e-4eed-b3be-84bc965a0c67
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_05
+  content:
+    - 'block_content:basic:5eae88d2-6c7b-4f14-87a0-68ddeb1be6cb'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: fact_counter2
+theme: wosh
+region: content_wide
+weight: -19
+provider: null
+plugin: 'block_content:5eae88d2-6c7b-4f14-87a0-68ddeb1be6cb'
+settings:
+  id: 'block_content:5eae88d2-6c7b-4f14-87a0-68ddeb1be6cb'
+  label: 'Fact Counter'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_05

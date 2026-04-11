@@ -1,0 +1,23 @@
+uuid: 59c00a30-e75f-4fd8-ab66-09c9da9f886e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.feature_block
+    - field.storage.block_content.field_media_format
+  module:
+    - options
+id: block_content.feature_block.field_media_format
+field_name: field_media_format
+entity_type: block_content
+bundle: feature_block
+label: 'Media Format'
+description: 'Select media displat format'
+required: true
+translatable: false
+default_value:
+  -
+    value: static-image
+default_value_callback: ''
+settings: {  }
+field_type: list_string

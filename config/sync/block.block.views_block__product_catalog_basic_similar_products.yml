@@ -1,0 +1,38 @@
+uuid: d66b68f6-9aee-4738-8857-1606f88bd4ca
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.product_catalog_basic
+  module:
+    - block_visibility_groups
+    - commerce_product
+    - views
+  theme:
+    - wosh
+id: views_block__product_catalog_basic_similar_products
+theme: wosh
+region: content
+weight: -24
+provider: null
+plugin: 'views_block:product_catalog_basic-similar_products'
+settings:
+  id: 'views_block:product_catalog_basic-similar_products'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+  'entity_bundle:commerce_product':
+    id: 'entity_bundle:commerce_product'
+    negate: false
+    context_mapping:
+      commerce_product: '@commerce_product.product_route_context:commerce_product'
+    bundles:
+      default: default

@@ -1,0 +1,16 @@
+uuid: 8737431b-7e59-41c1-bca8-39f991d537a1
+langcode: fr
+status: true
+dependencies:
+  module:
+    - profile
+  enforced:
+    module:
+      - commerce_shipping
+_core:
+  default_config_hash: JPUL4eD5T2YoK0l8mg_Ey9_HY9vGRwqr4BM_GqaAgmw
+id: profile.shipping
+label: Livraison
+description: ''
+targetEntityType: profile
+cache: true

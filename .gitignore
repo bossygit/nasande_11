@@ -6,7 +6,7 @@
 /core/
 /vendor/
 /composer.phar
-/composer.lock
+# composer.lock is tracked for reproducible builds
 
 # ---------- Contributed modules/themes (managed by Composer) ----------
 /modules/contrib/

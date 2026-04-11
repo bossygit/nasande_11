@@ -1,0 +1,25 @@
+uuid: 5cb9ce78-b403-4261-90f1-a75a3d0a34ae
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.notification
+  module:
+    - text
+_core:
+  default_config_hash: yZJaNe9BsV0Xo6gTyVGuRtqoyjNAm2WcO-rkNY07Bds
+id: node.notification.body
+field_name: body
+entity_type: node
+bundle: notification
+label: Corps
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

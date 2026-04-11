@@ -1,0 +1,18 @@
+uuid: b7e72bb3-5d17-4afd-a3b4-de51425876aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Slide
+type: slide
+description: 'A single slide content of slideshow'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,11 @@
+uuid: f6e5aeb9-f3c7-4f56-a7fd-a6050f9c19b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.quick_view
+label: 'Quick View'
+description: ''
+targetEntityType: commerce_product
+cache: true

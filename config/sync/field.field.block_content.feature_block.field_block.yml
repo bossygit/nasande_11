@@ -1,0 +1,28 @@
+uuid: ccaa83db-4b56-4974-b397-f7fb3ea89ba6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.feature_block
+    - field.storage.block_content.field_block
+    - node.type.features
+id: block_content.feature_block.field_block
+field_name: field_block
+entity_type: block_content
+bundle: feature_block
+label: 'Feature Blocks'
+description: 'Manage Features to display'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      features: features
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: features
+field_type: entity_reference

@@ -1,0 +1,15 @@
+uuid: 4f8eef54-a7b3-4c71-b4d2-5fcf0a6f1696
+langcode: en
+status: true
+dependencies: {  }
+name: 1000x480
+label: 1000x480
+effects:
+  a72d89ff-2843-4321-9210-ff19b699b900:
+    uuid: a72d89ff-2843-4321-9210-ff19b699b900
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1000
+      height: 480
+      anchor: center-center

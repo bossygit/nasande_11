@@ -1,0 +1,23 @@
+uuid: ccbbdb7d-1780-4157-9a3a-c6d76ac1ebce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_format
+    - node.type.blog
+  module:
+    - options
+id: node.blog.field_blog_format
+field_name: field_blog_format
+entity_type: node
+bundle: blog
+label: 'Blog Format'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: standard
+default_value_callback: ''
+settings: {  }
+field_type: list_string

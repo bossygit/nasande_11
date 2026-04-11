@@ -1,0 +1,7 @@
+uuid: 86cb6932-0b94-4c0b-a4c3-43301a78a6cc
+langcode: fr
+status: true
+dependencies: {  }
+id: volume
+label: Volume
+elementType: radios

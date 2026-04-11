@@ -1,0 +1,14 @@
+uuid: 57bcbbd1-9eb8-4cbf-866b-a76892d2e673
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.publisher
+  module:
+    - user
+id: user_remove_role_action.publisher
+label: 'Enlever le rôle Publisher des utilisateurs sélectionnés'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: publisher

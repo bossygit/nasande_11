@@ -1,0 +1,23 @@
+uuid: 7710a495-04f4-4cb4-a8e0-f250d07dc5c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pricing_price
+    - node.type.pricing_table
+id: node.pricing_table.field_pricing_price
+field_name: field_pricing_price
+entity_type: node
+bundle: pricing_table
+label: 'Pricing Price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

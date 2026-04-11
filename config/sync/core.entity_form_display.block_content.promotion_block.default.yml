@@ -1,0 +1,50 @@
+uuid: 5b2a7219-7e32-42de-8d77-4ff7c0f4915b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.promotion_block
+    - field.field.block_content.promotion_block.field_block
+    - field.field.block_content.promotion_block.field_promotion_layout
+  module:
+    - inline_entity_form
+id: block_content.promotion_block.default
+targetEntityType: block_content
+bundle: promotion_block
+mode: default
+content:
+  field_block:
+    type: inline_entity_form_complex
+    weight: 2
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+    third_party_settings: {  }
+  field_promotion_layout:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

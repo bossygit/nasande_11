@@ -1,0 +1,17 @@
+uuid: f2816369-eac1-493c-a566-6dba6c4ac909
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: home_02
+label: 'Home 02'
+logic: and
+conditions:
+  dcb8b1ab-af6f-4c61-93d9-ab97cad12bb0:
+    id: request_path
+    negate: false
+    uuid: dcb8b1ab-af6f-4c61-93d9-ab97cad12bb0
+    context_mapping: {  }
+    pages: /accueil
+allow_other_conditions: false

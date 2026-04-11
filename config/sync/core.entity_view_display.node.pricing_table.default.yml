@@ -1,0 +1,89 @@
+uuid: 1887af65-edb9-4676-823f-efaa18951a97
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pricing_table.body
+    - field.field.node.pricing_table.field_link
+    - field.field.node.pricing_table.field_pricing_currency
+    - field.field.node.pricing_table.field_pricing_duration
+    - field.field.node.pricing_table.field_pricing_feature
+    - field.field.node.pricing_table.field_pricing_price
+    - field.field.node.pricing_table.field_pricing_table_type
+    - node.type.pricing_table
+  module:
+    - link
+    - options
+    - text
+    - user
+id: node.pricing_table.default
+targetEntityType: node
+bundle: pricing_table
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_pricing_currency:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_pricing_duration:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_pricing_feature:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_pricing_price:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_pricing_table_type:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

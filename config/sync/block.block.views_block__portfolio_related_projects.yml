@@ -1,0 +1,37 @@
+uuid: edfbeb84-3582-4c3b-abfb-b4d8a0640254
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.portfolio
+  module:
+    - block_visibility_groups
+    - system
+    - views
+  theme:
+    - wosh
+id: views_block__portfolio_related_projects
+theme: wosh
+region: content_wide
+weight: -15
+provider: null
+plugin: 'views_block:portfolio-related_projects'
+settings:
+  id: 'views_block:portfolio-related_projects'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '/portfolio/*'

@@ -1,0 +1,24 @@
+uuid: ad62b8eb-1e24-4482-a21f-64a655f0394b
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_short_description
+  module:
+    - text
+id: commerce_product.default.field_short_description
+field_name: field_short_description
+entity_type: commerce_product
+bundle: default
+label: 'Short Description'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: "<p>La description du produit est en cours de mise à jour.</p>\r\n"
+    format: basic_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

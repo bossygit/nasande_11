@@ -1,0 +1,31 @@
+uuid: dbaf37bd-7096-46c5-866c-377e97f39f7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - wosh
+id: user_account_menu
+theme: wosh
+region: user_account
+weight: -15
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''

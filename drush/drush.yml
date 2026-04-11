@@ -1,0 +1,19 @@
+# ==============================================================================
+# Drush Configuration — nasande.cg
+# ==============================================================================
+
+options:
+  uri: http://localhost:8888/nasande_11_04
+
+sql:
+  tables:
+    # Tables to skip when doing sql-sync (cache, sessions, etc.)
+    structure:
+      - "cache_*"
+      - "cachetags"
+      - "sessions"
+      - "watchdog"
+      - "batch"
+      - "flood"
+      - "queue"
+      - "semaphore"

@@ -1,0 +1,25 @@
+# ==============================================================================
+# Production Environment Variables for nasande.cg
+# ==============================================================================
+#
+# INSTRUCTIONS:
+# Add these lines at the TOP of your .htaccess file on the production server
+# (cPanel), BEFORE any other rewrite rules.
+#
+# These variables are read by settings.php via getenv().
+# Do NOT commit the actual .htaccess with real credentials to Git.
+#
+# On PlanetHoster cPanel, edit:
+#   /home/nasacdka/public_html/.htaccess  (or your actual document root)
+#
+# ==============================================================================
+
+# ── Database ──
+SetEnv DRUPAL_DB_NAME nasacdka_nasande
+SetEnv DRUPAL_DB_USER nasacdka_nasande
+SetEnv DRUPAL_DB_PASS CHANGE_ME_TO_REAL_PASSWORD
+SetEnv DRUPAL_DB_HOST localhost
+SetEnv DRUPAL_DB_PORT 3306
+
+# ── Environment ──
+SetEnv DRUPAL_ENV production

@@ -1,0 +1,18 @@
+uuid: 64cd1f3f-ee92-46a9-8325-dc72b075321e
+langcode: fr
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - file
+    - serialization
+id: file.upload
+plugin_id: 'file:upload'
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    1: json
+  authentication:
+    - basic_auth

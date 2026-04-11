@@ -1,0 +1,33 @@
+uuid: 2ec95cbf-9b8e-4aae-bc81-eea216509fc5
+langcode: fr
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - wosh
+_core:
+  default_config_hash: 1bgxk9oXpjh0YistnxG_Q0yfeBA6pQuuOxch100rum4
+id: wosh_main_menu
+theme: wosh
+region: primary_menu
+weight: -5
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Navigation principale'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''

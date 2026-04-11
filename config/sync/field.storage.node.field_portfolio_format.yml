@@ -1,0 +1,27 @@
+uuid: f083dd33-f093-4ca3-a462-cc98b18c76b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_portfolio_format
+field_name: field_portfolio_format
+entity_type: node
+type: list_float
+settings:
+  allowed_values:
+    -
+      value: 0.0
+      label: Standard
+    -
+      value: 1.0
+      label: 'Image Slider'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

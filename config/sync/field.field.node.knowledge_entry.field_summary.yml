@@ -1,0 +1,22 @@
+uuid: cd20be72-19c6-41e1-8606-897d28f14db8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.knowledge_entry
+  module:
+    - text
+id: node.knowledge_entry.field_summary
+field_name: field_summary
+entity_type: node
+bundle: knowledge_entry
+label: Summary
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,23 @@
+uuid: 645cad0c-4701-48ac-baab-41fcee132335
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.slide
+  module:
+    - link
+id: node.slide.field_link
+field_name: field_link
+entity_type: node
+bundle: slide
+label: 'Action Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

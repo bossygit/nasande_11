@@ -1,0 +1,30 @@
+uuid: 531a43e7-5c89-420d-a7ed-d042cf1627b2
+langcode: fr
+status: true
+dependencies:
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - wosh
+_core:
+  default_config_hash: KqqT0ugQEgqEs0VdumRNOyIkUvwJ5vmgEFdHBLQFV5E
+id: wosh_branding
+theme: wosh
+region: branding
+weight: -4
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Marque du site'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''

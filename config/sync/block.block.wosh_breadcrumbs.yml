@@ -1,0 +1,22 @@
+uuid: 699d7837-bc46-46fd-8094-d97587daf76c
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wosh
+_core:
+  default_config_hash: vQ0Olz3m8gxFFtyy7BIeJOn28--MCqSmS9706TONmXQ
+id: wosh_breadcrumbs
+theme: wosh
+region: breadcrumb
+weight: -5
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: "Fils d'ariane"
+  label_display: '0'
+  provider: system
+visibility: {  }

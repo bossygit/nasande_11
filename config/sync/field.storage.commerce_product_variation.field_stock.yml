@@ -1,0 +1,20 @@
+uuid: 05ac4c39-f6f3-48a0-9152-4e868c2b64ec
+langcode: fr
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.field_stock
+field_name: field_stock
+entity_type: commerce_product_variation
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

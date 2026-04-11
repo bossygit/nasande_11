@@ -1,0 +1,33 @@
+uuid: 396ba419-3a2b-483d-ad98-4737600a2c00
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_06
+  content:
+    - 'block_content:basic:62e7d8f1-56d1-4fe0-a1f6-5e1c01c66a64'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: footer_about2
+theme: wosh
+region: footer_first
+weight: 0
+provider: null
+plugin: 'block_content:62e7d8f1-56d1-4fe0-a1f6-5e1c01c66a64'
+settings:
+  id: 'block_content:62e7d8f1-56d1-4fe0-a1f6-5e1c01c66a64'
+  label: 'About Us 2'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_06

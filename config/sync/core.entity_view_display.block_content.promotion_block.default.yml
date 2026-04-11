@@ -1,0 +1,34 @@
+uuid: 4c33d702-6641-428d-a067-b8fee3168eab
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.promotion_block
+    - field.field.block_content.promotion_block.field_block
+    - field.field.block_content.promotion_block.field_promotion_layout
+  module:
+    - options
+id: block_content.promotion_block.default
+targetEntityType: block_content
+bundle: promotion_block
+mode: default
+content:
+  field_block:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_promotion_layout:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,11 @@
+uuid: cc980275-51e1-4b7e-a001-1f0813c9c187
+langcode: fr
+status: true
+dependencies: {  }
+id: personal
+label: 'Personal contact form'
+recipients: {  }
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

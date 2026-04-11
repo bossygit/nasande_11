@@ -1,0 +1,12 @@
+uuid: d4be98c4-95d8-4dc1-8c00-e1e46c16af6f
+langcode: fr
+status: true
+dependencies: {  }
+id: feedback
+label: Contact
+recipients:
+  - hugestem@gmail.com
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

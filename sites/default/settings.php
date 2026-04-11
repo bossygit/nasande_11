@@ -288,8 +288,8 @@ $settings['hash_salt'] = 'DVpOmJkgfbmnCavSnLkslhkyYLgPXRMQxz_W2obdto3_nhbj8kHyvw
  * After finishing the upgrade, be sure to open this file again and change the
  * TRUE back to a FALSE!
  */
-$settings['update_free_access'] = TRUE;
-$config['system.logging']['error_level'] = 'verbose';
+$settings['update_free_access'] = FALSE;
+# $config['system.logging']['error_level'] = 'verbose';
 
 /**
  * External access proxy settings:
@@ -420,7 +420,7 @@ $config['system.logging']['error_level'] = 'verbose';
  * @see \Drupal\Core\Form\FormCache::setCache()
  */
 # $settings['form_cache_expiration'] = 21600;
-$settings['https'] = TRUE;
+# $settings['https'] = TRUE;
 
 /**
  * Class Loader.
@@ -521,7 +521,7 @@ if ($settings['hash_salt']) {
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
- $settings['file_private_path'] = $settings['file_private_path'] = '/home/nasacdka/pharmaciemayamaya.cg/private';
+# $settings['file_private_path'] = '/home/nasacdka/pharmaciemayamaya.cg/private';
 
 /**
  * Temporary file path:
@@ -534,7 +534,7 @@ if ($settings['hash_salt']) {
  *
  * @see \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory()
  */
- $settings['file_temp_path'] = 'tmp';
+$settings['file_temp_path'] = 'tmp';
 
 /**
  * Session write interval:
@@ -697,12 +697,14 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  *
  * For example:
  * @code
- */ 
- $settings['trusted_host_patterns'] = [
+ */
+$settings['trusted_host_patterns'] = [
   '^nasande\.cg$',
   '^.+\.nasande\.cg$',
-  ];
- /**
+  '^localhost$',
+  '^127\.0\.0\.1$',
+];
+/**
  * @endcode
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
@@ -752,21 +754,42 @@ $settings['entity_update_backup'] = TRUE;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-#
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
-$databases['default']['default'] = array (
-  'database' => 'nasacdka_nasande',
-  'username' => 'nasacdka_nasande',
-  'password' => 'Fa5krXdf9v0z',
-  'prefix' => '',
-  'host' => 'localhost',
-  'port' => '',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
+// ============================================================
+// PRODUCTION DATABASE — loaded from environment variables
+// ============================================================
+// In production (cPanel), set these in .htaccess or server config:
+//   SetEnv DRUPAL_DB_NAME nasacdka_nasande
+//   SetEnv DRUPAL_DB_USER nasacdka_nasande
+//   SetEnv DRUPAL_DB_PASS your_password_here
+//   SetEnv DRUPAL_DB_HOST localhost
+// ============================================================
+if (getenv('DRUPAL_DB_NAME')) {
+  $databases['default']['default'] = [
+    'database' => getenv('DRUPAL_DB_NAME'),
+    'username' => getenv('DRUPAL_DB_USER'),
+    'password' => getenv('DRUPAL_DB_PASS'),
+    'host' => getenv('DRUPAL_DB_HOST') ?: 'localhost',
+    'port' => getenv('DRUPAL_DB_PORT') ?: '',
+    'driver' => 'mysql',
+    'prefix' => '',
+    'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+    'collation' => 'utf8mb4_general_ci',
+  ];
+}
 
-require DRUPAL_ROOT . '/modules/contrib/mysql57/settings.inc';
+// MySQL 5.7 compatibility module
+if (file_exists(DRUPAL_ROOT . '/modules/contrib/mysql57/settings.inc')) {
+  require DRUPAL_ROOT . '/modules/contrib/mysql57/settings.inc';
+}
 
-$settings['config_sync_directory'] = 'sites/default/files/config_v7MHZZ37AxIurF5rSJ44hxfbRoqBmxSXj-169yM0CJUnLEoFaBXIF7M7uoBTzY0ib17P_SS7Pw/sync';
+// ============================================================
+// CONFIG SYNC DIRECTORY
+// ============================================================
+$settings['config_sync_directory'] = DRUPAL_ROOT . '/config/sync';
+
+// ============================================================
+// LOCAL SETTINGS OVERRIDE (must be LAST)
+// ============================================================
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}

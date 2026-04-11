@@ -1,0 +1,31 @@
+uuid: d6f77355-d0a0-4d07-96ff-98aeca9a63ac
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a43b38b3-91e8-44f4-a2a2-7ad381baad91'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: quick_links
+theme: wosh
+region: footer_third
+weight: 0
+provider: null
+plugin: 'block_content:a43b38b3-91e8-44f4-a2a2-7ad381baad91'
+settings:
+  id: 'block_content:a43b38b3-91e8-44f4-a2a2-7ad381baad91'
+  label: 'Liens directs'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''

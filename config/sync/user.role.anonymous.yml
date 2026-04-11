@@ -1,0 +1,30 @@
+uuid: 5e573dcb-3dff-4d6f-9e41-65342ba7de76
+langcode: fr
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+  module:
+    - comment
+    - commerce_checkout
+    - commerce_product
+    - contact
+    - filter
+    - flag
+    - system
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access checkout'
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'flag compare'
+  - 'flag wishlist'
+  - 'post comments'
+  - 'unflag compare'
+  - 'unflag wishlist'
+  - 'use text format restricted_html'
+  - 'view commerce_product'

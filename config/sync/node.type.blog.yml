@@ -1,0 +1,18 @@
+uuid: 35f22d92-39b5-46cd-aa1e-309826e50b9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Blog
+type: blog
+description: 'Use <i>blog</i> to create blog or news post'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: true

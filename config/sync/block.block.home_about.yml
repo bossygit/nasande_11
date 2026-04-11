@@ -1,0 +1,36 @@
+uuid: 951e4c88-ef77-48b2-b3d2-e5382f1034c8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:feature_block:540de843-233b-4d75-b156-59da38fc12c1'
+  module:
+    - block_content
+    - block_visibility_groups
+    - system
+  theme:
+    - wosh
+id: home_about
+theme: wosh
+region: content_wide_top
+weight: -44
+provider: null
+plugin: 'block_content:540de843-233b-4d75-b156-59da38fc12c1'
+settings:
+  id: 'block_content:540de843-233b-4d75-b156-59da38fc12c1'
+  label: 'Biggest online commerce development agency'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/accueil\r\n/about"

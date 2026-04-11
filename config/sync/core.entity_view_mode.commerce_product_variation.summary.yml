@@ -1,0 +1,13 @@
+uuid: ef16b7d2-d5eb-49d0-a568-ec45349ad3c1
+langcode: fr
+status: true
+dependencies:
+  module:
+    - commerce_product
+_core:
+  default_config_hash: QL02YVm5CFmG2b5knIj9s_FkzaNGqMWtMsTER6zzCtE
+id: commerce_product_variation.summary
+label: Résumé
+description: ''
+targetEntityType: commerce_product_variation
+cache: true

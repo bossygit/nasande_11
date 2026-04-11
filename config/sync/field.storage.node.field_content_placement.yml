@@ -1,0 +1,30 @@
+uuid: f26bcb0b-419b-4e2b-b218-1ecc1fe42e6f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_content_placement
+field_name: field_content_placement
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: float-left
+      label: Left
+    -
+      value: float-center
+      label: Center
+    -
+      value: float-right
+      label: Right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

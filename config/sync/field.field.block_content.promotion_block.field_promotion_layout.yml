@@ -1,0 +1,21 @@
+uuid: 7ea399cf-a0b3-4570-a203-8a7d97569957
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.promotion_block
+    - field.storage.block_content.field_promotion_layout
+  module:
+    - options
+id: block_content.promotion_block.field_promotion_layout
+field_name: field_promotion_layout
+entity_type: block_content
+bundle: promotion_block
+label: 'Promotion Layout'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

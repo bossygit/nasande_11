@@ -1,0 +1,33 @@
+uuid: 98576b24-ab00-4232-a0fe-83ad6853ceba
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_01
+  content:
+    - 'block_content:call_to_action:0501b135-3732-406b-997a-10542d01d0cc'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: home01_cta
+theme: wosh
+region: content_wide
+weight: -36
+provider: null
+plugin: 'block_content:0501b135-3732-406b-997a-10542d01d0cc'
+settings:
+  id: 'block_content:0501b135-3732-406b-997a-10542d01d0cc'
+  label: 'Call To Action 2'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_01

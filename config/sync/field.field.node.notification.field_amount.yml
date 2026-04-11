@@ -1,0 +1,21 @@
+uuid: 92fbca41-9d37-4d81-b4c0-753b0a2c6921
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_amount
+    - node.type.notification
+_core:
+  default_config_hash: zuiBxRSUmHEVJgrIwsuIMu0X43XQHaVhsVHs0rOuLsU
+id: node.notification.field_amount
+field_name: field_amount
+entity_type: node
+bundle: notification
+label: Amount
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

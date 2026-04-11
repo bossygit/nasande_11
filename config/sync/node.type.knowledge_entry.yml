@@ -1,0 +1,11 @@
+uuid: db809b7c-3f04-4482-8455-e9a973a7bd24
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Knowledge Entry'
+type: knowledge_entry
+description: 'Entrée de la base de connaissances AI'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

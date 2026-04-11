@@ -1,0 +1,25 @@
+uuid: 1891a247-61da-4925-9bb4-ca971c5f670c
+langcode: fr
+status: true
+dependencies:
+  module:
+    - block_visibility_groups
+    - system
+  theme:
+    - wosh
+id: wosh_messages
+theme: wosh
+region: content
+weight: -29
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''

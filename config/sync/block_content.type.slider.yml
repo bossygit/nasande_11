@@ -1,0 +1,8 @@
+uuid: f3b9029c-9744-4683-a7da-bb7d939658a7
+langcode: en
+status: true
+dependencies: {  }
+id: slider
+label: Slider
+revision: false
+description: 'Create slideshow of slide content'

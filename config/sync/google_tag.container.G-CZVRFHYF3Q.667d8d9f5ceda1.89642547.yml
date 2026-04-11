@@ -1,0 +1,44 @@
+uuid: 81b2ee93-7c89-491e-b951-618dc3c0d3d2
+langcode: fr
+status: true
+dependencies:
+  module:
+    - block_visibility_groups
+    - system
+id: G-CZVRFHYF3Q.667d8d9f5ceda1.89642547
+label: G-CZVRFHYF3Q
+weight: 0
+tag_container_ids:
+  - G-CZVRFHYF3Q
+advanced_settings:
+  consent_mode: false
+dimensions_metrics: {  }
+conditions:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*"
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+events:
+  commerce_add_payment_info: {  }
+  commerce_add_shipping_info: {  }
+  commerce_add_to_cart: {  }
+  commerce_begin_checkout: {  }
+  commerce_purchase: {  }
+  commerce_refund: {  }
+  commerce_remove_from_cart: {  }
+  commerce_view_item: {  }
+  commerce_view_item_list: {  }
+  custom: {  }
+  generate_lead:
+    value: ''
+    currency: ''
+  login:
+    method: CMS
+  search: {  }
+  sign_up:
+    method: CMS
+  webform_purchase: {  }

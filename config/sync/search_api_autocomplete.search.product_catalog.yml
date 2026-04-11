@@ -1,0 +1,28 @@
+uuid: f1753fc3-1ca6-45c7-ac36-7b65f33ff0a7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - search_api.index.db_search_index
+    - views.view.product_catalog
+  module:
+    - views
+id: product_catalog
+label: 'Product Catalog (Search API)'
+index_id: db_search_index
+suggester_settings:
+  live_results:
+    fields: {  }
+    view_modes: {  }
+    highlight:
+      enabled: false
+      field: ''
+    suggest_keys: false
+suggester_weights: {  }
+suggester_limits: {  }
+search_settings:
+  'views:product_catalog':
+    displays:
+      default: true
+      selected: {  }
+options: {  }

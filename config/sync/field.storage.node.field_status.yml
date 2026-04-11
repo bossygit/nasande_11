@@ -1,0 +1,35 @@
+uuid: 017e6387-dbe6-4dd8-a6a7-7c83c9802d86
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+    - options
+_core:
+  default_config_hash: AzjSlu2nBYtzEUFHnsGEp2O3lhsrjDtGHR-0fcTvFSI
+id: node.field_status
+field_name: field_status
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: Pending
+    -
+      value: '2'
+      label: Processed
+    -
+      value: '3'
+      label: Insufficient
+    -
+      value: '4'
+      label: Rest
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

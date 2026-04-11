@@ -1,0 +1,21 @@
+uuid: 349b456b-694f-42be-a590-cf3cb3d74a97
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_placement
+    - node.type.slide
+  module:
+    - options
+id: node.slide.field_content_placement
+field_name: field_content_placement
+entity_type: node
+bundle: slide
+label: 'Content Placement'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

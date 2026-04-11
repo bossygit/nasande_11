@@ -1,0 +1,8 @@
+uuid: f17f4ba0-90cd-421a-952f-2f1577702786
+langcode: en
+status: true
+dependencies: {  }
+id: promotion_block
+label: 'Promotion Block'
+revision: false
+description: 'Create a promotion blocks'

@@ -1,0 +1,35 @@
+uuid: 7b14d3f4-121e-4b1f-a799-213c64e8e5eb
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:feature_block:df198309-7df7-48c8-b5f8-fb60d0c327a9'
+  module:
+    - block_content
+    - block_visibility_groups
+    - system
+  theme:
+    - wosh
+id: ravintsara
+theme: wosh
+region: content_wide_top
+weight: -41
+provider: null
+plugin: 'block_content:df198309-7df7-48c8-b5f8-fb60d0c327a9'
+settings:
+  id: 'block_content:df198309-7df7-48c8-b5f8-fb60d0c327a9'
+  label: Ravintsara
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

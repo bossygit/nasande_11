@@ -1,0 +1,23 @@
+uuid: c4817038-012c-4846-b090-880662335f44
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.feature_block
+    - field.storage.block_content.field_feature_layout
+  module:
+    - options
+id: block_content.feature_block.field_feature_layout
+field_name: field_feature_layout
+entity_type: block_content
+bundle: feature_block
+label: 'Feature Layout'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: layout1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

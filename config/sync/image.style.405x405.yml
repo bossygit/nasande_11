@@ -1,0 +1,15 @@
+uuid: 8f43cf5c-897b-4995-a40a-971014406263
+langcode: fr
+status: true
+dependencies: {  }
+name: 405x405
+label: 405x405
+effects:
+  aac5e071-5a2c-4936-a6b2-383e9ab07054:
+    uuid: aac5e071-5a2c-4936-a6b2-383e9ab07054
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 405
+      height: 405
+      anchor: center-center

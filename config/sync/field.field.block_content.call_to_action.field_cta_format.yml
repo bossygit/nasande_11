@@ -1,0 +1,23 @@
+uuid: a126cb7e-83ba-44bc-8bcc-204995027db3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.call_to_action
+    - field.storage.block_content.field_cta_format
+  module:
+    - options
+id: block_content.call_to_action.field_cta_format
+field_name: field_cta_format
+entity_type: block_content
+bundle: call_to_action
+label: 'CTA Format'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: style1
+default_value_callback: ''
+settings: {  }
+field_type: list_string

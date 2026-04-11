@@ -1,0 +1,17 @@
+uuid: 357da216-e837-4f2a-b68d-a0595d5c32ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: home_03
+label: 'Home 03'
+logic: and
+conditions:
+  3b53b192-2e39-4673-ae7a-c601c68b604c:
+    id: request_path
+    negate: false
+    uuid: 3b53b192-2e39-4673-ae7a-c601c68b604c
+    context_mapping: {  }
+    pages: /home-03
+allow_other_conditions: false

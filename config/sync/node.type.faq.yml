@@ -1,0 +1,18 @@
+uuid: 9df49a8e-6ba5-4f17-9107-7b31c6abc809
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: FAQ
+type: faq
+description: 'Use <i>faq</i> to create a frequently asked question and its answer.'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

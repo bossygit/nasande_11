@@ -1,0 +1,18 @@
+# ==============================================================================
+# Drush Site Aliases — nasande.cg
+# ==============================================================================
+#
+# Usage:
+#   drush @prod status
+#   drush sql-sync @prod @self     (sync prod DB to local)
+#   drush @prod cache:rebuild
+#
+# ==============================================================================
+
+prod:
+  host: world-366.fr.planethoster.net
+  user: nasacdka
+  ssh:
+    options: "-p 5022 -o StrictHostKeyChecking=no"
+  root: /home/nasacdka/public_html
+  uri: https://nasande.cg

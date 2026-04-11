@@ -1,0 +1,33 @@
+uuid: e44a073f-1b29-4610-8eea-e59c5644f9f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_05
+  content:
+    - 'block_content:feature_block:e30dc42b-5a20-4f8c-8e9c-e9aa4e704910'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: home_about_2
+theme: wosh
+region: content
+weight: -31
+provider: null
+plugin: 'block_content:e30dc42b-5a20-4f8c-8e9c-e9aa4e704910'
+settings:
+  id: 'block_content:e30dc42b-5a20-4f8c-8e9c-e9aa4e704910'
+  label: 'Creative Business Agency'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_05

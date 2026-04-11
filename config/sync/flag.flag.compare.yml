@@ -1,0 +1,29 @@
+uuid: 90bfdf36-4f89-4ad0-b6c6-44d94bf1e860
+langcode: en
+status: false
+dependencies:
+  module:
+    - commerce_product
+id: compare
+label: Compare
+bundles: {  }
+entity_type: commerce_product
+global: false
+flag_short: Comparer
+flag_long: 'Ajouter un produit à comparer'
+flag_message: ''
+unflag_short: 'Supprimer la comparaison'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+weight: 0
+flag_type: 'entity:commerce_product'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

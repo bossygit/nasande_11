@@ -1,0 +1,11 @@
+uuid: 65c5c83c-9bd9-4fa2-9a1e-e70734eb26a5
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.age
+id: taxonomy_term.age
+target_entity_type_id: taxonomy_term
+target_bundle: age
+default_langcode: site_default
+language_alterable: false

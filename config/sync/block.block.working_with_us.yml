@@ -1,0 +1,33 @@
+uuid: dd6382c3-0be0-43e4-8f46-780358552298
+langcode: en
+status: false
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.about
+  content:
+    - 'block_content:feature_block:452d65ce-7533-40e1-85b7-d34dc53d9cef'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: working_with_us
+theme: wosh
+region: content_wide
+weight: -34
+provider: null
+plugin: 'block_content:452d65ce-7533-40e1-85b7-d34dc53d9cef'
+settings:
+  id: 'block_content:452d65ce-7533-40e1-85b7-d34dc53d9cef'
+  label: "Ensuring you succeed even when you don't believe."
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: about

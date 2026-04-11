@@ -1,0 +1,18 @@
+uuid: c2f80c34-a7d6-46d0-b0b5-7fc344963adc
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Pricing Table'
+type: pricing_table
+description: 'Use <em>pricing table</em> to create a pricing table content'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

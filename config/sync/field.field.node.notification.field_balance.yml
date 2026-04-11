@@ -1,0 +1,23 @@
+uuid: 99178880-c8fa-4d17-b3f2-fe39583a3261
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_balance
+    - node.type.notification
+_core:
+  default_config_hash: LhPQTtK-S8Gu3yklj9I8_HvZA9Xds1TVVdLLQOb3bkQ
+id: node.notification.field_balance
+field_name: field_balance
+entity_type: node
+bundle: notification
+label: Balance
+description: 'The amount left after a transaction'
+required: false
+translatable: false
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings: {  }
+field_type: string

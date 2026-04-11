@@ -1,0 +1,29 @@
+uuid: 8f6ca7ca-000e-41d9-aeb9-3afa17385389
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.service
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh_d11
+id: wosh_d11_views_block__service_services_menu
+theme: wosh_d11
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'views_block:service-services_menu'
+settings:
+  id: 'views_block:service-services_menu'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''

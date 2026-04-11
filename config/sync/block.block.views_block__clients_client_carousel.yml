@@ -1,0 +1,31 @@
+uuid: 269489ee-9a41-434f-9119-c8353b5f7193
+langcode: en
+status: false
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.about
+    - views.view.clients
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__clients_client_carousel
+theme: wosh
+region: content_wide
+weight: -27
+provider: null
+plugin: 'views_block:clients-client_carousel'
+settings:
+  id: 'views_block:clients-client_carousel'
+  label: 'Our Partners'
+  label_display: visible
+  provider: views
+  views_label: 'Our Partners'
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: about

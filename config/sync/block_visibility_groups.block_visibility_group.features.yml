@@ -1,0 +1,17 @@
+uuid: 246ca194-2524-43a7-b308-7c072e857a53
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: features
+label: Features
+logic: and
+conditions:
+  8d4c8b5e-7873-471a-94c2-0ed5ea6bcf2f:
+    id: request_path
+    negate: false
+    uuid: 8d4c8b5e-7873-471a-94c2-0ed5ea6bcf2f
+    context_mapping: {  }
+    pages: /features
+allow_other_conditions: false

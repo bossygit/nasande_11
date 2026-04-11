@@ -1,0 +1,19 @@
+uuid: 814f921f-2192-49ab-a6d4-89d6f08a5553
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_icon
+    - node.type.service
+id: node.service.field_icon
+field_name: field_icon
+entity_type: node
+bundle: service
+label: Icon
+description: "Available Icons are from <a target=\"_blank\" href=\"http://fontawesome.io/cheatsheet\">Fontawesome</a>, <a target=\"_blank\" href=\"http://ionicons.com\">Ionicons</a>.\r\n<strong>Example: </strong>\r\n<strong>Fontawesome</strong> | fa-iconname  [ e.g: fa-user ]\r\n<strong>Ionicons</strong> | ion-iconname [ e.g: ti-user ]"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

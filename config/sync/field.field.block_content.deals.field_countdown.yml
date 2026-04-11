@@ -1,0 +1,24 @@
+uuid: 757eca5a-a26e-4e85-b1ae-1033bc9ed692
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.deals
+    - field.storage.block_content.field_countdown
+  module:
+    - datetime
+id: block_content.deals.field_countdown
+field_name: field_countdown
+entity_type: block_content
+bundle: deals
+label: Countdown
+description: 'Countdown Timer'
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

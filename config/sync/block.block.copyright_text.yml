@@ -1,0 +1,31 @@
+uuid: e57f6983-ec5a-4b38-bda7-b31f78a3e564
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9aa87060-a5fc-45a4-8e49-328b7480e54f'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: copyright_text
+theme: wosh
+region: footer_bottom_first
+weight: 0
+provider: null
+plugin: 'block_content:9aa87060-a5fc-45a4-8e49-328b7480e54f'
+settings:
+  id: 'block_content:9aa87060-a5fc-45a4-8e49-328b7480e54f'
+  label: 'Copyright Text'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''

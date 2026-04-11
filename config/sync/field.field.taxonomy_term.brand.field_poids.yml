@@ -1,0 +1,23 @@
+uuid: 5bf7083e-1812-43a5-be29-5a3b8b09a792
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_poids
+    - taxonomy.vocabulary.brand
+id: taxonomy_term.brand.field_poids
+field_name: field_poids
+entity_type: taxonomy_term
+bundle: brand
+label: Poids
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

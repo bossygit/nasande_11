@@ -1,0 +1,24 @@
+uuid: e0dbfa09-e871-4cb4-b26b-205aecf4fcf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pricing_table_display
+    - field.field.block_content.pricing_table_display.field_block
+id: block_content.pricing_table_display.default
+targetEntityType: block_content
+bundle: pricing_table_display
+mode: default
+content:
+  field_block:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

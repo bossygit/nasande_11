@@ -1,0 +1,44 @@
+uuid: a10f9cdd-33ea-4108-93bd-f2dcc587bf74
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:call_to_action:bf16384d-fb82-4c71-80ff-ec81db3b7058'
+  module:
+    - block_content
+    - block_visibility_groups
+    - system
+    - user
+  theme:
+    - wosh
+id: about_cta
+theme: wosh
+region: content_wide
+weight: -14
+provider: null
+plugin: 'block_content:bf16384d-fb82-4c71-80ff-ec81db3b7058'
+settings:
+  id: 'block_content:bf16384d-fb82-4c71-80ff-ec81db3b7058'
+  label: 'Ready to get started?'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/accueil\r\n/about"
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator

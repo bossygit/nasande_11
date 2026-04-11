@@ -1,0 +1,9 @@
+uuid: 74aeb91e-8cd2-4f45-a900-0c16c1154d96
+langcode: fr
+status: true
+dependencies: {  }
+name: Tags
+vid: tags
+description: 'Use tags to group articles on similar topics into categories.'
+weight: 0
+new_revision: false

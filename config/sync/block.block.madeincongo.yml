@@ -1,0 +1,35 @@
+uuid: 6726dd78-c94a-4351-ab62-dbcb6c77aa67
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:feature_block:61472058-f852-44cf-b548-770e22194c36'
+  module:
+    - block_content
+    - block_visibility_groups
+    - system
+  theme:
+    - wosh
+id: madeincongo
+theme: wosh
+region: content_wide_top
+weight: -40
+provider: null
+plugin: 'block_content:61472058-f852-44cf-b548-770e22194c36'
+settings:
+  id: 'block_content:61472058-f852-44cf-b548-770e22194c36'
+  label: 'Made In Congo'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

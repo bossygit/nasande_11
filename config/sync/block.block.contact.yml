@@ -1,0 +1,30 @@
+uuid: 8ea774d3-e9cc-4a43-ad03-c3e54479ff3e
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c4aefae8-6fab-49a9-b1e1-8bf51caf742f'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: contact
+theme: wosh
+region: footer_second
+weight: 0
+provider: null
+plugin: 'block_content:c4aefae8-6fab-49a9-b1e1-8bf51caf742f'
+settings:
+  id: 'block_content:c4aefae8-6fab-49a9-b1e1-8bf51caf742f'
+  label: Contact
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''

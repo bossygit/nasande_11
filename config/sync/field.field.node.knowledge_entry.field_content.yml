@@ -1,0 +1,22 @@
+uuid: 3f0ef0b7-6d92-4754-9ce2-4bb0af25ce25
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.knowledge_entry
+  module:
+    - text
+id: node.knowledge_entry.field_content
+field_name: field_content
+entity_type: node
+bundle: knowledge_entry
+label: Content
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

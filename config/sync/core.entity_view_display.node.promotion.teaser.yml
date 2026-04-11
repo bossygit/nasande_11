@@ -1,0 +1,81 @@
+uuid: f3ab8f21-aa37-4e45-b5d3-7fb861f59018
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.promotion.body
+    - field.field.node.promotion.field_content_placement
+    - field.field.node.promotion.field_image
+    - field.field.node.promotion.field_link
+    - field.field.node.promotion.field_pre_heading_text
+    - field.field.node.promotion.field_text_align
+    - field.field.node.promotion.field_text_color
+    - node.type.promotion
+  module:
+    - image
+    - link
+    - options
+    - text
+    - user
+id: node.promotion.teaser
+targetEntityType: node
+bundle: promotion
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_pre_heading_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_text_color:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_content_placement: true
+  field_text_align: true
+  langcode: true
+  search_api_excerpt: true

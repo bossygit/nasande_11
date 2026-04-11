@@ -1,0 +1,31 @@
+uuid: 66f9ad6b-35dc-4a56-bdff-a7b1b0c112d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.features
+    - views.view.features
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__features_feature_box
+theme: wosh
+region: content
+weight: -37
+provider: null
+plugin: 'views_block:features-feature_box'
+settings:
+  id: 'views_block:features-feature_box'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: features

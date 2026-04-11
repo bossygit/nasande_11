@@ -1,0 +1,33 @@
+uuid: a7c87504-7dac-4931-8974-c0e92d5e7519
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_04
+  content:
+    - 'block_content:basic:04d7e041-1a37-48a9-b7d3-963c98ae55b3'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: line_promotion
+theme: wosh
+region: content
+weight: -33
+provider: null
+plugin: 'block_content:04d7e041-1a37-48a9-b7d3-963c98ae55b3'
+settings:
+  id: 'block_content:04d7e041-1a37-48a9-b7d3-963c98ae55b3'
+  label: 'Line Promotion'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_04

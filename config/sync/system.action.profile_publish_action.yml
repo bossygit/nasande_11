@@ -1,0 +1,13 @@
+uuid: f8280bb4-592e-43f4-a24c-e41cfa61cd90
+langcode: fr
+status: true
+dependencies:
+  module:
+    - profile
+_core:
+  default_config_hash: dz5_l09fj1m6b4MZVYlHjYHsXSlG9aQHGGoupPb8phg
+id: profile_publish_action
+label: 'Publish selected profile'
+type: profile
+plugin: 'entity:publish_action:profile'
+configuration: {  }

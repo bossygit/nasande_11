@@ -1,0 +1,22 @@
+uuid: 4e61cb0a-096f-4545-87bd-e3387248bc60
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wosh
+_core:
+  default_config_hash: 6MN5QItjV60YmraEehIN9NzM_Rh0cY_Og6taF_nuG3c
+id: wosh_content
+theme: wosh
+region: content
+weight: -27
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Contenu de la page principale'
+  label_display: '0'
+  provider: system
+visibility: {  }

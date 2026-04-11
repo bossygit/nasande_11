@@ -1,0 +1,33 @@
+uuid: 3730f225-8c03-472f-86ae-d0822d12051a
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_promotion_layout
+field_name: field_promotion_layout
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: layout1
+      label: 'Layout V1'
+    -
+      value: layout2
+      label: 'Layout V2'
+    -
+      value: layout3
+      label: 'Layout V3'
+    -
+      value: layout4
+      label: 'Layout V4'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

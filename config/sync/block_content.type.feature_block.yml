@@ -1,0 +1,8 @@
+uuid: 1041db89-4fd1-40b4-bef8-e78c5ada376f
+langcode: en
+status: true
+dependencies: {  }
+id: feature_block
+label: 'Feature Block'
+revision: false
+description: 'Create a feature block '

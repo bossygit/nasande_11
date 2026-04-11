@@ -1,0 +1,33 @@
+uuid: dff50287-3662-4e1b-b7dc-d6460d9dc7c3
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_feature_layout
+field_name: field_feature_layout
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: layout1
+      label: 'V1 [Image Left]+[Text & Feature Right]'
+    -
+      value: layout2
+      label: 'V2 [Text & Feature Left] + [Image Right]'
+    -
+      value: layout3
+      label: 'V3 [Image Left] + [Text & Feature Right]'
+    -
+      value: layout4
+      label: 'V4 [Text & Feature Left ]+[Image Right]'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 784d3083-c381-4c88-bb9e-31f27067e48d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.slider
+    - field.storage.block_content.field_slide_type
+  module:
+    - options
+id: block_content.slider.field_slide_type
+field_name: field_slide_type
+entity_type: block_content
+bundle: slider
+label: 'Slide Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: owl
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,39 @@
+uuid: b2b2b908-540e-4654-b943-67293aa663db
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.partners.body
+    - field.field.node.partners.field_image
+    - field.field.node.partners.field_link
+    - node.type.partners
+  module:
+    - image
+    - user
+id: node.partners.teaser
+targetEntityType: node
+bundle: partners
+mode: teaser
+content:
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  field_link: true
+  langcode: true
+  search_api_excerpt: true

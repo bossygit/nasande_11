@@ -1,0 +1,31 @@
+uuid: c5d5ff6f-a73b-4537-889d-c1f8d1038420
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.blog_sidebar
+    - views.view.blog
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__blog_blog_tab
+theme: wosh
+region: sidebar_second
+weight: -40
+provider: null
+plugin: 'views_block:blog-blog_tab'
+settings:
+  id: 'views_block:blog-blog_tab'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: blog_sidebar

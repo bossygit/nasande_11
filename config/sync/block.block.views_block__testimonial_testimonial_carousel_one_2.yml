@@ -1,0 +1,31 @@
+uuid: c41f1bca-9911-436c-ba7c-c3849d5158f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_06
+    - views.view.testimonial
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__testimonial_testimonial_carousel_one_2
+theme: wosh
+region: content_wide
+weight: -10
+provider: null
+plugin: 'views_block:testimonial-testimonial_carousel_one'
+settings:
+  id: 'views_block:testimonial-testimonial_carousel_one'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_06

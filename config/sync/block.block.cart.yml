@@ -1,0 +1,28 @@
+uuid: a0dc1f48-b3fc-4c7a-9c05-4960183cc923
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_visibility_groups
+    - commerce_cart
+  theme:
+    - wosh
+id: cart
+theme: wosh
+region: cart
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  label_display: '0'
+  provider: commerce_cart
+  dropdown: true
+  show_if_empty: true
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''

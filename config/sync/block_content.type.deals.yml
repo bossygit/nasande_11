@@ -1,0 +1,8 @@
+uuid: 781760a5-bf55-4289-86dd-28e54044a74f
+langcode: en
+status: true
+dependencies: {  }
+id: deals
+label: Deals
+revision: false
+description: 'Selected products for deals & offers'

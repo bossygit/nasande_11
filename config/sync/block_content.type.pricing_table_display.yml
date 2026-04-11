@@ -1,0 +1,8 @@
+uuid: 173220f3-6752-4767-b3c3-fd7af092ffe2
+langcode: en
+status: true
+dependencies: {  }
+id: pricing_table_display
+label: 'Pricing Table Display'
+revision: false
+description: 'A block that contains numbers of pricing table'

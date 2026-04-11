@@ -1,0 +1,29 @@
+uuid: df1996e5-fdb5-4311-8d79-2ed0948b1c86
+langcode: fr
+status: true
+dependencies:
+  module:
+    - commerce_cart
+    - commerce_checkout
+    - commerce_shipping
+third_party_settings:
+  commerce_cart:
+    cart_block_view: commerce_cart_block
+    cart_form_view: commerce_cart_form
+    cart_expiration: {  }
+  commerce_checkout:
+    checkout_flow: shipping
+  commerce_shipping:
+    shipment_type: default
+_core:
+  default_config_hash: zf7YA-OOtWhhrphbf3YOlc49POwC9rePktH9cBavEiA
+id: default
+label: Default
+traits: {  }
+locked: false
+workflow: order_default
+numberPattern: null
+refresh_mode: customer
+refresh_frequency: 300
+sendReceipt: true
+receiptBcc: contact@pharmaciemayamaya.cg

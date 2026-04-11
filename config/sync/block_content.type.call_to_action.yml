@@ -1,0 +1,8 @@
+uuid: 0cc36c95-10c6-413d-b5fd-43d0af6c606a
+langcode: en
+status: true
+dependencies: {  }
+id: call_to_action
+label: 'Call To Action'
+revision: false
+description: 'Create Call To Action block'

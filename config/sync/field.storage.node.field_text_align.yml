@@ -1,0 +1,30 @@
+uuid: 07d6b995-7011-4ed4-ab1f-4b44ca0b5966
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_text_align
+field_name: field_text_align
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: text-left
+      label: Left
+    -
+      value: text-center
+      label: Center
+    -
+      value: text-right
+      label: Right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

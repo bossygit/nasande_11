@@ -1,0 +1,29 @@
+uuid: 9e0b0994-d238-4dcd-9d4b-6f78c7001350
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.reviews
+    - field.field.comment.reviews.comment_body
+  module:
+    - text
+id: comment.reviews.default
+targetEntityType: comment
+bundle: reviews
+mode: default
+content:
+  comment_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

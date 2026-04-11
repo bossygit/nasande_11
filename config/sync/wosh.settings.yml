@@ -1,0 +1,56 @@
+_core:
+  default_config_hash: nV_mgIx__zDOIFaMhE7QmtK1GC41-h04rNNYTkHiyrI
+favicon:
+  mimetype: image/png
+  path: 'public://favicon.png'
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  logo: true
+  name: false
+  node_user_picture: true
+  slogan: false
+logo:
+  path: 'public://logo_0.png'
+  use_default: false
+preloader: 0
+scrolltop: 1
+single_page_menu: 0
+parallax: '0'
+site_layout: wide-layout
+header_nav: default-header
+sidenav_style: sidenav-left
+sidenav_color: sidenav-light
+sidenav_logo: 1
+sidenav_logo_type: sidenav-logo-default
+sidenav_text: 0
+footer_responsive: 0
+footer_theme: 'dark-footer text-light'
+team_style: team_1
+header_social_icon: 0
+facebook_url: ''
+twitter_url: ''
+google_plus_url: ''
+linkedin_url: ''
+pinterest_url: ''
+rss_url: ''
+sidenav_logo_value: ''
+sidenav_text_content: ''
+footer_first_size: col-md-12
+footer_second_size: col-md-12
+footer_third_size: col-md-12
+footer_forth_size: col-md-12
+tracking_code: ''
+custom_css: ".brand.logo {\r\n\tmax-width: 270px;\r\n\tline-height: 96px;\r\n}\r\n\r\ninput[type=text],input[type=password],textarea,input[type=email]{\r\n   -moz-box-shadow: inset -3px -3px 10px #eee;\r\n   -webkit-box-shadow: inset -3px -3px 10px #eee;\r\n   box-shadow: inset -3px -3px 10px #eee;\r\n  border: 2px solid #ccc;\r\n   border-radius: 15px;\r\n}\r\n.view-footer {\r\ntext-align:center;\r\n}\r\n.view-footer .btn{\r\nbackground-color:#008775;\r\n\r\n}\r\n.view-footer .btn a{\r\n\r\ncolor:#ffffff;\r\n}\r\n.pab {\r\npadding-bottom:9px;\r\n}\r\n\r\n\r\n#content-wide-top .views-exposed-form {\r\n\ttext-align: center;\r\n}\r\n\r\n#interieure {\r\nmin-height:450px;\r\n}\r\n.bienvenu {\r\ntext-align:justify;\r\nfont-size:18px;\r\n}\r\n.js-form-type-radio {\r\ndisplay:inline-block;\r\nmargin-right:9px;\r\n}\r\n.heading-text-content,.pre-heading-text .field-item {\r\ntext-shadow: 4px 4px 2px rgba(150, 150, 150, 1);\r\n-moz-text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);\r\n-webkit-text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);\r\n\r\n}\r\n\r\n.hond,.field-field-stock {\r\ndisplay:none;\r\n}\r\n\r\n.content-wide .block {\r\n\r\n\tpadding-top: 10px;\r\n\tpadding-bottom: 10px;\r\n}\r\n\r\n#page-title {\r\n\tpadding: 15px 0;\r\n}\r\n\r\n.ui-dialog-content {\r\nfont-size:16px;\r\n}\r\n\r\n.ui-dialog-titlebar-close::after {\r\ncontent:\"fermer\";\r\n}\r\n.product-teaser .product-add-cart  {\r\ndisplay:none;\r\n}\r\n\r\n.congo,.congo .block-title {\r\ncolor:#ffffff;\r\n}\r\n\r\n.view-grouping-header {\r\nfont-size:36px;\r\ntext-align:center;\r\n}\r\n\r\n\r\n\r\n@media (min-width:320px)  { \r\n.hond {\r\ndisplay:inline;\r\n}\r\n }"
+instagram_url: ''
+youtube_url: ''
+vimeo_url: ''
+dribbble_url: ''
+commerce_layout: commerce-layout1
+product_layout: product-layout1
+fixed_header: 0
+nav_align: text-md-center
+sticky_header: non-sticky-header
+header_style: header-default

@@ -1,0 +1,33 @@
+uuid: c4348117-3de1-41f2-97ba-78d87111f61c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_03
+  content:
+    - 'block_content:deals:d0715e2d-a707-4a6d-81c5-dbb4a23bcc60'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: deals_of_the_day
+theme: wosh
+region: content
+weight: -35
+provider: null
+plugin: 'block_content:d0715e2d-a707-4a6d-81c5-dbb4a23bcc60'
+settings:
+  id: 'block_content:d0715e2d-a707-4a6d-81c5-dbb4a23bcc60'
+  label: 'Deals of the day'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_03

@@ -1,0 +1,20 @@
+uuid: 55c4acb6-f939-42d9-a944-14b8fac033d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - commerce_product
+id: commerce_product.field_product_review
+field_name: field_product_review
+entity_type: commerce_product
+type: comment
+settings:
+  comment_type: reviews
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

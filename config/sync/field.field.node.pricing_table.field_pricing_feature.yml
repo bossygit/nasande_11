@@ -1,0 +1,19 @@
+uuid: 84ded492-bbaa-42b1-a081-eed7a8458010
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pricing_feature
+    - node.type.pricing_table
+id: node.pricing_table.field_pricing_feature
+field_name: field_pricing_feature
+entity_type: node
+bundle: pricing_table
+label: 'Pricing Feature(s)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

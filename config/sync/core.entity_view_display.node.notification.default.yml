@@ -1,0 +1,77 @@
+uuid: 6fc196c7-efa5-43cd-8ca5-e3303cd0d599
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.notification.body
+    - field.field.node.notification.field_amount
+    - field.field.node.notification.field_balance
+    - field.field.node.notification.field_code
+    - field.field.node.notification.field_status
+    - field.field.node.notification.field_telephone_number
+    - node.type.notification
+  module:
+    - options
+    - text
+    - user
+_core:
+  default_config_hash: jX6HNONlpy4EzDS4yCJ1qJVf5kt_R3lr4EkdsQ1saGs
+id: node.notification.default
+targetEntityType: node
+bundle: notification
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_amount:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_balance:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_code:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_telephone_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

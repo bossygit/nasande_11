@@ -1,0 +1,19 @@
+uuid: ae550132-cd74-47b3-8671-e8e1b921d7f4
+langcode: en
+status: false
+dependencies:
+  module:
+    - commerce_payment_example
+id: payment_example
+label: 'Payment Example'
+weight: null
+plugin: example_offsite_redirect
+configuration:
+  display_label: Example
+  mode: test
+  payment_method_types:
+    - credit_card
+  collect_billing_information: true
+  redirect_method: post
+conditions: {  }
+conditionOperator: AND

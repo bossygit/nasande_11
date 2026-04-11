@@ -1,0 +1,23 @@
+uuid: eb8a6bbe-694f-43b8-bf8b-b4930ca24be9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_portfolio_format
+    - node.type.portfolio
+  module:
+    - options
+id: node.portfolio.field_portfolio_format
+field_name: field_portfolio_format
+entity_type: node
+bundle: portfolio
+label: 'Portfolio Format'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings: {  }
+field_type: list_float

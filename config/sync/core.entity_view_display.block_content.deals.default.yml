@@ -1,0 +1,60 @@
+uuid: 7866ca51-5603-4ee1-8d48-b66f8bcef5d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.deals
+    - field.field.block_content.deals.body
+    - field.field.block_content.deals.field_countdown
+    - field.field.block_content.deals.field_deals_layout
+    - field.field.block_content.deals.field_product_block
+  module:
+    - field_timer
+    - options
+    - text
+id: block_content.deals.default
+targetEntityType: block_content
+bundle: deals
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_countdown:
+    type: field_timer_countdown
+    label: hidden
+    settings:
+      type: auto
+      regional: en
+      format: dHMS
+      layout: ''
+      compact: false
+      significant: 0
+      timeSeparator: ':'
+      padZeroes: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_deals_layout:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_product_block:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

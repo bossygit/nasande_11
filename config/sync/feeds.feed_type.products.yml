@@ -1,0 +1,106 @@
+uuid: 0d6c302d-cfb3-4b49-aeee-4e829a4094c4
+langcode: fr
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.field.commerce_product.default.field_product_brand
+    - field.field.commerce_product.default.field_product_category
+  module:
+    - commerce_feeds
+    - commerce_product
+id: products
+label: Products
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:commerce_product'
+processor_configuration:
+  values:
+    type: default
+  langcode: fr
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+  insert_new: 1
+  skip_validation: false
+  skip_validation_types: {  }
+  revision: false
+custom_sources:
+  var_store:
+    value: Store
+    label: Store
+    machine_name: var_store
+    type: csv
+  prod_name:
+    value: Name
+    label: Name
+    machine_name: prod_name
+    type: csv
+  marque:
+    value: Marque
+    label: Marque
+    machine_name: marque
+    type: csv
+  prod_category:
+    value: Category
+    label: Category
+    machine_name: prod_category
+    type: csv
+  prod_n:
+    value: 'N'
+    label: 'N'
+    machine_name: prod_n
+    type: csv
+mappings:
+  -
+    target: stores
+    map:
+      target_id: var_store
+    settings:
+      reference_by: name
+      autocreate: false
+  -
+    target: title
+    map:
+      value: prod_name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_product_brand
+    map:
+      target_id: marque
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_product_category
+    map:
+      target_id: prod_category
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: variations
+    map:
+      target_id: prod_n
+    settings:
+      reference_by: feeds_item
+      feeds_item: guid
+      autocreate: 0

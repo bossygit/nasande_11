@@ -1,0 +1,11 @@
+uuid: de79bfbc-2b63-4760-92c4-050a8595c876
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.origine
+id: taxonomy_term.origine
+target_entity_type_id: taxonomy_term
+target_bundle: origine
+default_langcode: site_default
+language_alterable: false

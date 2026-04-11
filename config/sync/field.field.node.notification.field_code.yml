@@ -1,0 +1,21 @@
+uuid: 8bed9829-d999-4d4c-b72e-8a71cfdcb093
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_code
+    - node.type.notification
+_core:
+  default_config_hash: Qvst9Zq0PUXqqjT3-Cz1iKEDS0e0VuIuM4m9bL2Obbo
+id: node.notification.field_code
+field_name: field_code
+entity_type: node
+bundle: notification
+label: Code
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

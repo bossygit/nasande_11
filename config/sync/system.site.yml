@@ -1,0 +1,13 @@
+langcode: fr
+uuid: 50d58c35-b143-46c7-9000-bf98e321d6c6
+name: 'Nasande '
+mail: bienvenukitutu@gmail.com
+slogan: 'Votre boutique en ligne'
+page:
+  403: ''
+  404: ''
+  front: /node/197
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: fr
+mail_notification: ''

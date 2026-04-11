@@ -1,0 +1,29 @@
+uuid: 08cce721-a9aa-4703-8022-c72eb6e772c7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_origine
+    - taxonomy.vocabulary.origine
+id: commerce_product.default.field_origine
+field_name: field_origine
+entity_type: commerce_product
+bundle: default
+label: Origine
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      origine: origine
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

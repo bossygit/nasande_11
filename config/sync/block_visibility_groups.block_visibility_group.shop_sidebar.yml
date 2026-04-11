@@ -1,0 +1,17 @@
+uuid: dbba7497-f405-4f57-996a-66e44dea86bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: shop_sidebar
+label: 'Shop Sidebar'
+logic: and
+conditions:
+  37e4bb71-b6be-42c6-a867-718309d70ae7:
+    id: request_path
+    negate: false
+    uuid: 37e4bb71-b6be-42c6-a867-718309d70ae7
+    context_mapping: {  }
+    pages: "/shop\r\n/products\r\n/gamme/*"
+allow_other_conditions: false

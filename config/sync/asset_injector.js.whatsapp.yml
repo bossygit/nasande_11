@@ -1,0 +1,29 @@
+uuid: dd57bc61-7bbe-4a5e-b68f-3102d28ba86b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - block_visibility_groups
+id: whatsapp
+label: Whatsapp
+code: |
+  document.querySelector('.btn-whatsapp').addEventListener('click', function() {
+      var productTitle = document.querySelector('.product-title').textContent;
+      var productPrice = document.querySelector('.product-price').textContent;
+      var productUrl = window.location.href;
+
+      var whatsappUrl = "https://wa.me/242064781414?text=" + encodeURIComponent("Je suis intéressé par " + productTitle + " au prix de " + productPrice + ". Voici le lien: " + productUrl);
+      window.open(whatsappUrl, '_blank');
+  });
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: true
+preprocess: true
+conditions:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+contexts: {  }
+conditions_require_all: false

@@ -1,0 +1,9 @@
+uuid: b69528f0-77b9-4c2c-9959-8cc54f16b5d2
+langcode: fr
+status: true
+dependencies: {  }
+name: 'AI Concepts'
+vid: ai_concepts
+description: 'Concepts / thématiques AI'
+weight: 0
+new_revision: false

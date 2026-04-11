@@ -1,0 +1,27 @@
+uuid: f3404587-6baf-44b8-9dd8-be03f5a65b95
+langcode: fr
+status: true
+dependencies:
+  module:
+    - block_visibility_groups
+id: add_to_cart
+label: 'Add to cart'
+code: |
+  $(function() {
+    'use strict';
+    
+
+    
+  });
+noscript: ''
+noscriptRegion: {  }
+jquery: true
+header: true
+preprocess: true
+conditions:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+contexts: {  }
+conditions_require_all: true

@@ -1,0 +1,21 @@
+uuid: 3a7cd108-1206-4047-8183-89d7aef4e465
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_numero_de_telephone
+    - profile.type.customer
+  module:
+    - telephone
+id: profile.customer.field_numero_de_telephone
+field_name: field_numero_de_telephone
+entity_type: profile
+bundle: customer
+label: 'Numéro de téléphone'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

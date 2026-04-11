@@ -1,0 +1,9 @@
+uuid: ebdc54fd-d37e-490e-948e-7f0a4f6e2583
+langcode: fr
+status: true
+dependencies: {  }
+currencyCode: XAF
+name: 'franc CFA (BEAC)'
+numericCode: '950'
+symbol: FCFA
+fractionDigits: 0

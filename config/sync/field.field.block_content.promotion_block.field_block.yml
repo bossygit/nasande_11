@@ -1,0 +1,28 @@
+uuid: 46f4bd1f-ca75-40db-a06a-4b89418d9a8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.promotion_block
+    - field.storage.block_content.field_block
+    - node.type.promotion
+id: block_content.promotion_block.field_block
+field_name: field_block
+entity_type: block_content
+bundle: promotion_block
+label: 'Promotion Blocks'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      promotion: promotion
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

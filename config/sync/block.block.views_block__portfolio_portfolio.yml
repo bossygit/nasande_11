@@ -1,0 +1,31 @@
+uuid: 1832381c-2720-4153-86e9-9b719e964942
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.portfolio
+    - views.view.portfolio
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__portfolio_portfolio
+theme: wosh
+region: content
+weight: -42
+provider: null
+plugin: 'views_block:portfolio-portfolio'
+settings:
+  id: 'views_block:portfolio-portfolio'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: portfolio

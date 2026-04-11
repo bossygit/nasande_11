@@ -1,0 +1,29 @@
+uuid: 1610c98e-2460-4737-8332-d619612e735b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - file
+    - system
+    - toolbar
+id: publisher
+label: Publisher
+weight: 3
+is_admin: null
+permissions:
+  - 'access site in maintenance mode'
+  - 'access toolbar'
+  - 'create commerce_product_attribute'
+  - 'create default commerce_product'
+  - 'delete any default commerce_product'
+  - 'delete commerce_product_attribute'
+  - 'delete own default commerce_product'
+  - 'delete own files'
+  - 'manage default commerce_product_variation'
+  - 'update any default commerce_product'
+  - 'update commerce_product_attribute'
+  - 'update own default commerce_product'
+  - 'view commerce_product_attribute'
+  - 'view default commerce_product'
+  - 'view own unpublished commerce_product'

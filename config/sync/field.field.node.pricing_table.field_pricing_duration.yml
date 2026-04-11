@@ -1,0 +1,19 @@
+uuid: a3d26a4f-60d8-4aec-8785-411e77c5a131
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pricing_duration
+    - node.type.pricing_table
+id: node.pricing_table.field_pricing_duration
+field_name: field_pricing_duration
+entity_type: node
+bundle: pricing_table
+label: 'Pricing Duration'
+description: 'e.g: Monthly, Yearly, Daily'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

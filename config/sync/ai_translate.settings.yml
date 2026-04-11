@@ -1,0 +1,17 @@
+_core:
+  default_config_hash: W7QHqpL0S9hdp-pMRahqDKZQTsBfLl-ywaDiGYTpiBs
+reference_defaults:
+  block_content: '1'
+  entity_reference_depth: '1'
+  node: ''
+  paragraph: '1'
+  taxonomy_term: '1'
+  _fallback: '1'
+prompt: ai_translate__ai_translate_default
+language_settings:
+  en:
+    model: null
+    prompt: ai_translate__ai_translate_default
+  fr:
+    model: null
+    prompt: ai_translate__ai_translate_default

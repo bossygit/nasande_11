@@ -1,0 +1,30 @@
+uuid: d02dd4ef-a883-4481-86e8-db1173458c48
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:18437a0d-5333-4d6a-8577-ae6c9f04a369'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: application
+theme: wosh
+region: footer_forth
+weight: 0
+provider: null
+plugin: 'block_content:18437a0d-5333-4d6a-8577-ae6c9f04a369'
+settings:
+  id: 'block_content:18437a0d-5333-4d6a-8577-ae6c9f04a369'
+  label: Application
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''

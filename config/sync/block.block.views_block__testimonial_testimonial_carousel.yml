@@ -1,0 +1,31 @@
+uuid: f17d0418-41cb-46d7-8a18-6800265cf28f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_01
+    - views.view.testimonial
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__testimonial_testimonial_carousel
+theme: wosh
+region: content_wide
+weight: -35
+provider: null
+plugin: 'views_block:testimonial-testimonial_carousel'
+settings:
+  id: 'views_block:testimonial-testimonial_carousel'
+  label: 'What People Says'
+  label_display: visible
+  provider: views
+  views_label: 'What People Says'
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_01

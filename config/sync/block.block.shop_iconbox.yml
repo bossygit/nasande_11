@@ -1,0 +1,33 @@
+uuid: 23f27b31-0106-4475-b0c1-5f519c9e2b7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_04
+  content:
+    - 'block_content:basic:27318079-24d3-47d4-8fa9-15234a0d8327'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: shop_iconbox
+theme: wosh
+region: content
+weight: -34
+provider: null
+plugin: 'block_content:27318079-24d3-47d4-8fa9-15234a0d8327'
+settings:
+  id: 'block_content:27318079-24d3-47d4-8fa9-15234a0d8327'
+  label: 'Shop Icon Box'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_04

@@ -1,0 +1,31 @@
+uuid: fe64dfde-332f-4948-82ee-4881a960fdcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_03
+    - views.view.product_catalog_basic
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__product_catalog_basic_new_products_carousel
+theme: wosh
+region: content_wide
+weight: -32
+provider: null
+plugin: 'views_block:product_catalog_basic-new_products_carousel'
+settings:
+  id: 'views_block:product_catalog_basic-new_products_carousel'
+  label: 'new arrivals'
+  label_display: visible
+  provider: views
+  views_label: 'new arrivals'
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_03

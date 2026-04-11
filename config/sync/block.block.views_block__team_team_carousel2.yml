@@ -1,0 +1,31 @@
+uuid: 562077cb-0ed1-4672-8c15-23c79ba69afe
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_05
+    - views.view.team
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__team_team_carousel2
+theme: wosh
+region: content_wide
+weight: -17
+provider: null
+plugin: 'views_block:team-team_carousel2'
+settings:
+  id: 'views_block:team-team_carousel2'
+  label: 'Meet the important people'
+  label_display: visible
+  provider: views
+  views_label: 'Meet the important people'
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_05

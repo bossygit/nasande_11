@@ -1,0 +1,14 @@
+uuid: 562e44e9-b735-4009-b538-dd829f62763d
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 96ryTApvzUl00vKGZusJUDgPHQALAKN8Mb13Jxm02KU
+id: lait_et_farine
+label: 'Laits et Farines'
+traits: {  }
+locked: false
+description: ''
+variationType: default
+multipleVariations: true
+injectVariationFields: true

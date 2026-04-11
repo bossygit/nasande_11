@@ -1,0 +1,22 @@
+uuid: 510b11b2-b9aa-4eb9-bcdf-2e0944fc7833
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - wosh
+_core:
+  default_config_hash: pE-92y58ta4O3-IV-yDeZJ9HBzgAeZEdovQiICwR4NI
+id: wosh_local_tasks
+theme: wosh
+region: content
+weight: -28
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Onglets
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

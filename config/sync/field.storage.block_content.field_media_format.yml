@@ -1,0 +1,33 @@
+uuid: f2014aa8-df45-4d69-a0ca-f2aee00c4618
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_media_format
+field_name: field_media_format
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: static-image
+      label: 'Static Image'
+    -
+      value: background-image
+      label: 'Background Image'
+    -
+      value: slider-image
+      label: 'Slider Image'
+    -
+      value: video-popup
+      label: 'Image-Video Popup'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,6328 @@
+uuid: 70343060-933b-4ecc-a9ca-1203b7ab4437
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.commerce_product.field_level
+    - field.storage.commerce_product.field_product_category
+    - search_api.index.db_search_index
+    - system.menu.main
+    - taxonomy.vocabulary.brand
+    - taxonomy.vocabulary.product
+    - user.role.administrator
+    - user.role.anonymous
+    - user.role.authenticated
+    - user.role.publisher
+  content:
+    - 'taxonomy_term:brand:10bb9731-1966-4043-adb6-b87bd2aaa539'
+    - 'taxonomy_term:brand:1967a1bc-a6ac-4d42-bb74-4ddbf07511a1'
+    - 'taxonomy_term:brand:30c3a7f0-7eb4-4e2d-badc-b54c4b7c47cf'
+    - 'taxonomy_term:brand:36493ea4-4eb0-4b7b-93f4-0a5ef294e0c5'
+    - 'taxonomy_term:brand:382f0034-d52d-4ad7-9e6c-488325d506a3'
+    - 'taxonomy_term:brand:3ad837f9-b96d-48c2-a99d-d1ff53f7359d'
+    - 'taxonomy_term:brand:43e59bfd-dc29-4d74-b16b-e512b0364fe4'
+    - 'taxonomy_term:brand:45f89cf9-f8c8-4415-9468-0c4870842458'
+    - 'taxonomy_term:brand:4aa826b3-cb38-41f3-8e50-75d76313a0ee'
+    - 'taxonomy_term:brand:876aad68-fa5e-44cc-8c2a-f807f2a6790b'
+    - 'taxonomy_term:brand:ac5d8b0b-cbc7-4a33-8e59-57544acd7e19'
+    - 'taxonomy_term:brand:b417444a-a033-41f0-8914-fd1377784ca9'
+    - 'taxonomy_term:brand:bf655cf7-39b3-4ff9-8d81-630243883233'
+    - 'taxonomy_term:brand:c34b150f-9a5f-45dc-9115-1873e3f7b337'
+    - 'taxonomy_term:brand:d4edaad4-2fa2-43df-af45-60149d223e01'
+    - 'taxonomy_term:brand:dd3f2215-b135-4eda-9215-b22d3107c132'
+    - 'taxonomy_term:product:0c1a1bed-7eb3-4bf5-a69c-f284b7a49e8a'
+    - 'taxonomy_term:product:2e7a021f-bfac-4925-9bcb-833779b3fd71'
+    - 'taxonomy_term:product:3b0dc7e1-d97a-4a62-9ae3-63d4f291b630'
+    - 'taxonomy_term:product:66d4b8b7-9bac-4bdd-8c4b-13f837bc3862'
+    - 'taxonomy_term:product:908e3560-981b-4cc0-9bcb-9710630e23c5'
+    - 'taxonomy_term:product:a7ee75e1-b857-4443-bfbb-b27640ac72c0'
+    - 'taxonomy_term:product:b928bd11-c4a2-4223-b3a2-445f00f99327'
+    - 'taxonomy_term:product:db8f96da-3033-4f58-8bc0-4ec7e4555e0b'
+    - 'taxonomy_term:product:de259c01-cbea-4773-96dd-60bf59a8727c'
+    - 'taxonomy_term:product:e9bd270b-52c0-4f81-9e3c-af7a6b4581cb'
+  module:
+    - commerce_product
+    - file
+    - search_api
+    - taxonomy
+    - user
+    - views_bootstrap_grid
+id: product_catalog
+label: 'Product Catalog (Search API)'
+module: views
+description: 'Product display using search api'
+tag: ''
+base_table: search_api_index_db_search_index
+base_field: search_api_id
+display:
+  default:
+    id: default
+    display_title: Master
+    display_plugin: default
+    position: 0
+    display_options:
+      title: Produits
+      fields:
+        title:
+          id: title
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: commerce_product
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            multi_type: separator
+            multi_separator: ', '
+        field_product_category:
+          id: field_product_category
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: field_product_category
+          entity_type: commerce_product
+          plugin_id: search_api_field
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 0
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« Premier'
+            last: 'Dernier »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+          pagination_heading_level: h4
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Appliquer
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Trié par'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: role
+        options:
+          role:
+            anonymous: anonymous
+            authenticated: authenticated
+            administrator: administrator
+            publisher: publisher
+      cache:
+        type: search_api_none
+        options: {  }
+      empty: {  }
+      sorts:
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Name
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Price
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Relevance
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      arguments: {  }
+      filters: {  }
+      style:
+        type: ViewsBootstrapGrid
+        options:
+          grouping:
+            -
+              field: field_level
+              rendered: true
+              rendered_strip: false
+          row_class: ''
+          default_row_class: false
+          uses_fields: true
+          lg: '4'
+          md: '6'
+          sm: '12'
+          grid_item: 0
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:commerce_product':
+              default: teaser
+              test: default
+            'entity:taxonomy_term':
+              brand: default
+      query:
+        type: search_api_query
+        options:
+          bypass_access: false
+          skip_access: false
+      relationships: {  }
+      use_ajax: false
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  catalog_search:
+    id: catalog_search
+    display_title: 'Product Catalog Search'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Recherche
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Recherche
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Trié par'
+          expose_sort_order: false
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Relevance
+            field_identifier: search_api_relevance
+          exposed: false
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_db_search_index
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: text
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: "Saisis le nom d'un produit"
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        exposed_form: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      display_description: ''
+      exposed_block: true
+      display_extenders: {  }
+      path: catalog
+      menu:
+        type: none
+        title: ''
+        description: ''
+        weight: -49
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_1:
+    id: page_1
+    display_title: 'Product Catalog'
+    display_plugin: page
+    position: 1
+    display_options:
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: products
+      menu:
+        type: normal
+        title: Produits
+        description: ''
+        weight: -47
+        enabled: false
+        expanded: true
+        menu_name: main
+        parent: ''
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_10:
+    id: page_10
+    display_title: Sexualité
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Sexualité
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            118: 118
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: product
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/sexualite
+      menu:
+        type: normal
+        title: Sexualité
+        description: ''
+        weight: -43
+        enabled: false
+        expanded: false
+        menu_name: main
+        parent: 'menu_link_content:799b85c3-1523-418b-b8ed-740099cadcf8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_11:
+    id: page_11
+    display_title: Vernis
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Vernis
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            79: 79
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: product
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/vernis
+      menu:
+        type: normal
+        title: Vernis
+        description: ''
+        weight: -42
+        enabled: false
+        expanded: false
+        menu_name: main
+        parent: 'menu_link_content:799b85c3-1523-418b-b8ed-740099cadcf8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_12:
+    id: page_12
+    display_title: Outils
+    display_plugin: page
+    position: 1
+    display_options:
+      title: 'Outils De Santé'
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            119: 119
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: product
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/outils
+      menu:
+        type: normal
+        title: 'Équipements médicaux'
+        description: ''
+        weight: -40
+        enabled: false
+        expanded: false
+        menu_name: main
+        parent: 'menu_link_content:799b85c3-1523-418b-b8ed-740099cadcf8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_13:
+    id: page_13
+    display_title: 'Gamme Le Petit Marseillais'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: 'Produits Le Petit Marseillais'
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            69: 69
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/le-petit-marseillais
+      menu:
+        type: normal
+        title: 'Le Petit Marseillais'
+        description: ''
+        weight: -48
+        enabled: true
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_14:
+    id: page_14
+    display_title: 'Gamme Avene'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Avene
+      fields:
+        field_product_category:
+          id: field_product_category
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: commerce_product
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              age:
+                display_method: label
+              brand:
+                display_method: label
+                view_mode: default
+              category:
+                display_method: label
+              origine:
+                display_method: label
+              product:
+                display_method: label
+                view_mode: default
+              project:
+                display_method: label
+              tags:
+                display_method: label
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            53: 53
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        fields: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/avene
+      menu:
+        type: normal
+        title: Avene
+        description: ''
+        weight: -56
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_15:
+    id: page_15
+    display_title: 'Gamme Château Rouge'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: 'Château Rouge'
+      fields:
+        field_level:
+          id: field_level
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: field_level
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: commerce_product
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              age:
+                display_method: label
+              brand:
+                display_method: label
+                view_mode: default
+              category:
+                display_method: label
+              level:
+                display_method: label
+              origine:
+                display_method: label
+              product:
+                display_method: label
+                view_mode: default
+              project:
+                display_method: label
+              tags:
+                display_method: label
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            57: 57
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        fields: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/chateau-rouge
+      menu:
+        type: normal
+        title: 'Château Rouge'
+        description: ''
+        weight: -54
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_level'
+        - 'config:search_api.index.db_search_index'
+  page_16:
+    id: page_16
+    display_title: 'Gamme Garnier'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Garnier
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            64: 64
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/garnier
+      menu:
+        type: normal
+        title: Garnier
+        description: ''
+        weight: -49
+        enabled: false
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_17:
+    id: page_17
+    display_title: 'Gamme Klorane'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Klorane
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            104: 104
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/klorane
+      menu:
+        type: normal
+        title: Klorane
+        description: ''
+        weight: -52
+        enabled: true
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_18:
+    id: page_18
+    display_title: 'Gamme Biolane'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: 'Produits Biolane'
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            100: 100
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/biolane
+      menu:
+        type: normal
+        title: Biolane
+        description: ''
+        weight: -55
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_19:
+    id: page_19
+    display_title: 'Gamme La Roche Posay'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: 'Produits La Roche Posay'
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            68: 68
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/la-roche-posay
+      menu:
+        type: normal
+        title: 'La Roche Posay'
+        description: ''
+        weight: -51
+        enabled: true
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_2:
+    id: page_2
+    display_title: 'Product Peau'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Peau
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/peau
+      menu:
+        type: normal
+        title: Peau
+        description: ''
+        weight: -45
+        enabled: false
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:799b85c3-1523-418b-b8ed-740099cadcf8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_20:
+    id: page_20
+    display_title: 'Gamme Bioderma'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Bioderma
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            55: 55
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/bioderma
+      menu:
+        type: normal
+        title: Bioderma
+        description: ''
+        weight: -50
+        enabled: false
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_21:
+    id: page_21
+    display_title: 'Gamme Loréal'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: "L'Oréal"
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            70: 70
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/loreal
+      menu:
+        type: normal
+        title: Loréal
+        description: ''
+        weight: -47
+        enabled: false
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_22:
+    id: page_22
+    display_title: 'Gamme Makari'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Makari
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            71: 71
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/makari
+      menu:
+        type: normal
+        title: Makari
+        description: ''
+        weight: -46
+        enabled: true
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_23:
+    id: page_23
+    display_title: 'Gamme Mixa'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Mixa
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            82: 82
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/mixa
+      menu:
+        type: normal
+        title: Mixa
+        description: ''
+        weight: -45
+        enabled: true
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_24:
+    id: page_24
+    display_title: 'Gamme Mustela'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Mustela
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category_1:
+          id: field_product_category_1
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category_1
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            83: 83
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/mustela
+      menu:
+        type: normal
+        title: Mustela
+        description: ''
+        weight: -44
+        enabled: true
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_25:
+    id: page_25
+    display_title: 'Gamme Neutrogena'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Neutrogena
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            84: 84
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/neutrogena
+      menu:
+        type: normal
+        title: Neutrogena
+        description: ''
+        weight: -43
+        enabled: true
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_26:
+    id: page_26
+    display_title: 'Gamme Pr Francoise Bedon'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: 'Francoise Bedon'
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            91: 91
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/pr-francoise-bedon
+      menu:
+        type: normal
+        title: 'Francoise Bedon'
+        description: ''
+        weight: -53
+        enabled: true
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_27:
+    id: page_27
+    display_title: 'Gamme Uriage'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Uriage
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            97: 97
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/uriage
+      menu:
+        type: normal
+        title: Uriage
+        description: ''
+        weight: -41
+        enabled: true
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_28:
+    id: page_28
+    display_title: 'Rogé Cavaillès'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: 'Rogé Cavaillès'
+      cache:
+        type: search_api_none
+      sorts:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_product_category
+          exposed: false
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_brand:
+          id: field_product_brand
+          table: search_api_index_db_search_index
+          field: field_product_brand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            94: 94
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: brand
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: gamme/roge-cavailles
+      menu:
+        type: normal
+        title: 'Rogé Cavaillès'
+        description: ''
+        weight: -42
+        enabled: true
+        expanded: true
+        menu_name: main
+        parent: 'menu_link_content:d01b1005-56dc-4974-9808-1340bc552ad8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_3:
+    id: page_3
+    display_title: 'Product Visage'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Visage
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            75: 75
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: product
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/visage
+      menu:
+        type: normal
+        title: Visage
+        description: ''
+        weight: -48
+        enabled: false
+        expanded: false
+        menu_name: main
+        parent: 'views_view:views.product_catalog.page_2'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_4:
+    id: page_4
+    display_title: 'Product Beauté'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Beauté
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            77: 77
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: product
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/beaute
+      menu:
+        type: normal
+        title: Visage
+        description: ''
+        weight: -41
+        enabled: false
+        expanded: false
+        menu_name: main
+        parent: 'menu_link_content:799b85c3-1523-418b-b8ed-740099cadcf8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_5:
+    id: page_5
+    display_title: 'Product Bébé'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Bébé
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            81: 81
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: product
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/bebe
+      menu:
+        type: normal
+        title: Bébé
+        description: ''
+        weight: -50
+        enabled: false
+        expanded: false
+        menu_name: main
+        parent: 'menu_link_content:799b85c3-1523-418b-b8ed-740099cadcf8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_6:
+    id: page_6
+    display_title: 'Product Cheveux'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Bébé
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            74: 74
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: product
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/cheveux
+      menu:
+        type: normal
+        title: Cheveux
+        description: ''
+        weight: -49
+        enabled: true
+        expanded: false
+        menu_name: main
+        parent: 'menu_link_content:799b85c3-1523-418b-b8ed-740099cadcf8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_7:
+    id: page_7
+    display_title: 'Product Déodorants & Parfums'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: 'Déodorants & Parfums'
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            80: 80
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: product
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/deodorants
+      menu:
+        type: normal
+        title: 'Déodorants & Parfums'
+        description: ''
+        weight: -48
+        enabled: true
+        expanded: false
+        menu_name: main
+        parent: 'menu_link_content:799b85c3-1523-418b-b8ed-740099cadcf8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_8:
+    id: page_8
+    display_title: 'Huiles Essentielles'
+    display_plugin: page
+    position: 1
+    display_options:
+      title: 'Huiles Essentielles'
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            117: 117
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: product
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/huile-essentielle
+      menu:
+        type: normal
+        title: 'Huiles Essentielles'
+        description: ''
+        weight: -47
+        enabled: false
+        expanded: false
+        menu_name: main
+        parent: 'menu_link_content:799b85c3-1523-418b-b8ed-740099cadcf8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'
+  page_9:
+    id: page_9
+    display_title: Hygiène
+    display_plugin: page
+    position: 1
+    display_options:
+      title: Hygiène
+      cache:
+        type: search_api_tag
+        options: {  }
+      sorts:
+        field_en_avant:
+          id: field_en_avant
+          table: search_api_index_db_search_index
+          field: field_en_avant
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: field_en_avant
+          exposed: false
+        created_1:
+          id: created_1
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created_1
+          exposed: false
+        title:
+          id: title
+          table: search_api_index_db_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Nom
+            field_identifier: title
+          exposed: true
+        number:
+          id: number
+          table: search_api_index_db_search_index
+          field: number
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Prix
+            field_identifier: number
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_db_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Pertinence
+            field_identifier: search_api_relevance
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_db_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Newness
+            field_identifier: created
+          exposed: true
+      filters:
+        field_product_category:
+          id: field_product_category
+          table: search_api_index_db_search_index
+          field: field_product_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_term
+          operator: or
+          value:
+            78: 78
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: product
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        cache: false
+        title: false
+        relationships: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      relationships:
+        variations:
+          id: variations
+          table: search_api_datasource_db_search_index_entity_commerce_product
+          field: variations
+          relationship: none
+          group_type: group
+          admin_label: 'Variations : Product variation'
+          entity_type: commerce_product
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        field_image:
+          id: field_image
+          table: search_api_entity_commerce_product_variation
+          field: field_image
+          relationship: variations
+          group_type: group
+          admin_label: 'Image : Fichier'
+          entity_type: commerce_product_variation
+          plugin_id: search_api
+          required: false
+          skip_access: false
+        parent:
+          id: parent
+          table: search_api_datasource_db_search_index_entity_taxonomy_term
+          field: parent
+          relationship: none
+          group_type: group
+          admin_label: 'Parents du terme : Terme de taxonomie'
+          entity_type: taxonomy_term
+          plugin_id: search_api
+          required: false
+          skip_access: false
+      display_description: ''
+      display_extenders: {  }
+      path: cat/hygiene
+      menu:
+        type: normal
+        title: Hygiène
+        description: ''
+        weight: -46
+        enabled: false
+        expanded: false
+        menu_name: main
+        parent: 'menu_link_content:799b85c3-1523-418b-b8ed-740099cadcf8'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.commerce_product.field_product_category'
+        - 'config:search_api.index.db_search_index'

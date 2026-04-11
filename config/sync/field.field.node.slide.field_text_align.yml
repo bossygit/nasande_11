@@ -1,0 +1,21 @@
+uuid: bb13bd53-b5e5-416b-b6df-bc732c514c88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text_align
+    - node.type.slide
+  module:
+    - options
+id: node.slide.field_text_align
+field_name: field_text_align
+entity_type: node
+bundle: slide
+label: 'Text Align'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

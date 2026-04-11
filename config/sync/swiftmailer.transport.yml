@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: RSNbRD3ekSaZoE19f3eHhm93gKOcD2PtmaAVmV3XMes
+langcode: fr
+transport: smtp
+smtp_host: mail.pharmaciemayamaya.cg
+smtp_port: 465
+smtp_encryption: ssl
+sendmail_path: /usr/sbin/sendmail
+sendmail_mode: bs
+smtp_credential_provider: swiftmailer
+smtp_credentials:
+  swiftmailer:
+    username: contact@pharmaciemayamaya.cg
+    password: p@ss_contact8
+spool_directory: ''

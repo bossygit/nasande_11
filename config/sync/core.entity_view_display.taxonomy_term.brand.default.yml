@@ -1,0 +1,46 @@
+uuid: 29b4866c-246c-4cd4-b3e8-1366e8b3ceeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.brand.field_image
+    - field.field.taxonomy_term.brand.field_poids
+    - taxonomy.vocabulary.brand
+  module:
+    - image
+    - text
+id: taxonomy_term.brand.default
+targetEntityType: taxonomy_term
+bundle: brand
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_poids:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

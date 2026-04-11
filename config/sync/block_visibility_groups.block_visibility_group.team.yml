@@ -1,0 +1,17 @@
+uuid: 49847d61-8893-4c94-b453-eb0a9470d566
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: team
+label: Team
+logic: and
+conditions:
+  1cabff18-5c3a-453a-87f8-ed9072c31844:
+    id: request_path
+    negate: false
+    uuid: 1cabff18-5c3a-453a-87f8-ed9072c31844
+    context_mapping: {  }
+    pages: /team
+allow_other_conditions: false

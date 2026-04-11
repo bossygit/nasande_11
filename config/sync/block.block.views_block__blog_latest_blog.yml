@@ -1,0 +1,31 @@
+uuid: f4f36666-fc8d-4614-9c26-52396f1f3fc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_01
+    - views.view.blog
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__blog_latest_blog
+theme: wosh
+region: content_wide
+weight: -28
+provider: null
+plugin: 'views_block:blog-latest_blog'
+settings:
+  id: 'views_block:blog-latest_blog'
+  label: 'News & Blog'
+  label_display: visible
+  provider: views
+  views_label: 'News & Blog'
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_01

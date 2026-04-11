@@ -1,0 +1,28 @@
+uuid: fadb7baa-dc26-4a61-aeee-2ff4fb3fc3c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.slider
+    - field.storage.block_content.field_slider_block
+    - node.type.slide
+id: block_content.slider.field_slider_block
+field_name: field_slider_block
+entity_type: block_content
+bundle: slider
+label: 'Slider Block(s)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      slide: slide
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

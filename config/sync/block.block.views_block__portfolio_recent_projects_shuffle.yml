@@ -1,0 +1,31 @@
+uuid: 2ad5cf5f-89d7-4018-ae70-94ccd88ba8a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_05
+    - views.view.portfolio
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__portfolio_recent_projects_shuffle
+theme: wosh
+region: content_wide
+weight: -18
+provider: null
+plugin: 'views_block:portfolio-recent_projects_shuffle'
+settings:
+  id: 'views_block:portfolio-recent_projects_shuffle'
+  label: 'Most recent works done'
+  label_display: visible
+  provider: views
+  views_label: 'Most recent works done'
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_05

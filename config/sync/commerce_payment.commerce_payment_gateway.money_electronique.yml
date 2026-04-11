@@ -1,0 +1,19 @@
+uuid: 10dcfd92-06a9-41a0-a99b-abb0803a26ec
+langcode: fr
+status: true
+dependencies: {  }
+id: money_electronique
+label: 'Money Electronique'
+weight: null
+plugin: manual
+configuration:
+  display_label: 'Paiemenet par monnaie électronique'
+  mode: n/a
+  payment_method_types:
+    - credit_card
+  collect_billing_information: true
+  instructions:
+    value: 'Merci pour votre commande, nous vous livrerons au courant de la journée.'
+    format: full_html
+conditions: {  }
+conditionOperator: AND

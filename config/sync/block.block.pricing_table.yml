@@ -1,0 +1,33 @@
+uuid: 7f631268-b58c-4f5f-b97f-c75c5d5de736
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_01
+  content:
+    - 'block_content:pricing_table_display:b735a851-fe00-49e1-9392-df73cd504b16'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: pricing_table
+theme: wosh
+region: content_wide
+weight: -37
+provider: null
+plugin: 'block_content:b735a851-fe00-49e1-9392-df73cd504b16'
+settings:
+  id: 'block_content:b735a851-fe00-49e1-9392-df73cd504b16'
+  label: 'Pricing Plan'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_01

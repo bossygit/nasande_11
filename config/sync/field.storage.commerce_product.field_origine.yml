@@ -1,0 +1,20 @@
+uuid: 3829df3c-e495-44b3-8718-b802a0f750c1
+langcode: fr
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - taxonomy
+id: commerce_product.field_origine
+field_name: field_origine
+entity_type: commerce_product
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

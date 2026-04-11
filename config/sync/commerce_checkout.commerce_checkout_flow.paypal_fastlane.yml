@@ -1,0 +1,37 @@
+uuid: dd846426-a63b-41be-ad76-77b4bdb8831f
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_payment
+    - commerce_paypal
+label: 'Fastlane by PayPal'
+id: paypal_fastlane
+plugin: paypal_fastlane
+configuration:
+  display_checkout_progress: false
+  display_checkout_progress_breadcrumb_links: false
+  guest_order_assign: false
+  guest_new_account: false
+  guest_new_account_notify: false
+  panes:
+    contact_information:
+      step: order_information
+      weight: 1
+    payment_information:
+      step: order_information
+      weight: 3
+    completion_message:
+      step: complete
+      weight: 2
+    order_summary:
+      step: _sidebar
+      weight: 5
+      view: commerce_checkout_order_summary
+    completion_register:
+      step: _disabled
+      weight: 1
+    paypal_checkout_payment_process:
+      step: _disabled
+      weight: 2
+      capture: true

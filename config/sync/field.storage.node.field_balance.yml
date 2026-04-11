@@ -1,0 +1,23 @@
+uuid: 268d2a1d-fbda-4965-abfe-dbdd9cc57a7a
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: _Ssp20n8pLeltiYG7QgsDBiZNI4zzUl3FCcXVfiiXgU
+id: node.field_balance
+field_name: field_balance
+entity_type: node
+type: string
+settings:
+  max_length: 9
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

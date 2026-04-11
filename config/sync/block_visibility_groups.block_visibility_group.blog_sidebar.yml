@@ -1,0 +1,17 @@
+uuid: 7e3c766a-453a-42a7-9089-8f34b9ddc792
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: blog_sidebar
+label: 'Blog Sidebar'
+logic: and
+conditions:
+  7bbb0a5b-ba53-407a-a572-0831f595d9a2:
+    id: request_path
+    negate: false
+    uuid: 7bbb0a5b-ba53-407a-a572-0831f595d9a2
+    context_mapping: {  }
+    pages: "/blog\r\n/blog/*\r\n/tags/*\r\n/category/*"
+allow_other_conditions: false

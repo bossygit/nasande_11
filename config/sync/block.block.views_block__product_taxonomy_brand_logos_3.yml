@@ -1,0 +1,29 @@
+uuid: 9a084647-a05e-497a-af7e-39c47b182f64
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_04
+  module:
+    - block_visibility_groups
+  theme:
+    - wosh
+id: views_block__product_taxonomy_brand_logos_3
+theme: wosh
+region: content_wide
+weight: -21
+provider: null
+plugin: 'views_block:product_taxonomy-brand_logos'
+settings:
+  id: 'views_block:product_taxonomy-brand_logos'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_04

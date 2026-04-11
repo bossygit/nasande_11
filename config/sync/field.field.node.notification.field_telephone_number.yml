@@ -1,0 +1,21 @@
+uuid: 3195f7f5-e711-4118-856a-a7783223df26
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_telephone_number
+    - node.type.notification
+_core:
+  default_config_hash: 7izGPYYs7EFvFenM_8sTq-Kkk18vG5GF1DRDkRuvCkM
+id: node.notification.field_telephone_number
+field_name: field_telephone_number
+entity_type: node
+bundle: notification
+label: 'Telephone Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 2e5a6770-6b8d-4077-91b6-5bb42ce70817
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pre_heading_text
+    - node.type.slide
+id: node.slide.field_pre_heading_text
+field_name: field_pre_heading_text
+entity_type: node
+bundle: slide
+label: 'Pre Heading Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

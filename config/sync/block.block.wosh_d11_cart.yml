@@ -1,0 +1,24 @@
+uuid: 9f860fd8-f79c-4fb5-b6aa-6acca0072c7d
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_cart
+  theme:
+    - wosh_d11
+_core:
+  default_config_hash: 3rgh1YgQFhiJcNXWXwGw0GA-Ny4m0YdHoE5oyqSHSRI
+id: wosh_d11_cart
+theme: wosh_d11
+region: cart
+weight: 0
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  label_display: '0'
+  provider: commerce_cart
+  dropdown: true
+  show_if_empty: true
+visibility: {  }

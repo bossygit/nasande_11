@@ -1,0 +1,9 @@
+uuid: cad88c15-e703-48f4-ad28-23d05464b279
+langcode: en
+status: true
+dependencies: {  }
+name: Product
+vid: product
+description: null
+weight: 0
+new_revision: false

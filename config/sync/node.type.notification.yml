@@ -1,0 +1,19 @@
+uuid: 5f4c0731-0bf0-4b02-9ae1-5d22f30537a7
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: IObXZ6wrR2d8rauzMTmwYrxRzqgrNNp1tUNudMH2DFM
+name: Notification
+type: notification
+description: 'Sms notification from network provider'
+help: null
+new_revision: false
+preview_mode: 0
+display_submitted: false

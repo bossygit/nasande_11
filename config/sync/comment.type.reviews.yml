@@ -1,0 +1,8 @@
+uuid: d4a06211-cc2a-4509-968f-1a904bc04910
+langcode: en
+status: true
+dependencies: {  }
+id: reviews
+label: Reviews
+target_entity_type_id: commerce_product
+description: 'Provide product reviews'

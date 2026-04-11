@@ -1,0 +1,33 @@
+uuid: 7aae7c32-14d9-4c68-b772-c0323362a920
+langcode: en
+status: false
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.about
+  content:
+    - 'block_content:feature_block:451fca03-14ca-472a-9103-7b3dd2801510'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: about_feature
+theme: wosh
+region: content_wide
+weight: -30
+provider: null
+plugin: 'block_content:451fca03-14ca-472a-9103-7b3dd2801510'
+settings:
+  id: 'block_content:451fca03-14ca-472a-9103-7b3dd2801510'
+  label: 'We go the extra mile to ensure we deliver on our promises'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: about

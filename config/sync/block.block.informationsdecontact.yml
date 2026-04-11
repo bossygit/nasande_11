@@ -1,0 +1,35 @@
+uuid: a3f69ca4-3cec-4e07-9ac3-2f899d482281
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f24b11cd-d3c7-4b5b-a1b0-d3bcf7cd0aa9'
+  module:
+    - block_content
+    - block_visibility_groups
+    - system
+  theme:
+    - wosh
+id: informationsdecontact
+theme: wosh
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:f24b11cd-d3c7-4b5b-a1b0-d3bcf7cd0aa9'
+settings:
+  id: 'block_content:f24b11cd-d3c7-4b5b-a1b0-d3bcf7cd0aa9'
+  label: 'Informations de contact'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    pages: /contact

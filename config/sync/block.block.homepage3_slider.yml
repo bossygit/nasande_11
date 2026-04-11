@@ -1,0 +1,33 @@
+uuid: 0758b4d4-b909-47f6-a780-5284e542b67a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_03
+  content:
+    - 'block_content:slider:9b0b748b-988a-4bde-952f-25056dced89d'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: homepage3_slider
+theme: wosh
+region: slider
+weight: -38
+provider: null
+plugin: 'block_content:9b0b748b-988a-4bde-952f-25056dced89d'
+settings:
+  id: 'block_content:9b0b748b-988a-4bde-952f-25056dced89d'
+  label: 'Home Page Slider 03'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_03

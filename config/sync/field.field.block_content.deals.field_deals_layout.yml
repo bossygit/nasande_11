@@ -1,0 +1,23 @@
+uuid: 5f7ffdf6-543a-4b5c-bb87-dd290b618fad
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.deals
+    - field.storage.block_content.field_deals_layout
+  module:
+    - options
+id: block_content.deals.field_deals_layout
+field_name: field_deals_layout
+entity_type: block_content
+bundle: deals
+label: 'Deals Layout'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: grid
+default_value_callback: ''
+settings: {  }
+field_type: list_string

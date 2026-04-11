@@ -1,0 +1,28 @@
+uuid: 21060d5d-0768-4c89-a058-9987dcfc2f7d
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_02
+  module:
+    - block_visibility_groups
+  theme:
+    - wosh
+id: views_block__product_taxonomy_product_category2_2
+theme: wosh
+region: content_wide_top
+weight: -42
+provider: null
+plugin: 'views_block:product_taxonomy-product_category2'
+settings:
+  id: 'views_block:product_taxonomy-product_category2'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: home_02

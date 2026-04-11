@@ -1,0 +1,21 @@
+uuid: bea78b2e-47b0-4b30-b1c7-2445009850b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_biography
+  module:
+    - text
+    - user
+id: user.user.field_biography
+field_name: field_biography
+entity_type: user
+bundle: user
+label: Biography
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

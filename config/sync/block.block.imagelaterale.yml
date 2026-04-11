@@ -1,0 +1,35 @@
+uuid: c26763e1-c013-4d1b-917e-83402531064d
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:bbb46251-e20c-4c93-8132-71ad377e5861'
+  module:
+    - block_content
+    - block_visibility_groups
+    - system
+  theme:
+    - wosh
+id: imagelaterale
+theme: wosh
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:bbb46251-e20c-4c93-8132-71ad377e5861'
+settings:
+  id: 'block_content:bbb46251-e20c-4c93-8132-71ad377e5861'
+  label: 'Image Latérale'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/webform/envoyez-votre-ordonnance\r\n/contact"

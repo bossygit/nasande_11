@@ -1,0 +1,24 @@
+uuid: e11d57ae-e99d-4f96-b365-3cbb9f77ed9a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ai_concepts
+    - node.type.knowledge_entry
+    - taxonomy.vocabulary.ai_concepts
+id: node.knowledge_entry.field_ai_concepts
+field_name: field_ai_concepts
+entity_type: node
+bundle: knowledge_entry
+label: 'AI Concepts'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ai_concepts: ai_concepts
+field_type: entity_reference

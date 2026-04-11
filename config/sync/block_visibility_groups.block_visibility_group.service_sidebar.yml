@@ -1,0 +1,17 @@
+uuid: 3b1add31-b386-4261-b469-4448f9c09c3b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: service_sidebar
+label: 'Service Sidebar'
+logic: and
+conditions:
+  8b05503a-b4de-4440-81b7-fbf9a8d6482c:
+    id: request_path
+    negate: false
+    uuid: 8b05503a-b4de-4440-81b7-fbf9a8d6482c
+    context_mapping: {  }
+    pages: '/service/*'
+allow_other_conditions: false

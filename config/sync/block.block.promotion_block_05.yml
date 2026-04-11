@@ -1,0 +1,33 @@
+uuid: aaf7cb26-37e7-4b6e-ba71-29cd80605fb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_06
+  content:
+    - 'block_content:promotion_block:6b408f6d-04b5-4b5c-8048-264b571bf316'
+  module:
+    - block_content
+    - block_visibility_groups
+  theme:
+    - wosh
+id: promotion_block_05
+theme: wosh
+region: content_wide_top
+weight: -45
+provider: null
+plugin: 'block_content:6b408f6d-04b5-4b5c-8048-264b571bf316'
+settings:
+  id: 'block_content:6b408f6d-04b5-4b5c-8048-264b571bf316'
+  label: 'Shop Collections'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_06

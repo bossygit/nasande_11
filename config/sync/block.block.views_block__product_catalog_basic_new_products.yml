@@ -1,0 +1,31 @@
+uuid: bc2847f1-2064-49a9-851d-4b7faa722174
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_visibility_groups.block_visibility_group.home_02
+    - views.view.product_catalog_basic
+  module:
+    - block_visibility_groups
+    - views
+  theme:
+    - wosh
+id: views_block__product_catalog_basic_new_products
+theme: wosh
+region: content
+weight: -26
+provider: null
+plugin: 'views_block:product_catalog_basic-new_products'
+settings:
+  id: 'views_block:product_catalog_basic-new_products'
+  label: 'Pour les bébés'
+  label_display: visible
+  provider: views
+  views_label: 'Pour les bébés'
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: home_02

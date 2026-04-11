@@ -1,0 +1,36 @@
+uuid: d59c1bbd-f9bf-420b-b083-ad1b5c9b6436
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.portfolio
+  module:
+    - block_visibility_groups
+    - system
+    - views
+  theme:
+    - wosh
+id: views_block__portfolio_portfolio_thumbnails
+theme: wosh
+region: footer_forth
+weight: -39
+provider: null
+plugin: 'views_block:portfolio-portfolio_thumbnails'
+settings:
+  id: 'views_block:portfolio-portfolio_thumbnails'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  condition_group:
+    id: condition_group
+    negate: false
+    context_mapping: {  }
+    block_visibility_group: ''
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/about\r\n/home\r\n/services"

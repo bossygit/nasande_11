@@ -1,0 +1,44 @@
+uuid: 6263b68f-48fb-433f-b84d-29c077462bfe
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.notification.body
+    - field.field.node.notification.field_amount
+    - field.field.node.notification.field_balance
+    - field.field.node.notification.field_code
+    - field.field.node.notification.field_status
+    - field.field.node.notification.field_telephone_number
+    - node.type.notification
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: '-GEZfc0G-Q7ZvJ3FpEMv4DJRK7RIHTYLhx7ISI-13us'
+id: node.notification.teaser
+targetEntityType: node
+bundle: notification
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_amount: true
+  field_balance: true
+  field_code: true
+  field_status: true
+  field_telephone_number: true
+  langcode: true
+  search_api_excerpt: true

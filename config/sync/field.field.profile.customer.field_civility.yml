@@ -1,0 +1,23 @@
+uuid: 2f9c85e6-abda-4677-b87f-a0b789787b53
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_civility
+    - profile.type.customer
+  module:
+    - options
+id: profile.customer.field_civility
+field_name: field_civility
+entity_type: profile
+bundle: customer
+label: Civilité
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: Madame
+default_value_callback: ''
+settings: {  }
+field_type: list_string
