@@ -13,9 +13,13 @@
 #   make lint          PHP syntax check on custom modules
 #
 # ==============================================================================
+# Prefer MAMP PHP when present (typ. memory_limit 512M vs 128M on Homebrew php).
 
-DRUSH := php vendor/bin/drush
-COMPOSER := php composer.phar
+MAMP_PHP := /Applications/MAMP/bin/php/php8.3.28/bin/php
+PHP ?= $(shell if [ -x "$(MAMP_PHP)" ]; then echo "$(MAMP_PHP)"; else echo php; fi)
+
+DRUSH := $(PHP) vendor/bin/drush
+COMPOSER := $(PHP) composer.phar
 
 .DEFAULT_GOAL := help
 
